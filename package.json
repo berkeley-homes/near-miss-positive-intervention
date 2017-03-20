@@ -1,0 +1,40 @@
+{
+  "name": "near-miss-positive-intervention",
+  "version": "1.0.0",
+  "description": "Near Miss &amp; Positive Intervention",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover test/server/",
+    "check-coverage": "istanbul check-coverage",
+    "lint": "standard"
+  },
+  "pre-commit": [
+    "lint",
+    "test",
+    "check-coverage"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berkeley-homes/near-miss-positive-intervention.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berkeley-homes/near-miss-positive-intervention/issues"
+  },
+  "homepage": "https://github.com/berkeley-homes/near-miss-positive-intervention#readme",
+  "dependencies": {
+    "env2": "^2.1.1",
+    "hapi": "^16.1.0",
+    "inert": "^4.1.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "nodemon": "^1.11.0",
+    "pre-commit": "^1.2.2",
+    "standard": "^9.0.2",
+    "tap-notify": "^1.0.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3"
+  }
+}
