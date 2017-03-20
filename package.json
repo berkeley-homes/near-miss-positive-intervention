@@ -5,6 +5,8 @@
   "main": "src/server/server",
   "scripts": {
     "start": "node src/server/start.js",
+    "dev": "webpack -d --watch",
+    "build": "webpack -p",
     "test": "istanbul cover test/server/",
     "check-coverage": "istanbul check-coverage",
     "lint": "standard"
@@ -25,9 +27,14 @@
   },
   "homepage": "https://github.com/berkeley-homes/near-miss-positive-intervention#readme",
   "dependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
     "env2": "^2.1.1",
     "hapi": "^16.1.0",
-    "inert": "^4.1.0"
+    "inert": "^4.1.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.2.1"
   },
   "devDependencies": {
     "istanbul": "^0.4.5",
