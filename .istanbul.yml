@@ -1,0 +1,12 @@
+instrumentation:
+  root: ./src
+  excludes: [
+    "server/start.js"
+  ]
+  include-all-sources: true
+check:
+  global:
+    branches   : 100
+    functions  : 100
+    lines      : 100
+    statements : 100
