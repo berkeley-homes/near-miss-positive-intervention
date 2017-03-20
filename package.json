@@ -2,8 +2,9 @@
   "name": "near-miss-positive-intervention",
   "version": "1.0.0",
   "description": "Near Miss &amp; Positive Intervention",
-  "main": "index.js",
+  "main": "src/server/server",
   "scripts": {
+    "start": "node src/server/start.js",
     "test": "istanbul cover test/server/",
     "check-coverage": "istanbul check-coverage",
     "lint": "standard"

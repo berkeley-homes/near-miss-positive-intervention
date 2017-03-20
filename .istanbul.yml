@@ -1,6 +1,8 @@
 instrumentation:
   root: ./src
-  excludes: []
+  excludes: [
+    "server/start.js"
+  ]
   include-all-sources: true
 check:
   global:
