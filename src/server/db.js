@@ -1,4 +1,5 @@
 const pg = require('pg')
+const fs = require('fs')
 
 const startConnection = connectionConfig => {
   const poolConfig = {
@@ -20,9 +21,8 @@ const startConnection = connectionConfig => {
     const cb = queryArgsWithCb[numQueryArgs]
     const queryArgs = queryArgsWithCb.slice(0, numQueryArgs)
     pool.connect((connectionError, client, done) => {
-
       /* istanbul ignore next */
-      if(connectionError) {
+      if (connectionError) {
         console.error('error fetching client from pool', connectionError)
         return cb(connectionError)
       }
@@ -38,6 +38,18 @@ const startConnection = connectionConfig => {
   }
 }
 
+const runSqlFromFs = (query, filepath, cb) => {
+  fs.readFile(filepath, { encoding: 'utf8' }, (error, queryText) => {
+    if (error) {
+      console.error('Failed to find schema in fs')
+      return cb(error)
+    }
+
+    query(queryText, cb)
+  })
+}
+
 module.exports = {
-  startConnection
+  startConnection,
+  runSqlFromFs
 }

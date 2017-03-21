@@ -1,4 +1,5 @@
 const test = require('tape')
+const path = require('path')
 
 const db = require('../../src/server/db.js')
 
@@ -36,5 +37,18 @@ test('run some queries', t => {
   query('SELECT datname FROM pg_database', (error, result) => {
     t.error(error, 'good query does not throw error')
     t.ok(result, 'good query has truthy result')
+  })
+})
+
+test('runSqlFromFs', t => {
+  const mockQuery = (_, cb) => { cb() }
+
+  t.plan(2)
+  db.runSqlFromFs(mockQuery, path.join(__dirname, 'notafile'), error => {
+    t.equal(error.message.indexOf('ENOENT'), 0, 'bad path gives ENOENT')
+  })
+
+  db.runSqlFromFs(mockQuery, path.join(__dirname, 'mock_sql.txt'), error => {
+    t.error(error, 'bad path does not give error')
   })
 })
