@@ -35,3 +35,11 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Private environment variables
+.env
+
+# Local dev files
+image_upload_test.js
+small_truck_test.png
+small-truck-icon-7579.png
