@@ -25,12 +25,15 @@
   },
   "homepage": "https://github.com/berkeley-homes/near-miss-positive-intervention#readme",
   "dependencies": {
+    "aws-sdk": "^2.29.0",
+    "crypto": "0.0.3",
     "env2": "^2.1.1",
     "hapi": "^16.1.0",
     "inert": "^4.1.0",
     "pg": "^6.1.5"
   },
   "devDependencies": {
+    "env2": "^2.1.1",
     "istanbul": "^0.4.5",
     "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2",
