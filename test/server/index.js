@@ -1,5 +1,5 @@
 require('./routes.js')
 require('./data/helpers.js')
 require('./data/queries.js')
+require('./data/image.js')
 require('./data.js')
-require('./image.js')
