@@ -1,1 +1,0 @@
-SELECT * from some_table_that_does_not_exist

@@ -1,5 +1,6 @@
 const pg = require('pg')
 const fs = require('fs')
+const path = require('path')
 
 const startConnection = connectionConfig => {
   const poolConfig = {
@@ -38,18 +39,60 @@ const startConnection = connectionConfig => {
   }
 }
 
-const runSqlFromFs = (query, filepath, cb) => {
-  fs.readFile(filepath, { encoding: 'utf8' }, (error, queryText) => {
+const runSqlFromFs = (query, queryName, { queryArgs = [] }, cb) => {
+  // so we have control of where we look in fs
+  const noEscape = path.basename(queryName)
+  const queryPath = path.join(__dirname, 'queries', noEscape) + '.txt'
+
+  fs.readFile(queryPath, { encoding: 'utf8' }, (error, queryText) => {
     if (error) {
       console.error('Failed to find schema in fs')
       return cb(error)
     }
-
-    query(queryText, cb)
+    query(queryText, queryArgs, cb)
   })
+}
+
+const init = (query, cb) => {
+  runSqlFromFs(query, 'schema', {}, cb)
+}
+
+const submitReport = (
+  query,
+  {
+    submitterName,
+    locationFirst,
+    locationSecond,
+    locationThird,
+    description,
+    reportType,
+    photoS3Key
+  },
+  cb
+) => {
+  if (!['near miss', 'positive intervention'].includes(reportType)) {
+    return cb(new Error('Report submission failed. Bad report type.'))
+  }
+
+  runSqlFromFs(
+    query,
+    'submit_report',
+    { queryArgs: [
+      submitterName,
+      locationFirst,
+      locationSecond,
+      locationThird,
+      description,
+      reportType,
+      photoS3Key
+    ] },
+    cb
+  )
 }
 
 module.exports = {
   startConnection,
-  runSqlFromFs
+  runSqlFromFs,
+  init,
+  submitReport
 }
