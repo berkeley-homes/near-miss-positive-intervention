@@ -1,5 +1,5 @@
 // containers
-require('./containers/hello.js')
+require('./containers/upload_photo.js')
 
 // reducers
-require('./reducers/hello.js')
+require('./reducers/upload_photo.js')
