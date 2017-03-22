@@ -67,9 +67,6 @@ test('model plugin integration test', t => {
     init,
     (result, cb) => {
       t.ok(result, 'init success')
-      cb()
-    },
-    cb => {
       submitReport(submissionData, cb)
     },
     (result, cb) => {
