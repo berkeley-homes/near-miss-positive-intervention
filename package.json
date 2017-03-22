@@ -8,6 +8,7 @@
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "test": "babel-node node_modules/.bin/babel-istanbul cover test/",
+    "postinstall": "npm run build",
     "check-coverage": "babel-istanbul check-coverage",
     "lint": "standard"
   },
