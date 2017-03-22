@@ -2,7 +2,9 @@ instrumentation:
   root: ./src
   excludes: [
     "server/start.js",
-    "client/app.js"
+    "client/app.js",
+    "client/reducers/index.js",
+    "client/store.js"
   ]
   include-all-sources: true
 check:

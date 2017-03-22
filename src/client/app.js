@@ -1,6 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 
-import Hello from './components/hello.js'
+import store from './store'
+import Hello from './containers/hello.js'
 
-render(<Hello />, document.getElementById('app'))
+render(
+  <Provider store={store}>
+    <Hello />
+  </Provider>,
+  document.getElementById('app')
+)
