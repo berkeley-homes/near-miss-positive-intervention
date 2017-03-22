@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS submission (
   location_second TEXT NOT NULL,
   location_third TEXT NOT NULL,
   description TEXT NOT NULL,
+  report_type TEXT NOT NULL,
   photo_s3_key TEXT NOT NULL
 )
 
