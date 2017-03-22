@@ -2,7 +2,7 @@ const pg = require('pg')
 const fs = require('fs')
 const path = require('path')
 
-const startConnection = connectionConfig => {
+const connect = connectionConfig => {
   const poolConfig = {
     idleTimeoutMillis: 30000,
     max: 10
@@ -53,46 +53,7 @@ const runSqlFromFs = (query, queryName, { queryArgs = [] }, cb) => {
   })
 }
 
-const init = (query, cb) => {
-  runSqlFromFs(query, 'schema', {}, cb)
-}
-
-const submitReport = (
-  query,
-  {
-    submitterName,
-    locationFirst,
-    locationSecond,
-    locationThird,
-    description,
-    reportType,
-    photoS3Key
-  },
-  cb
-) => {
-  if (!['near miss', 'positive intervention'].includes(reportType)) {
-    return cb(new Error('Report submission failed. Bad report type.'))
-  }
-
-  runSqlFromFs(
-    query,
-    'submit_report',
-    { queryArgs: [
-      submitterName,
-      locationFirst,
-      locationSecond,
-      locationThird,
-      description,
-      reportType,
-      photoS3Key
-    ] },
-    cb
-  )
-}
-
 module.exports = {
-  startConnection,
-  runSqlFromFs,
-  init,
-  submitReport
+  connect,
+  runSqlFromFs
 }
