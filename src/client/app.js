@@ -4,10 +4,13 @@ import { Provider } from 'react-redux'
 
 import store from './store'
 import Hello from './containers/hello.js'
-
+import Camera from './components/camera.js'
 render(
   <Provider store={store}>
-    <Hello />
+    <div>
+      <Hello />
+      <Camera />
+    </div>
   </Provider>,
   document.getElementById('app')
 )
