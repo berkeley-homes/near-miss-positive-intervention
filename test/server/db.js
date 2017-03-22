@@ -1,5 +1,4 @@
 const test = require('tape')
-const path = require('path')
 
 const db = require('../../src/server/db.js')
 
@@ -44,11 +43,11 @@ test('runSqlFromFs', t => {
   const mockQuery = (_, cb) => { cb() }
 
   t.plan(2)
-  db.runSqlFromFs(mockQuery, path.join(__dirname, 'notafile'), error => {
+  db.runSqlFromFs(mockQuery, 'notafile', error => {
     t.equal(error.message.indexOf('ENOENT'), 0, 'bad path gives ENOENT')
   })
 
-  db.runSqlFromFs(mockQuery, path.join(__dirname, 'mock_sql.txt'), error => {
+  db.runSqlFromFs(mockQuery, 'schema', error => {
     t.error(error, 'bad path does not give error')
   })
 })
@@ -62,8 +61,10 @@ test('build db', t => {
 
   db.init(mockQuery, err => {
     t.error(err, 'no error')
+
     t.ok(
-      queriesMade[0].includes('submission_id SERIAL PRIMARY KEY NOT NULL'),
+      queriesMade[0] &&
+        queriesMade[0].includes('submission_id SERIAL PRIMARY KEY NOT NULL'),
       'schema passed to query'
     )
     t.end()

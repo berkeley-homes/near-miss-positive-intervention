@@ -39,19 +39,22 @@ const startConnection = connectionConfig => {
   }
 }
 
-const runSqlFromFs = (query, filepath, cb) => {
-  fs.readFile(filepath, { encoding: 'utf8' }, (error, queryText) => {
+const runSqlFromFs = (query, queryName, cb) => {
+  // so we have control of where we look in fs
+  const noEscape = path.basename(queryName)
+  const queryPath = path.join(__dirname, 'queries', noEscape) + '.txt'
+
+  fs.readFile(queryPath, { encoding: 'utf8' }, (error, queryText) => {
     if (error) {
       console.error('Failed to find schema in fs')
       return cb(error)
     }
-    // console.log(queryText);
     query(queryText, cb)
   })
 }
 
 const init = (query, cb) => {
-  runSqlFromFs(query, path.join(__dirname, 'schema.txt'), cb)
+  runSqlFromFs(query, 'schema', cb)
 }
 
 module.exports = {
