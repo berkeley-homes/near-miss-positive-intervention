@@ -1,17 +1,8 @@
 const test = require('tape')
 
-const { makeMockQuery } = require('./test_helpers')
+const { makeMockQuery, connectionConfig } = require('./test_helpers')
 const { connect, runSqlFromFs } =
   require('../../../src/server/database/helpers.js')
-
-const connectionConfig = {
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD || 'postgres',
-  host: process.env.DB_HOST || 'localhost',
-  port: process.env.DB_PORT || 5432,
-  database: process.env.DB_NAME || 'near_miss_test',
-  idleTimeoutMillis: 1 // so test does not hang
-}
 
 test('connect to database', t => {
   t.doesNotThrow(

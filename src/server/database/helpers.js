@@ -33,7 +33,7 @@ const connect = connectionConfig => {
 
         if (queryError) return cb(queryError)
 
-        cb(null, result.rows)
+        cb(null, result)
       })
     })
   }

@@ -1,6 +1,6 @@
 BEGIN;
 
-CREATE TABLE IF NOT EXISTS submission (
+CREATE TABLE IF NOT EXISTS submissions (
   submission_id SERIAL PRIMARY KEY NOT NULL,
   submitter_name TEXT,
   location_first TEXT NOT NULL,
@@ -9,6 +9,6 @@ CREATE TABLE IF NOT EXISTS submission (
   description TEXT NOT NULL,
   report_type TEXT NOT NULL,
   photo_s3_key TEXT NOT NULL
-)
+);
 
 COMMIT;

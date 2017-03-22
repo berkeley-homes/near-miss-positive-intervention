@@ -23,37 +23,19 @@ test('build db', t => {
 test('submitReport', t => {
   const { query, queriesMade } = makeMockQuery()
 
-  const submitterName = 'sam'
-  const locationFirst = 'block1'
-  const locationSecond = 'floor2'
-  const locationThird = 'room3'
-  const description = 'car crash'
   const reportType = 'near miss'
-  const photoS3Key = '123.png'
 
-  submitReport(
-    query,
-    {
-      submitterName,
-      locationFirst,
-      locationSecond,
-      locationThird,
-      description,
-      reportType,
-      photoS3Key
-    },
-    () => {
-      const queryMade = queriesMade[0]
+  submitReport(query, { reportType }, () => {
+    const queryMade = queriesMade[0]
 
-      t.equal(
-        queryMade.text.indexOf('INSERT INTO reports'),
-        0,
-        'inserts to correct table'
-      )
-      t.equal(queryMade.args.length, 7, 'with the correct number of arguments')
-      t.end()
-    }
-  )
+    t.equal(
+      queryMade.text.indexOf('INSERT INTO submissions'),
+      0,
+      'inserts to correct table'
+    )
+    t.equal(queryMade.args.length, 7, 'with the correct number of arguments')
+    t.end()
+  })
 })
 
 test('submitReport with bad type', t => {

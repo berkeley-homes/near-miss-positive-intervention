@@ -5,7 +5,7 @@
   "main": "src/server/server",
   "scripts": {
     "start": "node src/server/start.js",
-    "test": "istanbul cover test/server/",
+    "test": "istanbul cover --print none test/server/ | tap-spec && istanbul report text-summary",
     "check-coverage": "istanbul check-coverage",
     "lint": "standard"
   },
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/berkeley-homes/near-miss-positive-intervention#readme",
   "dependencies": {
+    "async": "^2.1.5",
     "aws-sdk": "^2.29.0",
     "crypto": "0.0.3",
     "env2": "^2.1.1",
