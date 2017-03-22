@@ -52,3 +52,20 @@ test('runSqlFromFs', t => {
     t.error(error, 'bad path does not give error')
   })
 })
+
+test('build db', t => {
+  const queriesMade = []
+  const mockQuery = (queryStr, cb) => {
+    queriesMade.push(queryStr)
+    cb()
+  }
+
+  db.init(mockQuery, err => {
+    t.error(err, 'no error')
+    t.ok(
+      queriesMade[0].includes('submission_id SERIAL PRIMARY KEY NOT NULL'),
+      'schema passed to query'
+    )
+    t.end()
+  })
+})

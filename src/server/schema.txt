@@ -1,0 +1,12 @@
+BEGIN;
+
+CREATE TABLE IF NOT EXISTS submission (
+  submission_id SERIAL PRIMARY KEY NOT NULL,
+  location_first TEXT NOT NULL,
+  location_second TEXT NOT NULL,
+  location_third TEXT NOT NULL,
+  description TEXT NOT NULL,
+  photo_s3_key TEXT NOT NULL
+)
+
+COMMIT;

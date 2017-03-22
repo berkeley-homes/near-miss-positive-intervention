@@ -1,5 +1,6 @@
 const pg = require('pg')
 const fs = require('fs')
+const path = require('path')
 
 const startConnection = connectionConfig => {
   const poolConfig = {
@@ -44,12 +45,17 @@ const runSqlFromFs = (query, filepath, cb) => {
       console.error('Failed to find schema in fs')
       return cb(error)
     }
-
+    // console.log(queryText);
     query(queryText, cb)
   })
 }
 
+const init = (query, cb) => {
+  runSqlFromFs(query, path.join(__dirname, 'schema.txt'), cb)
+}
+
 module.exports = {
   startConnection,
-  runSqlFromFs
+  runSqlFromFs,
+  init
 }
