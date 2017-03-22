@@ -22,6 +22,11 @@ test('model plugin exposes correct methods', t => {
   t.ok(server.plugins.data.query, 'query function exposed')
   t.ok(server.plugins.data.init, 'init function exposed')
   t.ok(server.plugins.data.submitReport, 'submitReport function exposed')
+  t.ok(server.plugins.data.saveImage, 'saveImage function exposed')
+  t.ok(
+    server.plugins.data.generateImageKeyName,
+    'generateImageKeyName function exposed'
+  )
   t.end()
 })
 
