@@ -36,6 +36,10 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+
+# build output
+public/bundle.js
+
 # Private environment variables
 .env
 
@@ -43,3 +47,4 @@ jspm_packages
 image_upload_test.js
 small_truck_test.png
 small-truck-icon-7579.png
+
