@@ -1,5 +1,12 @@
 language: node_js
 node_js:
   - "7"
+addons:
+  postgresql: '9.4'
+env:
+  DB_USER=postgres
+  DB_PASS=
+before_script:
+  - psql -c 'create database near_miss_test'
 after_success:
   - bash <(curl -s https://codecov.io/bash)
