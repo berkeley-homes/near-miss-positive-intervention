@@ -40,21 +40,21 @@ test('run some queries', t => {
 })
 
 test('runSqlFromFs', t => {
-  const mockQuery = (_, cb) => { cb() }
+  const mockQuery = (_, __, cb) => { cb() }
 
   t.plan(2)
-  db.runSqlFromFs(mockQuery, 'notafile', error => {
+  db.runSqlFromFs(mockQuery, 'notafile', {}, error => {
     t.equal(error.message.indexOf('ENOENT'), 0, 'bad path gives ENOENT')
   })
 
-  db.runSqlFromFs(mockQuery, 'schema', error => {
+  db.runSqlFromFs(mockQuery, 'schema', {}, error => {
     t.error(error, 'bad path does not give error')
   })
 })
 
 test('build db', t => {
   const queriesMade = []
-  const mockQuery = (queryStr, cb) => {
+  const mockQuery = (queryStr, _, cb) => {
     queriesMade.push(queryStr)
     cb()
   }
