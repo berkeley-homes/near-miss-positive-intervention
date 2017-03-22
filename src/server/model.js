@@ -1,7 +1,7 @@
-const { connect } = require('./data/helpers.js')
-const { init, submitReport } = require('./data/queries.js')
+const { connect } = require('./model/helpers.js')
+const { init, submitReport } = require('./model/queries.js')
 const { put: saveImage, generateKeyName: generateImageKeyName } =
-  require('./data/image.js')
+  require('./model/image.js')
 
 const register = (server, { connectionOptions }, next) => {
   const query = connect(connectionOptions)

@@ -1,7 +1,7 @@
 const test = require('tape')
 const path = require('path')
 
-const image = require('../../../src/server/data/image.js')
+const image = require('../../../src/server/model/image.js')
 
 test('generate nameKey for s3', t => {
   const givenExt = '.txt'

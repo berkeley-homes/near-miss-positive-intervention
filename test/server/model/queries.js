@@ -1,7 +1,7 @@
 const test = require('tape')
 
 const { init, submitReport } =
-  require('../../../src/server/data/queries.js')
+  require('../../../src/server/model/queries.js')
 const { makeMockQuery } = require('./test_helpers.js')
 
 test('build db', t => {

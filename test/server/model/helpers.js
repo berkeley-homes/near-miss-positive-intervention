@@ -2,7 +2,7 @@ const test = require('tape')
 
 const { makeMockQuery, connectionConfig } = require('./test_helpers')
 const { connect, runSqlFromFs } =
-  require('../../../src/server/data/helpers.js')
+  require('../../../src/server/model/helpers.js')
 
 test('connect to database', t => {
   t.doesNotThrow(
