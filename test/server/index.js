@@ -1,5 +1,5 @@
 require('./routes.js')
-require('./database/helpers.js')
-require('./database/queries.js')
-require('./database/index.js')
+require('./data/helpers.js')
+require('./data/queries.js')
+require('./data.js')
 require('./image.js')

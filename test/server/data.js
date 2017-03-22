@@ -2,8 +2,8 @@ const test = require('tape')
 const Hapi = require('hapi')
 const { waterfall } = require('async')
 
-const model = require('../../../src/server/database/index.js')
-const { connectionConfig } = require('./test_helpers.js')
+const model = require('../../src/server/data.js')
+const { connectionConfig } = require('./data/test_helpers.js')
 
 test('model plugin exposes correct methods', t => {
   const server = new Hapi.Server()

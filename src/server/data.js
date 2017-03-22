@@ -1,5 +1,5 @@
-const { connect } = require('./helpers.js')
-const { init, submitReport } = require('./queries.js')
+const { connect } = require('./data/helpers.js')
+const { init, submitReport } = require('./data/queries.js')
 
 const register = (server, { connectionOptions }, next) => {
   const query = connect(connectionOptions)
