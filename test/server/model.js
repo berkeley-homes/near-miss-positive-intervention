@@ -17,13 +17,13 @@ test('model plugin exposes correct methods', t => {
     t.error(error, 'registers without error')
   })
 
-  t.ok(server.plugins.data, 'plugin exposed')
+  t.ok(server.plugins.model, 'plugin exposed')
 
-  t.ok(server.plugins.data.query, 'query function exposed')
-  t.ok(server.plugins.data.init, 'init function exposed')
-  t.ok(server.plugins.data.submitReport, 'submitReport function exposed')
-  t.ok(server.plugins.data.saveImage, 'saveImage function exposed')
-  t.ok(server.plugins.data.parsePhotoData, 'parsePhotoData function exposed')
+  t.ok(server.plugins.model.query, 'query function exposed')
+  t.ok(server.plugins.model.init, 'init function exposed')
+  t.ok(server.plugins.model.submitReport, 'submitReport function exposed')
+  t.ok(server.plugins.model.saveImage, 'saveImage function exposed')
+  t.ok(server.plugins.model.parsePhotoData, 'parsePhotoData function exposed')
   t.end()
 })
 
@@ -39,7 +39,7 @@ test('model plugin integration test', t => {
     t.error(error, 'registers without error')
   })
 
-  const { query, init, submitReport } = server.plugins.data
+  const { query, init, submitReport } = server.plugins.model
 
   const submitterName = 'sam'
   const locationFirst = 'block1'

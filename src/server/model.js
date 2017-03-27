@@ -16,7 +16,7 @@ const register = (server, { connectionOptions }, next) => {
 }
 
 register.attributes = {
-  name: 'data'
+  name: 'model'
 }
 
 module.exports = register

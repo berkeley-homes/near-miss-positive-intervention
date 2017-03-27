@@ -14,9 +14,9 @@ const parsePhotoData = (dataString) => {
 
   const buffer = new Buffer(matches[2], 'base64')
   const hash = crypto.createHash('sha1').update(buffer).digest('hex')
-  const keyName = `${hash}.${matches[1].split('/')[1]}`
+  const photoS3Key = `${hash}.${matches[1].split('/')[1]}`
 
-  return { keyName, buffer }
+  return { photoS3Key, buffer }
 }
 
 /* istanbul ignore next */
