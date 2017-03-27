@@ -10,16 +10,13 @@ class UploadPhotoButton extends Component {
   }
 
   onImageSelect (event) {
+    const { setPhoto } = this.props
     const reader = new FileReader()
     const input = event.target
     const file = input.files[0]
 
-    // const preview = document.createElement('IMG')
-
     reader.addEventListener('load', () => {
-      console.log(file)
-      // this.props.setPhoto(reader.result)
-      // preview.src=reader.result
+      setPhoto(reader.result)
     }, false)
 
     if (file) {
@@ -27,12 +24,16 @@ class UploadPhotoButton extends Component {
     }
   }
   render () {
+    const { photoData } = this.props
     return (
-      <input
-        onChange={this.onImageSelect}
-        type='file'
-        accept='image/*;capture=camera'
-      />
+      <div>
+        <input
+          onChange={this.onImageSelect}
+          type='file'
+          accept='image/*;capture=camera'
+        />
+        {photoData && <img src={photoData} />}
+      </div>
     )
   }
 }

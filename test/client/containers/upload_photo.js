@@ -14,10 +14,13 @@ test('<UploadPhoto /> contains title', t => {
 
 test('UploadPhoto mapStateToProps', t => {
   const title = 'title'
-  const state = Immutable.fromJS({ UploadPhoto: { title } })
+  const photoData = 'photoData'
+  const state = Immutable.fromJS({ uploadPhoto: {
+    title,
+    photoData
+  } })
   const props = mapStateToProps(state)
-
-  t.deepEqual(props, { title }, 'title pulled from state')
-
+  t.deepEqual(props.title, title, 'title pulled from state')
+  t.deepEqual(props.photoData, photoData, 'photoData pulled from state')
   t.end()
 })

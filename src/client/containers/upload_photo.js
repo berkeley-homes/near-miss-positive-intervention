@@ -1,18 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import * as actions from '../actions/upload_photo.js'
 
 import UploadPhotoButton from '../components/upload_photo_btn.js'
 
-export const UploadPhoto = ({ title }) =>
+export const UploadPhoto = ({ title, setPhoto, photoData }) =>
   <div>
-    <UploadPhotoButton />
+    <UploadPhotoButton
+      setPhoto={setPhoto}
+      photoData={photoData}
+    />
     <p>{title}</p>
   </div>
 
 export const mapStateToProps = (state) => {
+  const uploadPhotoState = state.get('uploadPhoto')
   return {
-    title: state.getIn(['UploadPhoto', 'title'])
+    title: uploadPhotoState.get('title'),
+    photoData: uploadPhotoState.get('photoData')
   }
 }
 
-export default connect(mapStateToProps)(UploadPhoto)
+export default connect(mapStateToProps, actions)(UploadPhoto)
