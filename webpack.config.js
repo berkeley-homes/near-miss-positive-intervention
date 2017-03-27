@@ -1,5 +1,4 @@
 const path = require('path')
-
 const BUILD_DIR = path.join(__dirname, 'public')
 const APP_DIR = path.join(__dirname, 'src/client')
 
@@ -15,6 +14,9 @@ const config = {
         test: /\.js?/,
         include: APP_DIR,
         loader: 'babel-loader'
+      },
+      { test: /\.css$/,
+        loader: 'style-loader!css-loader'
       }
     ]
   }
