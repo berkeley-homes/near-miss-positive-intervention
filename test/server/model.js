@@ -1,10 +1,8 @@
 const test = require('tape')
 const hapi = require('hapi')
-const { waterfall } = require('async')
 
 const { model, bindFirst } = require('../../src/server/model.js')
 const { connectionConfig } = require('./model/test_helpers.js')
-const { createAsyncSpy } = require('./helpers/spy.js')
 
 test('model plugin exposes correct methods', t => {
   const server = new hapi.Server()
@@ -28,7 +26,7 @@ test('model plugin exposes correct methods', t => {
 })
 
 test('bindFirst', t => {
-  const adder = (x, y) => x + y;
+  const adder = (x, y) => x + y
   const addOne = bindFirst(adder, 1)
   t.equal(addOne(1), 2, 'one plus one is two')
   t.end()

@@ -29,9 +29,8 @@ test('generate nameKey for s3', t => {
   t.end()
 })
 
-
 test('model/image: put', t => {
-  const { calls, spy } = createAsyncSpy();
+  const { calls, spy } = createAsyncSpy()
   const s3 = { putObject: spy }
   const data = 'data'
   const keyName = 'key name'
