@@ -23,10 +23,7 @@ test('model plugin exposes correct methods', t => {
   t.ok(server.plugins.data.init, 'init function exposed')
   t.ok(server.plugins.data.submitReport, 'submitReport function exposed')
   t.ok(server.plugins.data.saveImage, 'saveImage function exposed')
-  t.ok(
-    server.plugins.data.generateImageKeyName,
-    'generateImageKeyName function exposed'
-  )
+  t.ok(server.plugins.data.parsePhotoData, 'parsePhotoData function exposed')
   t.end()
 })
 
@@ -67,9 +64,6 @@ test('model plugin integration test', t => {
     init,
     (result, cb) => {
       t.ok(result, 'init success')
-      cb()
-    },
-    cb => {
       submitReport(submissionData, cb)
     },
     (result, cb) => {

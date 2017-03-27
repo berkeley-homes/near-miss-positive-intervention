@@ -5,9 +5,19 @@ const s3 = new S3({signatureVersion: 'v4'})
 
 const bucketName = process.env.BUCKET_NAME || 'berkeley-homes-near-miss'
 
-// https://github.com/dwyl/image-uploads
-const generateKeyName = (data, ext) =>
-  `${crypto.createHash('sha1').update(data).digest('hex')}${ext}`
+const parsePhotoData = (dataString) => {
+  var matches = dataString.match(/^data:([A-Za-z-+/]+);base64,(.+)$/)
+
+  if (!matches || (matches && matches.length !== 3)) {
+    throw new Error('Invalid input string')
+  }
+
+  const buffer = new Buffer(matches[2], 'base64')
+  const hash = crypto.createHash('sha1').update(buffer).digest('hex')
+  const keyName = `${hash}.${matches[1].split('/')[1]}`
+
+  return { keyName, buffer }
+}
 
 /* istanbul ignore next */
 const put = (data, keyName, cb) => {
@@ -24,7 +34,7 @@ const get = (keyName, cb) => {
 }
 
 module.exports = {
-  generateKeyName,
+  parsePhotoData,
   get,
   put
 }
