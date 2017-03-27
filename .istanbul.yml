@@ -4,7 +4,8 @@ instrumentation:
     "server/start.js",
     "client/app.js",
     "client/reducers/index.js",
-    "client/store.js"
+    "client/store.js",
+    "client/components/upload_photo_btn.js"
   ]
   include-all-sources: true
 check:

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux-immutable'
 
-import hello from './hello.js'
+import uploadPhoto from './upload_photo.js'
 
 export default combineReducers({
-  hello
+  uploadPhoto
 })
