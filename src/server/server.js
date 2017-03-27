@@ -49,4 +49,6 @@ server.route({
   }
 })
 
+server.route(require('./routes/submit.js'))
+
 module.exports = server
