@@ -7,8 +7,9 @@
     "start": "node src/server/start.js",
     "dev": "webpack -d --watch",
     "build": "webpack -p",
-    "test": "babel-node node_modules/.bin/babel-istanbul cover test/",
     "postinstall": "npm run build",
+    "test": "babel-node -- node_modules/.bin/babel-istanbul cover --print none test/ | tap-spec && npm run print-coverage",
+    "print-coverage": "node_modules/.bin/babel-istanbul report text-summary",
     "check-coverage": "babel-istanbul check-coverage",
     "lint": "standard"
   },
@@ -28,6 +29,9 @@
   },
   "homepage": "https://github.com/berkeley-homes/near-miss-positive-intervention#readme",
   "dependencies": {
+    "crypto": "0.0.3",
+    "async": "^2.1.5",
+    "aws-sdk": "^2.29.0",
     "babel-cli": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-latest": "^6.24.0",
@@ -46,7 +50,6 @@
   },
   "devDependencies": {
     "env2": "^2.1.1",
-    "istanbul": "^0.4.5",
     "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2",
     "react-addons-test-utils": "^15.4.2",

@@ -1,4 +1,4 @@
-INSERT INTO reports (
+INSERT INTO submissions (
   submitter_name,
   location_first,
   location_second,
@@ -17,3 +17,4 @@ VALUES
   $6::text,
   $7::text
 )
+RETURNING submission_id
