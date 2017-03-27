@@ -36,6 +36,7 @@
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "crypto": "0.0.3",
+    "css-loader": "^0.27.3",
     "env2": "^2.1.1",
     "hapi": "^16.1.0",
     "immutable": "^3.8.1",
@@ -46,8 +47,9 @@
     "redux": "^3.6.0",
     "redux-immutable": "^4.0.0",
     "redux-logger": "^2.8.2",
+    "style-loader": "^0.16.0",
     "tachyons": "^4.6.2",
-    "webpack": "^2.2.1"
+    "webpack": "^2.3.2"
   },
   "devDependencies": {
     "aws-sdk": "^2.29.0",
