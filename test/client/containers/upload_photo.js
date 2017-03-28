@@ -3,7 +3,8 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import Immutable from 'immutable'
 
-import { UploadPhoto, mapStateToProps } from '../../../src/client/containers/upload_photo.js'
+import { UploadPhoto, mapStateToProps }
+  from '../../../src/client/containers/upload_photo.js'
 
 test('<UploadPhoto /> contains title', t => {
   const title = 'Near Miss - Positive Interventions'
@@ -15,12 +16,11 @@ test('<UploadPhoto /> contains title', t => {
 test('UploadPhoto mapStateToProps', t => {
   const title = 'title'
   const photoData = 'photoData'
-  const state = Immutable.fromJS({ uploadPhoto: {
-    title,
-    photoData
-  } })
+  const state = Immutable.fromJS({ title, photoData })
   const props = mapStateToProps(state)
+
   t.deepEqual(props.title, title, 'title pulled from state')
   t.deepEqual(props.photoData, photoData, 'photoData pulled from state')
+
   t.end()
 })
