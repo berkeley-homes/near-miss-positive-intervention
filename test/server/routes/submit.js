@@ -3,7 +3,7 @@ const hapi = require('hapi')
 
 const { model } = require('../../../src/server/model.js')
 const submit = require('../../../src/server/routes/submit.js')
-const { createAsyncSpy } = require('../helpers/spy.js')
+const { createAsyncSpy } = require('../../helpers/spy.js')
 
 test('submit endpoint with photo', t => {
   const { spy: querySpy, calls: queryCalls } = createAsyncSpy()
