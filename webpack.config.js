@@ -1,5 +1,4 @@
 const path = require('path')
-
 const BUILD_DIR = path.join(__dirname, 'public')
 const APP_DIR = path.join(__dirname, 'src/client')
 
@@ -10,11 +9,18 @@ const config = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js?/,
         include: APP_DIR,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   }
