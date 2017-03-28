@@ -8,7 +8,8 @@
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "postinstall": "npm run build",
-    "test": "babel-node -- node_modules/.bin/babel-istanbul cover --print none test/ | tap-spec && npm run print-coverage",
+    "dev:test": "nodemon -q -e js --exec \"npm run test\"",
+    "test": "babel-node -- node_modules/.bin/babel-istanbul cover --print none test/| tap-notify | tap-spec && npm run print-coverage",
     "print-coverage": "node_modules/.bin/babel-istanbul report text-summary",
     "check-coverage": "babel-istanbul check-coverage",
     "lint": "standard"
@@ -41,6 +42,7 @@
     "hapi": "^16.1.0",
     "immutable": "^3.8.1",
     "inert": "^4.1.0",
+    "joi": "^10.3.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",

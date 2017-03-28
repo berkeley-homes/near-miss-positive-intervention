@@ -1,30 +1,41 @@
 const S3 = require('aws-sdk/clients/s3')
 const crypto = require('crypto')
 
-const s3 = new S3({signatureVersion: 'v4'})
-
 const bucketName = process.env.BUCKET_NAME || 'berkeley-homes-near-miss'
 
-// https://github.com/dwyl/image-uploads
-const generateKeyName = (data, ext) =>
-  `${crypto.createHash('sha1').update(data).digest('hex')}${ext}`
+const parsePhotoData = (dataString) => {
+  var matches = dataString.match(/^data:([A-Za-z-+/]+);base64,(.+)$/)
+
+  if (!matches || (matches && matches.length !== 3)) {
+    throw new Error('Invalid input string')
+  }
+
+  const buffer = new Buffer(matches[2], 'base64')
+  const hash = crypto.createHash('sha1').update(buffer).digest('hex')
+  const photoS3Key = `${hash}.${matches[1].split('/')[1]}`
+
+  return { photoS3Key, buffer }
+}
 
 /* istanbul ignore next */
-const put = (data, keyName, cb) => {
+const getS3 = () => new S3({signatureVersion: 'v4'})
+
+const put = (s3, data, keyName, cb) => {
   const params = { Bucket: bucketName, Key: keyName, Body: data }
 
   s3.putObject(params, cb)
 }
 
 /* istanbul ignore next */
-const get = (keyName, cb) => {
+const get = (s3, keyName, cb) => {
   const params = { Bucket: bucketName, Key: keyName }
 
   s3.getObject(params, cb)
 }
 
 module.exports = {
-  generateKeyName,
+  getS3,
+  parsePhotoData,
   get,
   put
 }

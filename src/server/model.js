@@ -1,22 +1,26 @@
-const { connect } = require('./model/helpers.js')
 const { init, submitReport } = require('./model/queries.js')
-const { put: saveImage, generateKeyName: generateImageKeyName } =
+const { connect } = require('./model/helpers.js')
+const { put: saveImage, parsePhotoData, getS3 } =
   require('./model/image.js')
 
-const register = (server, { connectionOptions }, next) => {
-  const query = connect(connectionOptions)
+const bindFirst = (f, arg) => (...args) => f(arg, ...args)
 
-  server.expose('query', query)
-  server.expose('init', cb => init(query, cb))
-  server.expose('submitReport', (args, cb) => submitReport(query, args, cb))
-  server.expose('saveImage', saveImage)
-  server.expose('generateImageKeyName', generateImageKeyName)
+const register = (server, { query, s3 }, next) => {
+  server.expose('init', bindFirst(init, query))
+  server.expose('submitReport', bindFirst(submitReport, query))
+  server.expose('saveImage', bindFirst(saveImage, s3))
+  server.expose('parsePhotoData', parsePhotoData)
 
   next()
 }
 
 register.attributes = {
-  name: 'data'
+  name: 'model'
 }
 
-module.exports = register
+module.exports = {
+  model: register,
+  dbConnect: connect,
+  getS3,
+  bindFirst
+}
