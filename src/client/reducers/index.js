@@ -1,7 +1,3 @@
-import { combineReducers } from 'redux-immutable'
+import report from './report.js'
 
-import uploadPhoto from './upload_photo.js'
-
-export default combineReducers({
-  uploadPhoto
-})
+export default report

@@ -13,11 +13,10 @@ export const UploadPhoto = ({ title, setPhoto, photoData }) =>
     <p>{title}</p>
   </div>
 
-export const mapStateToProps = (state) => {
-  const uploadPhotoState = state.get('uploadPhoto')
+export const mapStateToProps = state => {
   return {
-    title: uploadPhotoState.get('title'),
-    photoData: uploadPhotoState.get('photoData')
+    title: state.get('title'),
+    photoData: state.get('photoData')
   }
 }
 
