@@ -1,5 +1,5 @@
 import test from 'tape'
-import React, { Component } from 'react'
+import React from 'react'
 import { shallow } from 'enzyme'
 import NearMissBtn from '../../../src/client/components/nearMiss_btn.js'
 

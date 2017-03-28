@@ -1,5 +1,5 @@
 import test from 'tape'
-import React, { Component } from 'react'
+import React from 'react'
 import { shallow } from 'enzyme'
 import LandingPage from '../../../src/client/components/landing_page.js'
 import Logo from '../../../src/client/components/logo.js'
@@ -10,5 +10,5 @@ test('Landing page includes Logo and Welcome Message', t => {
   const wrapper = shallow(<LandingPage />)
   t.equal(wrapper.contains(<Logo />), true)
   t.equal(wrapper.contains(<WelcomeMessage />), true)
-t.end()
+  t.end()
 })

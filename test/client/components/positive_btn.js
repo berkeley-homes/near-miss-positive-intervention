@@ -1,5 +1,5 @@
 import test from 'tape'
-import React, { Component } from 'react'
+import React from 'react'
 import { shallow } from 'enzyme'
 import PositiveBtn from '../../../src/client/components/positive_btn.js'
 
