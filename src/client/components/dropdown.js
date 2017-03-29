@@ -9,9 +9,9 @@ const DropDown = props => {
       onChange={e => { select(e.target.value) }}
     >
       {
-      options.map((option, key) =>
-        <option value={option.get('value')} key={key}>
-          { option.get('text') }
+      options.unshift('').map((option, key) =>
+        <option value={option} key={key}>
+          { option }
         </option>
       )
     }

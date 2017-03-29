@@ -8,12 +8,7 @@ import Dropdown from '../../../src/client/components/dropdown.js'
 test('dropdown component', t => {
   const value1 = 'o1'
   const value2 = 'o2'
-  const text1 = 'option 1'
-  const text2 = 'option 2'
-  const optionsData = Immutable.fromJS([
-    { value: value1, text: text1 },
-    { value: value2, text: text2 }
-  ])
+  const optionsData = Immutable.fromJS([value1, value2])
   const value = 'o1'
   let valueSet
   const select = value => { valueSet = value }
@@ -29,7 +24,7 @@ test('dropdown component', t => {
   const optionText = options.map(option => option.text())
   t.deepEqual(
     optionText,
-    [text1, text2],
+    ['', value1, value2],
     'get option tags with correct text'
   )
 
