@@ -30,7 +30,6 @@ const App = () => {
   )
 }
 
-
 window.onload = () => {
   render(<App />, document.getElementById('app'))
 }
