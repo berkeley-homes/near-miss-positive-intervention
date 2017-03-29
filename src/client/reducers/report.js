@@ -6,6 +6,7 @@ export const initialState = Immutable.fromJS({
   location: [],
   isPosting: false,
   name: '',
+  description: '',
   title: 'Near Miss - Positive Interventions'
 })
 

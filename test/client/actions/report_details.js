@@ -1,8 +1,14 @@
 import test from 'tape'
 
-import { setName, setFirstLocation, setSecondLocation, setThirdLocation }
-  from '../../../src/client/actions/report_details'
-import { SET_NAME, SET_LOCATION } from '../../../src/client/action_types.js'
+import {
+  setName,
+  setFirstLocation,
+  setSecondLocation,
+  setThirdLocation,
+  setDescription
+} from '../../../src/client/actions/report_details'
+import { SET_NAME, SET_LOCATION, SET_DESCRIPTION }
+  from '../../../src/client/action_types.js'
 
 test('reportDetails container: setName action', t => {
   const name = 'eoin'
@@ -10,6 +16,16 @@ test('reportDetails container: setName action', t => {
 
   t.equal(action.type, SET_NAME, 'action type')
   t.equal(action.name, name, 'name in action')
+
+  t.end()
+})
+
+test('reportDetails container: setDescription action', t => {
+  const description = 'hey there'
+  const action = setDescription(description)
+
+  t.equal(action.type, SET_DESCRIPTION, 'action type')
+  t.equal(action.description, description, 'description in action')
 
   t.end()
 })

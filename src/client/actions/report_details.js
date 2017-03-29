@@ -1,8 +1,13 @@
-import { SET_NAME, SET_LOCATION } from '../action_types.js'
+import { SET_NAME, SET_LOCATION, SET_DESCRIPTION } from '../action_types.js'
 
 export const setName = name => ({
   type: SET_NAME,
   name
+})
+
+export const setDescription = description => ({
+  type: SET_DESCRIPTION,
+  description
 })
 
 const setLocation = locationIndex => location => ({
