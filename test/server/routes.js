@@ -16,22 +16,22 @@ test('checks our / GET endpoint', (t) => {
     method: 'GET',
     url: '/'
   }
-    server.inject(options, (res) => {
-      t.equal(res.statusCode, 200, '200 status code returned - ✅')
-      server.stop()
-      t.end()
-    })
+  server.inject(options, (res) => {
+    t.equal(res.statusCode, 200, '200 status code returned - ✅')
+    server.stop()
+    t.end()
+  })
 })
 test('checks our /uploadphoto GET endpoint', (t) => {
   var options = {
     method: 'GET',
     url: '/uploadphoto'
   }
-    server.inject(options, (res) => {
-      t.equal(res.statusCode, 200, '200 status code returned - ✅')
-      server.stop()
-      t.end()
-    })
+  server.inject(options, (res) => {
+    t.equal(res.statusCode, 200, '200 status code returned - ✅')
+    server.stop()
+    t.end()
+  })
 })
 
 test('checks our /modemonitor GET endpoint', (t) => {
@@ -39,9 +39,9 @@ test('checks our /modemonitor GET endpoint', (t) => {
     method: 'GET',
     url: '/modemonitor'
   }
-    server.inject(options, (res) => {
-      t.equal(res.statusCode, 200, '200 status code returned - ✅')
-      server.stop()
-      t.end()
-    })
+  server.inject(options, (res) => {
+    t.equal(res.statusCode, 200, '200 status code returned - ✅')
+    server.stop()
+    t.end()
+  })
 })
