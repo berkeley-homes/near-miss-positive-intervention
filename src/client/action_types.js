@@ -4,3 +4,4 @@ export const SET_LOCATION = 'SET_LOCATION'
 export const SET_DESCRIPTION = 'SET_DESCRIPTION'
 
 export const SET_POSTING = 'SET_POSTING'
+export const SET_POST_RESULT = 'SET_POST_RESULT'
