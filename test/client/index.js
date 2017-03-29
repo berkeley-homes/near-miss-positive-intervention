@@ -1,5 +1,6 @@
 // containers
 require('./containers/upload_photo.js')
+require('./containers/report_details.js')
 
 // reducers
 require('./reducers/report.js')
