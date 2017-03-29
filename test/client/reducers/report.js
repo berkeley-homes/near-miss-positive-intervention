@@ -60,15 +60,27 @@ test('report reducer: SET_NAME', t => {
 
 test('report reducer: SET_LOCATION', t => {
   const location = 'location'
-  const locationIndex = 0
-  const action = { type: SET_LOCATION, location, locationIndex }
-  const newState = reducer(initialState, action)
 
+  const newState = reducer(
+    initialState,
+    { type: SET_LOCATION, location, locationIndex: 1 }
+  )
   t.equal(
-    newState.getIn(['location', locationIndex]),
+    newState.getIn(['location', 1]),
     location,
     'sets the location'
   )
+
+  const finalState = reducer(
+    newState,
+    { type: SET_LOCATION, location, locationIndex: 0 }
+  )
+  t.equal(
+    finalState.getIn(['location', 1]),
+    '',
+    'setting previous location wipes later locations'
+  )
+
   t.end()
 })
 

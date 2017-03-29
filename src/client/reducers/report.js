@@ -21,7 +21,10 @@ export default (state = initialState, action) => {
     case SET_POSTING:
       return state.set('isPosting', true)
     case SET_LOCATION:
-      return state.setIn(['location', action.locationIndex], action.location)
+      const index = action.locationIndex
+      return state.update('location', location => location
+        .set(index, action.location)
+        .map((val, i) => i > index ? '' : val))
     default:
       return state
   }
