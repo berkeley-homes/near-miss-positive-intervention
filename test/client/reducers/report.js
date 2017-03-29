@@ -2,8 +2,14 @@ import test from 'tape'
 import Immutable from 'immutable'
 
 import reducer, { initialState } from '../../../src/client/reducers/report.js'
-import { SET_PHOTO, SET_POSTING, SET_NAME, SET_LOCATION, SET_DESCRIPTION }
-  from '../../../src/client/action_types.js'
+import {
+  SET_PHOTO,
+  SET_POSTING,
+  SET_NAME,
+  SET_LOCATION,
+  SET_DESCRIPTION,
+  SET_POST_RESULT
+} from '../../../src/client/action_types.js'
 
 test('report: initailState', t => {
   t.equal(initialState.get('isPosting'), false, 'not posting request initially')
@@ -29,6 +35,21 @@ test('report: SET_POSTING', t => {
   const newState = reducer(initialState, { type: SET_POSTING })
 
   t.equal(newState.get('isPosting'), true, 'sets isPosting to true')
+
+  t.end()
+})
+
+test('report: SET_POS_RESULT', t => {
+  const statusCode = true
+  const payload = 'payload'
+  const newState = reducer(
+    initialState.set('isPosting', true),
+    { type: SET_POST_RESULT, statusCode, payload }
+  )
+
+  t.equal(newState.get('isPosting'), false, 'sets isPosting to false')
+  t.equal(newState.get('statusCode'), statusCode, 'sets statusCode')
+  t.equal(newState.get('payload'), payload, 'sets payload')
 
   t.end()
 })

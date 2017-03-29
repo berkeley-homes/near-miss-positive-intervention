@@ -1,6 +1,12 @@
 import Immutable from 'immutable'
-import { SET_PHOTO, SET_POSTING, SET_NAME, SET_LOCATION, SET_DESCRIPTION }
-  from '../action_types.js'
+import {
+  SET_PHOTO,
+  SET_POSTING,
+  SET_NAME,
+  SET_LOCATION,
+  SET_DESCRIPTION,
+  SET_POST_RESULT
+} from '../action_types.js'
 
 export const initialState = Immutable.fromJS({
   location: [],
@@ -19,6 +25,11 @@ export default (state = initialState, action) => {
       return state.set('description', action.description)
     case SET_POSTING:
       return state.set('isPosting', true)
+    case SET_POST_RESULT:
+      return state
+        .set('isPosting', false)
+        .set('payload', action.payload)
+        .set('statusCode', action.statusCode)
     case SET_LOCATION:
       return state.setIn(['location', action.locationIndex], action.location)
     default:
