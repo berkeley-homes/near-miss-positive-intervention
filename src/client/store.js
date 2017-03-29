@@ -5,7 +5,7 @@ import reducer from './reducers/'
 
 const store = createStore(
    reducer,
-   applyMiddleware(createLogger())
+   applyMiddleware(createLogger({ stateTransformer: state => state.toJS() }))
  )
 
 export default store
