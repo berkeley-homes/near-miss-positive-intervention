@@ -5,7 +5,9 @@ instrumentation:
     "client/app.js",
     "client/reducers/index.js",
     "client/store.js",
-    "client/components/upload_photo_btn.js"
+    "client/components/upload_photo_btn.js",
+    "client/containers/mood_monitor.js"
+    # mode monitor will be changed later(to add states and more)
   ]
   include-all-sources: true
 check:

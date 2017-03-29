@@ -4,10 +4,10 @@ import React from 'react'
 import PositiveBtn from '../components/positive_btn.js'
 import NearMissBtn from '../components/nearMiss_btn.js'
 
-const ModeMonetor = () =>
+const ModeMonitor = () =>
   <div>
     <PositiveBtn />
     <NearMissBtn />
   </div>
 
-export default ModeMonetor
+export default ModeMonitor
