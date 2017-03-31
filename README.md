@@ -23,4 +23,5 @@ none
 
 
 ### Design
-##inVision link for the app MVP prototype: https://invis.io/47AWIVUTU#/226771304_Splash_1-0
+## inVision link 
+for the app MVP prototype: https://invis.io/47AWIVUTU#/226771304_Splash_1-0
