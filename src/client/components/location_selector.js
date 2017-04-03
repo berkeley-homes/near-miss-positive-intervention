@@ -19,7 +19,7 @@ export const Label = ({ text, enabled }) =>
         }
       )
     }>
-    <span className='absolute w-third bottom-0'> { text }</span>
+    <span className='absolute w-third bottom-0'>{ text }</span>
   </div>
 
 export default props => {
