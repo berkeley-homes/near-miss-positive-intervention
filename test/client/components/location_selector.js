@@ -13,7 +13,11 @@ test('<LocactionSelector /> without location selected', t => {
   const wrapper = shallow(<LocationSelector optionsTree={mockTree} />)
 
   const dropdowns = wrapper.find(Dropdown)
-  t.equal(dropdowns.length, 1, 'one dropdown visible before selection made')
+  t.deepEqual(
+    dropdowns.map(dropdown => !!dropdown.node.props.enabled),
+    [true, false, false],
+    'one dropdown enabled before selection made'
+  )
 
   const dropdown = dropdowns.at(0)
   t.deepEqual(
