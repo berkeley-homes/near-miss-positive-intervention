@@ -2,6 +2,7 @@ instrumentation:
   root: ./src
   excludes: [
     "server/start.js",
+    "server/dev.js",
     "client/app.js",
     "client/reducers/index.js",
     "client/store.js",

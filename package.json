@@ -5,7 +5,7 @@
   "main": "src/server/server",
   "scripts": {
     "start": "node src/server/start.js",
-    "dev": "webpack -d --watch",
+    "dev": "node src/server/dev.js",
     "build": "webpack -p",
     "postinstall": "npm run build",
     "dev:test": "nodemon -q -e js --exec \"npm run test\"",
@@ -62,6 +62,8 @@
     "env2": "^2.1.1",
     "enzyme": "^2.7.1",
     "hapi": "^16.1.0",
+    "hapi-webpack-dev-middleware": "^2.0.0",
+    "hapi-webpack-hot-middleware": "^2.0.0",
     "inert": "^4.1.0",
     "nodemon": "^1.11.0",
     "pg": "^6.1.5",
