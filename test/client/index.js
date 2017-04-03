@@ -1,12 +1,10 @@
 // containers
-require('./containers/upload_photo.js')
 require('./containers/report_details.js')
 
 // reducers
 require('./reducers/report.js')
 
 // actions
-require('./actions/upload_photo.js')
 require('./actions/submit.js')
 require('./actions/report_details.js')
 
