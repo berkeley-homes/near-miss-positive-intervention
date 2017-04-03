@@ -11,7 +11,7 @@ import {
   SET_POST_RESULT
 } from '../../../src/client/action_types.js'
 
-test('report: initailState', t => {
+test('report reducer: initailState', t => {
   t.equal(initialState.get('isPosting'), false, 'not posting request initially')
 
   t.equal(initialState.get('name'), '', 'name initially empty string')
@@ -20,13 +20,15 @@ test('report: initailState', t => {
   t.ok(Immutable.List.isList(location), 'location is list')
   t.equal(location.size, 0, 'location list is empty')
 
+  t.equal(initialState.get('description'), '', 'description is empty string')
+
   t.end()
 })
 
-test('report reducer initialState', t => {
+test('report reducer: empty call', t => {
   const newState = reducer(undefined, {})
 
-  t.equal(newState, initialState, 'report reducer')
+  t.equal(newState, initialState, 'returns initial state')
 
   t.end()
 })
@@ -79,15 +81,27 @@ test('report reducer: SET_NAME', t => {
 
 test('report reducer: SET_LOCATION', t => {
   const location = 'location'
-  const locationIndex = 0
-  const action = { type: SET_LOCATION, location, locationIndex }
-  const newState = reducer(initialState, action)
 
+  const newState = reducer(
+    initialState,
+    { type: SET_LOCATION, location, locationIndex: 1 }
+  )
   t.equal(
-    newState.getIn(['location', locationIndex]),
+    newState.getIn(['location', 1]),
     location,
     'sets the location'
   )
+
+  const finalState = reducer(
+    newState,
+    { type: SET_LOCATION, location, locationIndex: 0 }
+  )
+  t.equal(
+    finalState.getIn(['location', 1]),
+    '',
+    'setting previous location wipes later locations'
+  )
+
   t.end()
 })
 

@@ -12,6 +12,7 @@ export const initialState = Immutable.fromJS({
   location: [],
   isPosting: false,
   name: '',
+  description: '',
   title: 'Near Miss - Positive Interventions'
 })
 
@@ -31,7 +32,10 @@ export default (state = initialState, action) => {
         .set('payload', action.payload)
         .set('statusCode', action.statusCode)
     case SET_LOCATION:
-      return state.setIn(['location', action.locationIndex], action.location)
+      const index = action.locationIndex
+      return state.update('location', location => location
+        .set(index, action.location)
+        .map((val, i) => i > index ? '' : val))
     default:
       return state
   }

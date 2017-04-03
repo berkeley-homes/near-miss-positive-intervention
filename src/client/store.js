@@ -22,7 +22,10 @@ import reducer from './reducers/'
 
 const store = createStore(
    reducer,
-   applyMiddleware(createLogger(), thunk.withExtraArgument(jsonPost))
+   applyMiddleware(
+     createLogger({ stateTransformer: state => state.toJS() }),
+     thunk.withExtraArgument(jsonPost)
+  )
 )
 
 export default store
