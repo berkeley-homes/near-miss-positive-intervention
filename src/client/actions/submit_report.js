@@ -29,7 +29,7 @@ export const submitReport = () => (dispatch, getState, jsonPost) => {
     locationFirst,
     locationSecond,
     locationThird,
-    reportType: 'near miss'
+    reportType: state.get('reportType')
   })
   return jsonPost(`/report`, body)
     .then(response => {

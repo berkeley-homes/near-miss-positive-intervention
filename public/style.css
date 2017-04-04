@@ -143,3 +143,17 @@
     stroke-dashoffset: 0;
   }
 }*/
+
+body{
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.g-bg{
+  background-color: #333333;
+}

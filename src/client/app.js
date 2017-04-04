@@ -11,7 +11,6 @@ import store from './store'
 import ReportDetails from './containers/report_details.js'
 import Success from './containers/success.js'
 
-import LandingPage from './components/landing_page.js'
 import Thumbs from './containers/thumbs.js'
 const App = () => {
   return (
@@ -20,15 +19,11 @@ const App = () => {
         <div>
           <Route
             exact path='/'
-            component={LandingPage}
+            component={Thumbs}
             />
           <Route
             path='/report'
             component={ReportDetails}
-            />
-          <Route
-            path='/thumb'
-            component={Thumbs}
             />
           <Route
             path='/success'
