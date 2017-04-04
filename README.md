@@ -22,6 +22,6 @@ none
   4. Execute `npm run`
 
 
-### Design
-## inVision link 
+## Design
+### inVision link 
 for the app MVP prototype: https://invis.io/47AWIVUTU#/226771304_Splash_1-0
