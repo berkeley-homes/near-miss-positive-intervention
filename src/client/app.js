@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import store from './store'
 import ReportDetails from './containers/report_details.js'
-import ModeMonitor from './containers/mood_monitor.js'
 import LandingPage from './components/landing_page.js'
 
 const App = () => {
@@ -23,10 +22,6 @@ const App = () => {
             path='/report'
             component={ReportDetails}
             />
-          <Route
-            path='/modemonitor'
-            component={ModeMonitor}
-            />
         </div>
       </Router>
     </Provider>
@@ -36,4 +31,3 @@ const App = () => {
 window.onload = () => {
   render(<App />, document.getElementById('app'))
 }
-
