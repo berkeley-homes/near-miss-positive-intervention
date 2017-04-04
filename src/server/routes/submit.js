@@ -28,7 +28,7 @@ const route = {
           console.error(error)
           return reply(error)
         }
-        reply('ok')
+        reply({response})
       })
     },
     validate: {

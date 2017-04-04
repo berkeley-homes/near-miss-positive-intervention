@@ -84,15 +84,19 @@ export const ReportDetails = props => {
   )
 }
 
-export const mapStateToProps = state => ({
-  name: state.get('name'),
-  description: state.get('description'),
-  locationOne: state.getIn(['location', 0]),
-  locationTwo: state.getIn(['location', 1]),
-  locationThree: state.getIn(['location', 2]),
-  photoData: state.get('photoData'),
-  isSubmitting: state.get('isPosting')
-})
+export const mapStateToProps = state => {
+  const reportState = state.report
+
+  return {
+    name: reportState.get('name'),
+    description: reportState.get('description'),
+    locationOne: reportState.getIn(['location', 0]),
+    locationTwo: reportState.getIn(['location', 1]),
+    locationThree: reportState.getIn(['location', 2]),
+    photoData: reportState.get('photoData'),
+    isSubmitting: reportState.get('isPosting')
+  }
+}
 
 export const mergeProps = (
   { locationOne, locationTwo, locationThree, ...stateProps },
