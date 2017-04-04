@@ -28,14 +28,14 @@ const route = {
           console.error(error)
           return reply(error)
         }
-        reply('ok')
+        reply({response})
       })
     },
     validate: {
       payload: {
-        locationFirst: ['site 1', 'site 2'],
-        locationSecond: ['floor 1', 'floor 2'],
-        locationThird: ['room 1', 'room 2'],
+        locationFirst: Joi.string().required(),
+        locationSecond: Joi.string().required(),
+        locationThird: Joi.string().required(),
         name: Joi.string().optional(),
         photo: Joi.string().regex(/^data:([A-Za-z-+/]+);base64,(.+)$/)
           .optional(),

@@ -1,5 +1,6 @@
 import { SET_NAME, SET_LOCATION, SET_DESCRIPTION, SET_PHOTO }
   from '../action_types.js'
+export { submitReport } from './submit_report.js'
 
 export const setName = name => ({
   type: SET_NAME,

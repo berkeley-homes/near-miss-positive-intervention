@@ -1,3 +1,5 @@
+import { push } from 'react-router-redux'
+
 import { SET_POSTING, SET_POST_RESULT } from '../action_types.js'
 
 export const setPostResult = response => ({
@@ -13,7 +15,7 @@ export const setPostResultError = error => ({
 })
 
 export const submitReport = () => (dispatch, getState, jsonPost) => {
-  const state = getState()
+  const state = getState().report
 
   dispatch({ type: SET_POSTING })
 
@@ -26,9 +28,13 @@ export const submitReport = () => (dispatch, getState, jsonPost) => {
     name: state.get('name'),
     locationFirst,
     locationSecond,
-    locationThird
+    locationThird,
+    reportType: 'near miss'
   })
   return jsonPost(`/report`, body)
-    .then(response => { dispatch(setPostResult(response)) })
+    .then(response => {
+      dispatch(setPostResult(response))
+      dispatch(push('/success'))
+    })
     .catch(error => { dispatch(setPostResultError(error)) })
 }
