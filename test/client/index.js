@@ -5,7 +5,7 @@ require('./containers/report_details.js')
 require('./reducers/report.js')
 
 // actions
-require('./actions/submit.js')
+require('./actions/submit_report.js')
 require('./actions/report_details.js')
 
 // components
