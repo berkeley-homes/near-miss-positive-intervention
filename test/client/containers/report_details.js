@@ -3,40 +3,46 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import Immutable from 'immutable'
 
+import Input from '../../../src/client/components/input.js'
+import Submit from '../../../src/client/components/submit.js'
 import { ReportDetails, mapStateToProps, mergeProps }
   from '../../../src/client/containers/report_details.js'
 
 test('<ReportDetails /> component', t => {
   const name = 'name'
-  let nameSet
-  const setName = name => { nameSet = name }
-
   const description = 'description'
-  let descriptionSet
-  const setDescription = description => { descriptionSet = description }
-
   const wrapper = shallow(
     <ReportDetails
       name={name}
+      locationSelectorProps={{}}
       description={description}
-      setName={setName}
-      setDescription={setDescription}
     />
   )
 
-  const inputs = wrapper.find('input')
-  t.equal(inputs.length, 2, 'one input')
+  const inputs = wrapper.find(Input)
+  t.equal(inputs.length, 2, 'two inputs')
 
   t.equal(inputs.get(0).props.value, 'name', 'input has name set')
   t.equal(inputs.get(1).props.value, 'description', 'input has description set')
 
-  const newName = 'new name'
-  inputs.at(0).simulate('change', { target: { value: newName } })
-  t.equal(nameSet, newName, 'correctly calls set name')
+  t.notOk(wrapper.find(Submit).node.props.enabled, 'submit is disabled')
 
-  const newDescription = 'new description'
-  inputs.at(1).simulate('change', { target: { value: newDescription } })
-  t.equal(descriptionSet, newDescription, 'correctly calls set name')
+  t.end()
+})
+
+test('<ReportDetails /> component, completed', t => {
+  const description = 'description'
+  const wrapper = shallow(
+    <ReportDetails
+      locationSelectorProps={{ locationThree: 'yo' }}
+      description={description}
+    />
+  )
+
+  t.ok(
+    wrapper.find(Submit).node.props.enabled,
+    'can submit with name and final location completed'
+  )
 
   t.end()
 })

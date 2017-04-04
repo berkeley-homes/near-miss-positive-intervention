@@ -4,6 +4,9 @@ import Immutable from 'immutable'
 
 import * as actions from '../actions/report_details'
 import LocationSelector from '../components/location_selector.js'
+import UploadPhotoButton from '../components/upload_photo.js'
+import Submit from '../components/submit.js'
+import Input from '../components/input.js'
 
 const optionsTree = Immutable.fromJS({
   a: {
@@ -41,7 +44,10 @@ export const ReportDetails = props => {
     description,
     setName,
     setDescription,
-    locationSelectorProps
+    locationSelectorProps,
+    setPhoto,
+    photoData,
+    submitReport
   } = props
 
   const allLocationSelectorProps = {
@@ -49,16 +55,28 @@ export const ReportDetails = props => {
     ...locationSelectorProps
   }
 
+  const canSend = locationSelectorProps.locationThree && description
+
   return (
     <div>
-      <input
+      <UploadPhotoButton
+        setPhoto={setPhoto}
+        photoData={photoData}
+      />
+      <Input
         value={name}
-        onChange={e => setName(e.target.value)}
+        onChange={setName}
+        label='Name (Optional)'
       />
       <LocationSelector {...allLocationSelectorProps} />
-      <input
+      <Input
         value={description}
-        onChange={e => setDescription(e.target.value)}
+        onChange={setDescription}
+        label='This is what I saw...'
+      />
+      <Submit
+        enabled={canSend}
+        submit={submitReport}
       />
     </div>
   )
@@ -69,7 +87,8 @@ export const mapStateToProps = state => ({
   description: state.get('description'),
   locationOne: state.getIn(['location', 0]),
   locationTwo: state.getIn(['location', 1]),
-  locationThree: state.getIn(['location', 2])
+  locationThree: state.getIn(['location', 2]),
+  photoData: state.get('photoData')
 })
 
 export const mergeProps = (
