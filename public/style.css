@@ -21,6 +21,10 @@ body{
   height: 50px;
 }
 
+.position{
+  position: fixed;
+}
+
 .logo-container{
   display: flex;
   flex-direction: row;
