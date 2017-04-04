@@ -5,7 +5,6 @@ require('./containers/report_details.js')
 require('./reducers/report.js')
 
 // actions
-require('./actions/upload_photo.js')
 require('./actions/submit.js')
 require('./actions/report_details.js')
 
