@@ -5,9 +5,10 @@ import {
   setFirstLocation,
   setSecondLocation,
   setThirdLocation,
-  setDescription
+  setDescription,
+  setPhoto
 } from '../../../src/client/actions/report_details'
-import { SET_NAME, SET_LOCATION, SET_DESCRIPTION }
+import { SET_NAME, SET_LOCATION, SET_DESCRIPTION, SET_PHOTO }
   from '../../../src/client/action_types.js'
 
 test('reportDetails container: setName action', t => {
@@ -59,6 +60,19 @@ test('reportDetails container: setThirdLocation action', t => {
   t.equal(action.type, SET_LOCATION, 'action type')
   t.equal(action.location, location, 'location in action')
   t.equal(action.locationIndex, 2, 'correct index')
+
+  t.end()
+})
+
+test('set photo action creator', t => {
+  const photoData = 'photo data'
+  const action = setPhoto(photoData)
+
+  t.deepEqual(
+    action,
+    { type: SET_PHOTO, photoData },
+    'correct object created'
+  )
 
   t.end()
 })

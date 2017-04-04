@@ -1,4 +1,5 @@
-import { SET_NAME, SET_LOCATION, SET_DESCRIPTION } from '../action_types.js'
+import { SET_NAME, SET_LOCATION, SET_DESCRIPTION, SET_PHOTO }
+  from '../action_types.js'
 
 export const setName = name => ({
   type: SET_NAME,
@@ -15,6 +16,13 @@ const setLocation = locationIndex => location => ({
   location,
   locationIndex
 })
+
+export const setPhoto = photoData => {
+  return {
+    type: SET_PHOTO,
+    photoData
+  }
+}
 
 export const setFirstLocation = setLocation(0)
 

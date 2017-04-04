@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="95px" height="91px" viewBox="0 0 95 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="120---iPhone" transform="translate(-136.000000, -46.000000)">
+            <g id="button">
+                <g id="Group-2">
+                    <g id="Group-3" transform="translate(137.000000, 47.000000)">
+                        <ellipse id="Oval" fill="#333333" cx="46.5" cy="44.5" rx="46.5" ry="44.5"></ellipse>
+                        <g id="Group" transform="translate(15.000000, 4.000000)" fill="#FFFFFF">
+                            <polygon id="Triangle" transform="translate(42.086368, 34.071286) rotate(27.000000) translate(-42.086368, -34.071286) " points="41.1517815 13.7044398 56.5192195 53.9782341 27.6535157 54.4381324"></polygon>
+                            <polygon id="Triangle" transform="translate(24.163069, 26.005350) rotate(27.000000) translate(-24.163069, -26.005350) " points="40.4556184 5.73941796 26.943965 45.5440038 7.87052013 46.2712817"></polygon>
+                            <polygon id="Triangle-2" points="28.6896552 52.8303571 16.5441303 60.4553571 16.5441303 47.0231474"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
