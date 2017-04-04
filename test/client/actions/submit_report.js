@@ -13,13 +13,29 @@ test('submitReport success', t => {
   const { calls: requests, spy } = createPromiseSpy({ response: mockResponse })
 
   const photoData = 'I am a photo'
-  const mockState = Immutable.Map({ photoData })
+  const description = 'description'
+  const name = 'name'
+  const locationFirst = 'loactionFirst'
+  const locationSecond = 'loactionSecond'
+  const locationThird = 'loactionThird'
+  const location = [locationFirst, locationSecond, locationThird]
+
+  const mockState = Immutable.fromJS({ photoData, description, name, location })
   const { dispatch, calls } = createMockDispatch(mockState, spy)
+
+  const expectedPayload = {
+    photo: photoData,
+    description,
+    name,
+    locationFirst,
+    locationSecond,
+    locationThird
+  }
 
   dispatch(submitReport()).then(() => {
     t.deepEqual(
       requests,
-      [['/report', JSON.stringify({ photo: photoData })]],
+      [['/report', JSON.stringify(expectedPayload)]],
       'make one request to report with photo'
     )
 
@@ -43,8 +59,7 @@ test('submitReport failure', t => {
   const error = 'I am an error'
   const { spy } = createPromiseSpy({ error })
 
-  const photoData = 'I am a photo'
-  const mockState = Immutable.Map({ photoData })
+  const mockState = Immutable.fromJS({ location: [] })
   const { dispatch, calls } = createMockDispatch(mockState, spy)
 
   dispatch(submitReport()).then(() => {

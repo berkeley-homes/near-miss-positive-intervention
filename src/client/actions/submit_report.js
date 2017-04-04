@@ -17,7 +17,17 @@ export const submitReport = () => (dispatch, getState, jsonPost) => {
 
   dispatch({ type: SET_POSTING })
 
-  const body = JSON.stringify({ photo: state.get('photoData') })
+  const [locationFirst, locationSecond, locationThird] =
+    state.get('location').toArray()
+
+  const body = JSON.stringify({
+    photo: state.get('photoData'),
+    description: state.get('description'),
+    name: state.get('name'),
+    locationFirst,
+    locationSecond,
+    locationThird
+  })
   return jsonPost(`/report`, body)
     .then(response => { dispatch(setPostResult(response)) })
     .catch(error => { dispatch(setPostResultError(error)) })
