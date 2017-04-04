@@ -1,3 +1,4 @@
+
 /*Fonts*/
 
 .f_lato {
@@ -7,6 +8,32 @@
   font-family: 'Francois One', sans-serif;
 }
 
+/*Near_miss_main_colours*/
+.main_black_bg {
+  background-color: #333333;
+}
+
+.main_black_font {
+  color: #333333;
+}
+
+.grey_font {
+  color: #787878;
+}
+
+.modal_grey {
+  background-color: #526173;
+  opacity: 96%;
+}
+
+.accent_green {
+  background-color: #14DA9E;
+}
+
+.error_red {
+  color: #D43848;
+  background-color: #D43848;
+}
 
 .upload_icon {
   background: url('/assets/upload_photo_icon.svg');
