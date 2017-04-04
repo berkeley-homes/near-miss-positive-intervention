@@ -1,6 +1,7 @@
 const hapi = require('hapi')
 const inert = require('inert')
 const path = require('path')
+const pgConString = require('pg-connection-string')
 
 require('env2')('.env')
 const { model, dbConnect, getS3 } = require('./model.js')
@@ -16,13 +17,23 @@ const server = new hapi.Server({
 })
 server.connection({ port: process.env.PORT || 4000 })
 
-const dbConnectionOptions = {
+const databaseUrl = process.env.DATABASE_URL
+
+const defaultConnectionOptions = {
   user: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD || 'postgres',
   host: process.env.DB_HOST || 'localhost',
   port: process.env.DB_PORT || 5432,
   database: process.env.DB_NAME || 'near_miss_test'
 }
+
+const dbConnectionOptions = Object.assign(
+  {},
+  defaultConnectionOptions,
+  databaseUrl
+    /* istanbul ignore next */ ? pgConString.parse(databaseUrl)
+    : {}
+)
 
 const modelPlugin = {
   register: model,
