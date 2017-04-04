@@ -7,8 +7,8 @@ class Thumbs extends Component {
   render () {
     return (
       <div className='container h-100 w-100'>
-        <ThumbsUp />
         <ThumbsDown />
+        <ThumbsUp />
       </div>
     )
   }

@@ -9,8 +9,8 @@ test('Name input component includes input', t => {
   const wrapper = shallow(<Thumbs />)
   t.equal(wrapper.contains(
     <div className='container h-100 w-100'>
-      <ThumbsUp />
       <ThumbsDown />
+      <ThumbsUp />
     </div>
   ), true)
   t.end()

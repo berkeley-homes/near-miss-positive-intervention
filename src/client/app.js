@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import store from './store'
 import ReportDetails from './containers/report_details.js'
 import LandingPage from './components/landing_page.js'
-
+import Thumbs from './containers/thumbs.js'
 const App = () => {
   return (
     <Provider store={store}>
@@ -21,6 +21,10 @@ const App = () => {
           <Route
             path='/report'
             component={ReportDetails}
+            />
+          <Route
+            path='/thumb'
+            component={Thumbs}
             />
         </div>
       </Router>
