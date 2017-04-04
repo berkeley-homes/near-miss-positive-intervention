@@ -2,12 +2,13 @@ instrumentation:
   root: ./src
   excludes: [
     "server/start.js",
+    "server/dev.js",
     "client/app.js",
     "client/reducers/index.js",
     "client/store.js",
     "client/components/upload_photo_btn.js",
-    "client/containers/mood_monitor.js"
-    # mode monitor will be changed later(to add states and more)
+    "client/containers/mood_monitor.js",
+    "client/components/upload_photo.js"
   ]
   include-all-sources: true
 check:

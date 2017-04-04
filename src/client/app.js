@@ -1,9 +1,13 @@
+import '../../node_modules/tachyons/css/tachyons.min.css'
+
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import '../../node_modules/tachyons/css/tachyons.min.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+
 import store from './store'
+import ReportDetails from './containers/report_details.js'
 import UploadPhoto from './containers/upload_photo.js'
 import ModeMonitor from './containers/mood_monitor.js'
 import LandingPage from './components/landing_page.js'
@@ -18,8 +22,8 @@ const App = () => {
             component={LandingPage}
             />
           <Route
-            path='/uploadphoto'
-            component={UploadPhoto}
+            path='/report'
+            component={ReportDetails}
             />
           <Route
             path='/modemonitor'

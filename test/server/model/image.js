@@ -1,6 +1,6 @@
 const test = require('tape')
 const path = require('path')
-const { createAsyncSpy } = require('../helpers/spy.js')
+const { createAsyncSpy } = require('../../helpers/spy.js')
 
 const { parsePhotoData, put } = require('../../../src/server/model/image.js')
 
