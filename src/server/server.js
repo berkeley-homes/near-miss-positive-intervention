@@ -1,11 +1,11 @@
-const Hapi = require('hapi')
-const Inert = require('inert')
+const hapi = require('hapi')
+const inert = require('inert')
 const path = require('path')
-require('env2')('.env')
 
+require('env2')('.env')
 const { model, dbConnect, getS3 } = require('./model.js')
 
-const server = new Hapi.Server({
+const server = new hapi.Server({
   connections: {
     routes: {
       files: {
@@ -32,7 +32,7 @@ const modelPlugin = {
   }
 }
 
-server.register([Inert, modelPlugin], err => {
+server.register([inert, modelPlugin], err => {
   /* istanbul ignore if */
   if (err) throw err
 })
