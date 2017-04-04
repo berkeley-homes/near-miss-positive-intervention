@@ -10,6 +10,7 @@ const LandingPage = () => {
       <Logo />
       <WelcomeMessage />
       <Link to='/report'> report </Link>
+      <Link to='/thumb'> thumbs </Link>
     </div>
   )
 }

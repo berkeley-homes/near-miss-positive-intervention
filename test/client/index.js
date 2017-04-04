@@ -1,6 +1,6 @@
 // containers
 require('./containers/report_details.js')
-
+require('./containers/thumbs.js')
 // reducers
 require('./reducers/report.js')
 
@@ -12,8 +12,8 @@ require('./actions/report_details.js')
 require('./components/logo.js')
 require('./components/landing_page.js')
 require('./components/welcome_message.js')
-require('./components/nearMiss_btn')
-require('./components/positive_btn.js')
+require('./components/thumbs_down.js')
+require('./components/thumbs_up.js')
 require('./components/submit.js')
 require('./components/input.js')
 require('./components/form_message.js')

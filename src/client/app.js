@@ -10,8 +10,9 @@ import history from './history.js'
 import store from './store'
 import ReportDetails from './containers/report_details.js'
 import Success from './containers/success.js'
-import LandingPage from './components/landing_page.js'
 
+import LandingPage from './components/landing_page.js'
+import Thumbs from './containers/thumbs.js'
 const App = () => {
   return (
     <Provider store={store}>
@@ -24,6 +25,10 @@ const App = () => {
           <Route
             path='/report'
             component={ReportDetails}
+            />
+          <Route
+            path='/thumb'
+            component={Thumbs}
             />
           <Route
             path='/success'
