@@ -1,12 +1,12 @@
 import test from 'tape'
 import React from 'react'
 import { shallow } from 'enzyme'
-import PositiveBtn from '../../../src/client/components/positive_btn.js'
+import PositiveBtn from '../../../src/client/components/thumbs_up.js'
 
 test('Name input component includes input', t => {
   const wrapper = shallow(<PositiveBtn />)
-  t.equal(wrapper.contains(<div>
-    <button><img src='' alt='my image' /></button>
-  </div>), true)
+  t.equal(wrapper.contains(
+    <img className='w-75' src='/img/Thumbs_up_btn_black.svg' alt='myimage' />
+  ), true)
   t.end()
 })

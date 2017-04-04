@@ -1,0 +1,27 @@
+body{
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.b-black{
+  	background-color: #333333;
+}
+
+/*.near-miss {
+  height: 29px;
+  width: 107px;
+  color: #333333;
+  font-family: Lato;
+  font-size: 24px;
+  line-height: 29px;
+}*/
+
+.size75{
+  /*font-family: Lato;*/
+  font-size: 75px;
+}
