@@ -34,7 +34,7 @@ export const submitReport = () => (dispatch, getState, jsonPost) => {
   return jsonPost(`/report`, body)
     .then(response => {
       dispatch(setPostResult(response))
-      dispatch(push('/success'))
+      // dispatch(push('/success'))
     })
     .catch(error => { dispatch(setPostResultError(error)) })
 }

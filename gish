@@ -1,0 +1,93 @@
+#!/bin/sh
+
+# Add your github username
+USER_NAME=des-des
+# Add your github access token
+ACCESS_TOKEN=793f9ab86aa0079c729fd28d066428be300a08c5
+
+GITHUB_URL=https://api.github.com
+ISSUE_NUM=0
+COMMENT=$2
+
+getOrgRepo() {
+  MYVAR=$(exec git remote -v | grep origin | grep push)
+  NAME=${MYVAR%.git*}
+  NAME=${NAME#*@github.com:}
+  echo $NAME
+}
+ORG_REPO=$(getOrgRepo)
+
+# gish get <issue_num>
+if [ $1 = get ]
+then
+  re='^[0-9]+$'
+  if [[ $2 =~ $re ]]
+  then
+    ISSUE_NUM=$2
+    curl -u $USER_NAME:$ACCESS_TOKEN $GITHUB_URL/repos$ORG_REPO/issues/$ISSUE_NUM
+    curl -u $USER_NAME:$ACCESS_TOKEN $GITHUB_URL/repos$ORG_REPO/issues/$ISSUE_NUM/comments
+
+  # gish get
+  else
+    echo $USER_NAME:$ACCESS_TOKEN $GITHUB_URL/repos/$ORG_REPO/issues
+    curl -u $USER_NAME:$ACCESS_TOKEN $GITHUB_URL/repos$ORG_REPO/issues
+  fi
+fi
+
+# gish comment <issue_num> <comment>
+if [ $1 = comment ]
+then
+  ISSUE_NUM=$2
+  COMMENT=$3
+  curl -d "{ \"body\": \"${COMMENT}\" }" -u $USER_NAME:$ACCESS_TOKEN $GITHUB_URL/repos$ORG_REPO/issues/$ISSUE_NUM/comments
+fi
+
+# gish browser
+if [ $1 = browser ]
+then
+  ISSUE_NUM=$(cat /tmp/gish${ORG_REPO}/gish.dat)
+  open https://github.com$ORG_REPO/issues/$ISSUE_NUM
+fi
+
+# starting and finishing an issue
+if [ $1 = start ]
+then
+  ISSUE_NUM=$2
+  # if we don't have a file, start at zero
+  if [ ! -f "/tmp/gish$ORG_REPO/gish.dat" ]
+  # Should check if there is already an issue?
+  then
+    mkdir -p "/tmp/gish$ORG_REPO}"
+    touch /tmp$ORG_REPO/gish.dat
+  fi
+
+  # Add assignent on github
+  curl -d "{\"assignees\": [ \"$USER_NAME\" ] }" -u $USER_NAME:$ACCESS_TOKEN $GITHUB_URL/repos$ORG_REPO/issues/$ISSUE_NUM \
+    | grep "title\|body"
+
+  # show it to the user
+  echo "You are now assigned to issue number: ${ISSUE_NUM}"
+  echo "to open in the browser, type 'gish browser'"
+  echo "to view issue, type 'gish get ${ISSUE_NUM}'"
+  echo "to end the issue, type 'gish end'"
+
+  # and save it for next time
+  echo "${ISSUE_NUM}" > /tmp/gish$ORG_REPO/gish.dat
+
+fi
+
+if [ $1 = end ]
+then
+  if [ ! -f "/tmp/gish${ORG_REPO}/gish.dat" ]
+  then
+    echo 'No issue has started'
+    return 1
+  else
+    ISSUE_NUM=$(cat /tmp/gish${ORG_REPO}/gish.dat)
+
+    # Remove assignent on github
+    curl -d "{\"assignees\": [] }" -u $USER_NAME:$ACCESS_TOKEN $GITHUB_URL/repos$ORG_REPO/issues/$ISSUE_NUM
+    echo 'finishing issue number '$ISSUE_NUM
+    echo "" > /tmp/gish${ORG_REPO}/gish.dat
+  fi
+fi
