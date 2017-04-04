@@ -47,7 +47,8 @@ export const ReportDetails = props => {
     locationSelectorProps,
     setPhoto,
     photoData,
-    submitReport
+    submitReport,
+    isSubmitting
   } = props
 
   const allLocationSelectorProps = {
@@ -77,6 +78,7 @@ export const ReportDetails = props => {
       <Submit
         enabled={canSend}
         submit={submitReport}
+        isSubmitting={isSubmitting}
       />
     </div>
   )
@@ -88,7 +90,8 @@ export const mapStateToProps = state => ({
   locationOne: state.getIn(['location', 0]),
   locationTwo: state.getIn(['location', 1]),
   locationThree: state.getIn(['location', 2]),
-  photoData: state.get('photoData')
+  photoData: state.get('photoData'),
+  isSubmitting: state.get('isPosting')
 })
 
 export const mergeProps = (

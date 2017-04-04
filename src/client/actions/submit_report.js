@@ -26,7 +26,8 @@ export const submitReport = () => (dispatch, getState, jsonPost) => {
     name: state.get('name'),
     locationFirst,
     locationSecond,
-    locationThird
+    locationThird,
+    reportType: 'near miss'
   })
   return jsonPost(`/report`, body)
     .then(response => { dispatch(setPostResult(response)) })
