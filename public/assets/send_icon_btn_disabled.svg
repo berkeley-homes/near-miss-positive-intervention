@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="93px" height="89px" viewBox="0 0 93 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Pages_high_fidelity" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UPLOAD_FORM" transform="translate(-141.000000, -680.000000)">
+            <g id="send_button" transform="translate(141.000000, 680.000000)">
+                <g id="icon">
+                    <ellipse id="Oval" fill="#526173" opacity="0.25" cx="46.5" cy="44.5" rx="46.5" ry="44.5"></ellipse>
+                    <polygon id="Triangle" fill="#FFFFFF" transform="translate(57.086368, 38.071286) rotate(27.000000) translate(-57.086368, -38.071286) " points="56.1517815 17.7044398 71.5192195 57.9782341 42.6535157 58.4381324"></polygon>
+                    <polygon id="Triangle" fill="#FFFFFF" transform="translate(39.163069, 30.005350) rotate(27.000000) translate(-39.163069, -30.005350) " points="55.4556184 9.73941796 41.943965 49.5440038 22.8705201 50.2712817"></polygon>
+                    <polygon id="Triangle-2" fill="#FFFFFF" points="43.6896552 56.8303571 31.5441303 64.4553571 31.5441303 51.0231474"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

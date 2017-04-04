@@ -29,7 +29,7 @@ test('dropdown component', t => {
   )
 
   const newValue = 'new value'
-  wrapper.simulate('change', { target: { value: newValue } })
+  wrapper.find('select').simulate('change', { target: { value: newValue } })
   t.equal(valueSet, newValue, 'change event passes value')
 
   t.end()
