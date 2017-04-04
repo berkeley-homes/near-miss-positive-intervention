@@ -5,10 +5,8 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-
 import store from './store'
 import ReportDetails from './containers/report_details.js'
-import UploadPhoto from './containers/upload_photo.js'
 import ModeMonitor from './containers/mood_monitor.js'
 import LandingPage from './components/landing_page.js'
 

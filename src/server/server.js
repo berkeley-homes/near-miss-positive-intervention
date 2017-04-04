@@ -1,12 +1,11 @@
-const Hapi = require('hapi')
-const Inert = require('inert')
+const hapi = require('hapi')
+const inert = require('inert')
 const path = require('path')
-const Vision = require('vision')
+
 require('env2')('.env')
 const { model, dbConnect, getS3 } = require('./model.js')
 
-
-const server = new Hapi.Server({
+const server = new hapi.Server({
   connections: {
     routes: {
       files: {
@@ -33,53 +32,22 @@ const modelPlugin = {
   }
 }
 
-server.register([Inert, Vision, modelPlugin], err => {
+server.register([inert, modelPlugin], err => {
   /* istanbul ignore if */
   if (err) throw err
-  server.views({
-    path: path.join(__dirname, '../../public'),
-    engines: {
-      html: {
-        module: require('handlebars')
-      }
-    },
-    isCached: false
-  })
-  server.route([
-    {
-      path: '/{param*}',
-      method: 'get',
-      handler: {
-        directory: {
-          path: '.',
-          redirectToSlash: true,
-          index: true
-        }
-      }
-    },
-    {
-      path: '/uploadphoto',
-      method: 'get',
-      handler: (request, replay) => {
-        replay.view('index')
-      }
-    },
-    {
-      path: '/modemonitor',
-      method: 'get',
-      handler: (request, replay) => {
-        replay.view('index')
-      }
-    },
-    {
-      path: '/',
-      method: 'get',
-      handler: (request, replay) => {
-        replay.view('index')
-      }
-    }
-  ])
+})
 
+server.route({
+  path: '/{param*}',
+  method: 'get',
+  handler: {
+    directory: {
+      path: '.',
+      redirectToSlash: true,
+      index: true
+    }
+  }
+})
 
 server.route(require('./routes/submit.js'))
 
