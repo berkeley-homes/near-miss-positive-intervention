@@ -1,4 +1,12 @@
 
+/*Fonts*/
+
+.f_lato {
+  font-family: 'Lato', sans-serif;
+}
+.f_francois {
+  font-family: 'Francois One', sans-serif;
+}
 
 /*Near_miss_main_colours*/
 .main_black_bg {
@@ -26,9 +34,6 @@
   color: #D43848;
   background-color: #D43848;
 }
-
-
-
 
 .upload_icon {
   background: url('/assets/upload_photo_icon.svg');
