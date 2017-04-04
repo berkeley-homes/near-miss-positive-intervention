@@ -6,7 +6,7 @@ instrumentation:
     "client/app.js",
     "client/reducers/index.js",
     "client/store.js",
-    "client/components/upload_photo_btn.js"
+    "client/components/upload_photo.js"
   ]
   include-all-sources: true
 check:
