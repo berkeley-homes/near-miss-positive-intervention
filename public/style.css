@@ -84,13 +84,6 @@ body{
 
 /*Uploading-photo animation*/
 
-/*.load_svg_container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}*/
-
-
 .outer {
   fill: transparent;
   stroke: #FFF;
@@ -177,17 +170,3 @@ body{
     stroke-dashoffset: 0;
   }
 }*/
-
-body{
-  text-align: center;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.g-bg{
-  background-color: #333333;
-}
