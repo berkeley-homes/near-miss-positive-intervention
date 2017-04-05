@@ -20,7 +20,10 @@ test('submitReport success', t => {
   const locationThird = 'loactionThird'
   const location = [locationFirst, locationSecond, locationThird]
 
-  const mockState = Immutable.fromJS({ photoData, description, name, location })
+  const mockState = {
+    report: Immutable.fromJS({ photoData, description, name, location })
+  }
+
   const { dispatch, calls } = createMockDispatch(mockState, spy)
 
   const expectedPayload = {
@@ -59,7 +62,7 @@ test('submitReport failure', t => {
   const error = 'I am an error'
   const { spy } = createPromiseSpy({ error })
 
-  const mockState = Immutable.fromJS({ location: [] })
+  const mockState = { report: Immutable.fromJS({ location: [] }) }
   const { dispatch, calls } = createMockDispatch(mockState, spy)
 
   dispatch(submitReport()).then(() => {
