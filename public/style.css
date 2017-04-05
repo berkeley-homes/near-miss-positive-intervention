@@ -2,9 +2,11 @@ html{
   height:100%;
   line-height: 0.8;
 }
+
 body{
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .g-bg{
@@ -16,9 +18,7 @@ img{
   margin-right: auto;
   display: block;
 }
-.thumbsup{
-  height:20%;
-}
+
 
 .thumbsupimg{
   margin-top: 3%;
