@@ -6,7 +6,7 @@ import ThumbsDown from '../components/thumbs_down.js'
 class Thumbs extends Component {
   render () {
     return (
-      <div className='container h-100 w-100'>
+      <div className='container'>
         <ThumbsDown />
         <ThumbsUp />
       </div>
