@@ -19,7 +19,7 @@ const App = () => {
         <div>
           <Route
             exact path='/'
-            component={ReportDetails}
+            component={Thumbs}
             />
           <Route
             path='/report'
