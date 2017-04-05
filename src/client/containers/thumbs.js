@@ -8,8 +8,8 @@ import ThumbsDown from '../components/thumbs_down.js'
 
 export const Thumbs = ({ selectNearMiss, selectPositiveIntervention }) =>
   <div className='container h-100 w-100'>
-    <ThumbsDown onClick = { selectPositiveIntervention }/>
-    <ThumbsUp onClick = { selectNearMiss }/>
+    <ThumbsDown onClick={selectPositiveIntervention} />
+    <ThumbsUp onClick={selectNearMiss} />
   </div>
 
 export default connect(() => ({}), actions)(Thumbs)

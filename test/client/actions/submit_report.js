@@ -52,7 +52,12 @@ test('submitReport success', t => {
       { type: SET_POST_RESULT, payload: body, status },
       'then we set the result'
     )
-    t.equal(calls.length, 0, 'only 2 actions dispached')
+    t.deepEqual(
+      calls.shift().payload,
+      { args: [ '/success' ], method: 'push' },
+      'then we change the url'
+    )
+    t.equal(calls.length, 0, 'only 3 actions dispached')
 
     t.end()
   })
