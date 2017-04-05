@@ -10,6 +10,7 @@ const DropDown = props => {
       <select
         className={cx(
           'bg-white',
+          'input_arrow',
           'input-reset',
           'w-100',
           'bw1',
