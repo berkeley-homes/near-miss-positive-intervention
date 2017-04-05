@@ -21,12 +21,14 @@ test('submit endpoint with photo', t => {
     payload: {
       description: 'description',
       photo: 'data:image/png;base64,iVBO',
+      locationFirst: 'l1',
+      locationSecond: 'l2',
+      locationThird: 'l3',
       reportType: 'near miss'
     }
   }
   server.inject(requestOptions, response => {
     t.equal(response.statusCode, 200, 'status code 200')
-
     t.equal(s3Calls.length, 1, 'one s3 call')
 
     t.equal(queryCalls.length, 1, 'one query to db attempted')
