@@ -37,13 +37,15 @@ input:focus, select:focus {
   color: #787878!important;
 }
 
-.button{
-  width: 50%;
-  color: black;
+.button {
+  width: 57%;
   border-radius: 25px;
   font-weight: lighter;
-  margin-top: 5%;
+  margin-top: 13%;
   height: 50px;
+  border: none;
+  outline: none;
+  font-size: 14px;
 }
 
 
@@ -195,4 +197,49 @@ input:focus, select:focus {
   padding-top: 5em;
   /*margin-bottom: 20px;
   padding-top: 5.3rem;*/
+}
+
+.berkeley_logo_success {
+  height: 32px;
+}
+
+.success_footer {
+  z-index: 999;
+  bottom: 0;
+  height: 9rem;
+}
+
+.success_drawing {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+/*mediaQ*/
+
+/*iphone5 size phones (very small)*/
+@media screen and (max-width: 320px) {
+  .success_footer {
+    height: 7rem;
+  }
+  .button {
+    margin-top: 10%;
+  }
+}
+
+
+@media screen and (min-width: 400px) {
+  .success_footer {
+    height: 12rem;
+  }
+
+  .success_drawing {
+    margin-top: 2.5rem;
+    margin-left: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .button {
+    margin-top: 18%;
+  }
 }
