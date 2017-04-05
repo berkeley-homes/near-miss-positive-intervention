@@ -13,7 +13,7 @@ export const selectNearMiss = () => dispatch => {
 export const selectPositiveIntervention = () => dispatch => {
   dispatch({
     type: SET_REPORT_TYPE,
-    reportType: 'positive Intervention'
+    reportType: 'positive intervention'
   })
   dispatch(push('/report'))
 }
