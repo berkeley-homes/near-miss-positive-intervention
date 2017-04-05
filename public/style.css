@@ -1,5 +1,6 @@
 html{
   height:100%;
+  line-height: 0.8;
 }
 body{
   margin: 0;
@@ -23,18 +24,19 @@ body{
   height: 18em;
   min-width: 100%;
 }
-img{
-  margin-left:auto;
-  margin-right: auto;
-  display: block;
-}
 
 .up-img{
   height:80%;
   margin-top: 3%;
+  margin-left:auto;
+  margin-right: auto;
+  display: block;
 }
 .down-img{
   height:80%;
+  margin-left:auto;
+  margin-right: auto;
+  display: block;
 }
 .g-bg{
   background-color: #333333;
@@ -48,7 +50,9 @@ img{
   color: black;
   border-radius: 25px;
   font-weight: lighter;
-  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   height: 50px;
 }
 
@@ -62,10 +66,13 @@ img{
   justify-content: flex-start;
 }
 
-.height50{
-  height: 50px;
+.berkeley-logo{
+  height: 32px;
 }
 
+.div-home{
+  height: 108px;
+}
 .upload_icon {
   background: url('/assets/upload_photo_icon.svg');
   background-repeat: no-repeat;

@@ -8,7 +8,7 @@ import HomeBtn from '../components/home_button.js'
 class Success extends Component {
   render () {
     return (
-      <div>
+      <div className=''>
         <BerkeleyLogo />
         <ThanksMessage />
         <SuccessIllustration />

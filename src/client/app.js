@@ -20,7 +20,7 @@ const App = () => {
         <div>
           <Route
             exact path='/'
-            component={Success}
+            component={Thumbs}
             />
           <Route
             path='/report'

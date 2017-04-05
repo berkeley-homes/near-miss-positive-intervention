@@ -4,7 +4,8 @@ class ThanksMessage extends Component {
   render () {
     return (
       <div>
-        <p>Thanx Pal, We have recieved your email!</p>
+        <p className='tc'>Thanx Pal, </p>
+        <p className='tc'>We have recieved your email!</p>
       </div>
     )
   }
