@@ -55,7 +55,7 @@ test('ReportDetails mapStateToProps', t => {
   const locationThree = 'location three'
   const location = [locationOne, locationTwo, locationThree]
 
-  const state = Immutable.fromJS({ name, description, location })
+  const state = { report: Immutable.fromJS({ name, description, location }) }
   const props = mapStateToProps(state)
 
   t.equal(props.name, name, 'name pulled from state')

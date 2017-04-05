@@ -6,6 +6,7 @@ instrumentation:
     "client/app.js",
     "client/reducers/index.js",
     "client/store.js",
+    "client/history.js",
     "client/components/upload_photo_btn.js",
     "client/components/upload_photo.js"
   ]
