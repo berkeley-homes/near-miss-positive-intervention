@@ -29,7 +29,7 @@ test('selectPositiveIntervention action', t => {
   dispatch(selectPositiveIntervention())
 
   t.deepEqual(
-    { reportType: 'positive Intervention', type: SET_REPORT_TYPE },
+    { reportType: 'positive intervention', type: SET_REPORT_TYPE },
     calls.shift(),
     'set report type to positive Intervention'
   )
