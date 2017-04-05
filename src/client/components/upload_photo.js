@@ -29,11 +29,12 @@ class UploadPhotoButton extends Component {
     return (
       <div>
         <input
-          className='upload_icon contain db w4 h4 pt6 center'
+          className='upload_icon contain db center'
           onChange={this.onImageSelect}
           type='file'
           accept='image/*;capture=camera'
-         />
+        />
+        <span className="center db tc"> Upload from device </span>
         {photoData &&
           <div className='center pa2 db w-90 bg-light-green'> Image Uploaded </div>
         }

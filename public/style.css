@@ -1,25 +1,10 @@
+/*app layout*/
 
-body{
-  text-align: center;
-}
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.g-bg{
-  background-color: #333333;
-}
-
-.button{
-  width: 50%;
-  color: black;
-  border-radius: 25px;
-  font-weight: lighter;
-  margin-top: 5%;
-  height: 50px;
 }
 
 .position{
@@ -36,6 +21,32 @@ body{
   height: 50px;
 }
 
+/*component styling*/
+
+select {
+  border-radius: 0px;
+}
+
+input:focus, select:focus {
+  outline: none!important;
+}
+
+.nearmiss_input_text {
+  font-family: 'Francois One', sans-serif!important;
+  font-size: 20px!important;
+  color: #787878!important;
+}
+
+.button{
+  width: 50%;
+  color: black;
+  border-radius: 25px;
+  font-weight: lighter;
+  margin-top: 5%;
+  height: 50px;
+}
+
+
 /*Fonts*/
 
 .f_lato {
@@ -46,6 +57,12 @@ body{
 }
 
 /*Near_miss_main_colours*/
+
+
+.g-bg{
+  background-color: #333333;
+}
+
 .main_black_bg {
   background-color: #333333;
 }
@@ -72,16 +89,9 @@ body{
   background-color: #D43848;
 }
 
-.upload_icon {
-  background: url('/assets/upload_photo_icon.svg');
-  background-repeat: no-repeat;
-  display: inline-block;
-  overflow: hidden;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+.b--nearmiss-black {
+  border-color: #333333;
 }
-
 /*Uploading-photo animation*/
 
 .outer {
@@ -170,3 +180,19 @@ body{
     stroke-dashoffset: 0;
   }
 }*/
+
+
+.upload_icon {
+  background: url('/assets/upload_photo_icon.svg');
+  background-repeat: no-repeat;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 5em;
+  height: 5em;
+  padding-top: 5em;
+  /*margin-bottom: 20px;
+  padding-top: 5.3rem;*/
+}
