@@ -1,6 +1,7 @@
 // containers
 require('./containers/report_details.js')
 require('./containers/thumbs.js')
+require('./containers/success.js')
 // reducers
 require('./reducers/report.js')
 

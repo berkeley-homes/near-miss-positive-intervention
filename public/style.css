@@ -25,10 +25,10 @@ img{
 }
 
 .height50{
-  height:60px;
+  height:95%;
 }
 .height60{
-  height:90px;
+  height:62px;
 }
 
 .button{
@@ -41,7 +41,6 @@ img{
   display: block;
   height: 50px;
 }
-
 
 .logo-container{
   display: flex;
