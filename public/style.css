@@ -190,6 +190,9 @@ input:focus, select:focus {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin-bottom: 20px;
-  padding-top: 5.3rem;
+  width: 5em;
+  height: 5em;
+  padding-top: 5em;
+  /*margin-bottom: 20px;
+  padding-top: 5.3rem;*/
 }
