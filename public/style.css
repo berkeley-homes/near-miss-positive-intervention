@@ -16,6 +16,17 @@ img{
   margin-right: auto;
   display: block;
 }
+.thumbsup{
+  height:20%;
+}
+
+.thumbsupimg{
+  margin-top: 3%;
+}
+
+.height50{
+  height:50px;
+}
 
 .button{
   width: 50%;
@@ -28,9 +39,6 @@ img{
   height: 50px;
 }
 
-.position{
-  position: fixed;
-}
 
 .logo-container{
   display: flex;
