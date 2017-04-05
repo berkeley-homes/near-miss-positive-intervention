@@ -7,7 +7,7 @@ import ThumbsUp from '../components/thumbs_up.js'
 import ThumbsDown from '../components/thumbs_down.js'
 
 export const Thumbs = ({ selectNearMiss, selectPositiveIntervention }) =>
-  <div className='container h-100 w-100'>
+  <div className='tc container h-100 w-100 f_lato f4'>
     <ThumbsDown onClick = { selectPositiveIntervention }/>
     <ThumbsUp onClick = { selectNearMiss }/>
   </div>

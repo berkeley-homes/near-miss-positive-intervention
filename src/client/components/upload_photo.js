@@ -27,15 +27,15 @@ class UploadPhotoButton extends Component {
     const { photoData } = this.props
 
     return (
-      <div>
+      <div className="">
         <input
-          className='upload_icon contain db w4 h4 pt6 center'
+          className='upload_icon contain db w-30 center'
           onChange={this.onImageSelect}
           type='file'
           accept='image/*;capture=camera'
          />
         {photoData &&
-          <div className='center pa2 db w-90 bg-light-green'> Image Uploaded </div>
+          <div className='center pa3 db w-90 bg-light-green'> Image Uploaded </div>
         }
       </div>
     )

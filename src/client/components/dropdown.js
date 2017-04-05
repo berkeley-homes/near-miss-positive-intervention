@@ -15,7 +15,7 @@ const DropDown = props => {
           'bw1',
           'h3',
           'ba', {
-            'b--black': !disabled,
+            'b--nearmiss-black': !disabled,
             'b--black-30': disabled
           })}
         value={value}

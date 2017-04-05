@@ -198,7 +198,7 @@ export const ReportDetails = props => {
   const canSend = locationSelectorProps.locationThree && description
 
   return (
-    <div>
+    <div className="f_lato mb3 mt3">
       <UploadPhotoButton
         setPhoto={setPhoto}
         photoData={photoData}
