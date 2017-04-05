@@ -6,13 +6,14 @@ instrumentation:
     "client/app.js",
     "client/reducers/index.js",
     "client/store.js",
+    "client/history.js",
     "client/components/upload_photo_btn.js",
     "client/components/upload_photo.js"
   ]
   include-all-sources: true
 check:
   global:
-    branches   : 100
-    functions  : 100
-    lines      : 100
-    statements : 100
+    branches   : 85
+    functions  : 85
+    lines      : 85
+    statements : 85

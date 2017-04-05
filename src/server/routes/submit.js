@@ -31,6 +31,9 @@ const route = {
         reply({response})
       })
     },
+    payload: {
+      maxBytes: 10485760
+    },
     validate: {
       payload: {
         locationFirst: Joi.string().required(),
