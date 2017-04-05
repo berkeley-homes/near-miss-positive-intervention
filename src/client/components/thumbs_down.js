@@ -5,7 +5,7 @@ class NearMissBtn extends Component {
     const { onClick } = this.props
     return (
       <div onClick={onClick} className='w-100 h-100'>
-        <p className='mb0'>Near Miss</p>
+        <p className='mb0 tc'>Near Miss</p>
         <img className='w-55'src='/img/Thumbs_down_btn_black.svg' alt='myimage' />
       </div>
     )
