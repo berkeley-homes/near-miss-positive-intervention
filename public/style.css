@@ -13,11 +13,9 @@ body{
 .container {
   display: flex;
   flex-flow: column;
-  margin-top: 22%;
   max-height: 100%;
 }
 .flex-thumbsdown{
-  margin-bottom: 5%;
   order:1;
   height:18em;
   min-width: 100%;
@@ -31,7 +29,6 @@ body{
 
 .up-img{
   height:80%;
-  margin-top: 3%;
   margin-left:auto;
   margin-right: auto;
   display: block;
