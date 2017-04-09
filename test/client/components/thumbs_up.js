@@ -6,7 +6,7 @@ import PositiveBtn from '../../../src/client/components/thumbs_up.js'
 test('<PositiveBtn />', t => {
   const wrapper = shallow(<PositiveBtn />)
   t.equal(wrapper.contains(
-    <img className='w-55 mt3 h-100' src='/img/Thumbs_up_btn_white.svg' alt='myimage' />
+    <img className='center_img w-55 mt3 h-100' src='/img/Thumbs_up_btn_white.svg' alt='myimage' />
   ), true)
   t.end()
 })
