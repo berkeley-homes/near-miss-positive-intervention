@@ -8,12 +8,6 @@ body{
   padding: 0;
   height: 100%;
 }
-/*centering thumbs images*/
-.center_img{
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
 
 .pl1p5{
   padding-left:2.5em;
