@@ -10,7 +10,11 @@
 .position{
   position: fixed;
 }
-
+.center_img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 .logo-container{
   display: flex;
   flex-direction: row;
