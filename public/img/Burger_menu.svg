@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="39px" height="32px" viewBox="0 0 39 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Burger_menu</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Pages_high_fidelity" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(-320.000000, -36.000000)">
+            <rect id="BG_white" fill="#FFFFFF" opacity="0.100000001" x="0" y="-1" width="375" height="368"></rect>
+            <g id="App_nav" transform="translate(0.000000, 26.000000)" fill="#333333">
+                <g id="Burger_menu" transform="translate(320.000000, 10.000000)">
+                    <rect id="Rectangle-8" x="9.45454545" y="18.8571429" width="29.5454545" height="3.60344828" rx="1"></rect>
+                    <rect id="Rectangle-8" x="0" y="28.2857143" width="39" height="3.60344828" rx="1"></rect>
+                    <rect id="Rectangle-8" x="0" y="0" width="39" height="3.60344828" rx="1"></rect>
+                    <rect id="Rectangle-8" x="4.72727273" y="9.42857143" width="34.2727273" height="3.60344828" rx="1"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

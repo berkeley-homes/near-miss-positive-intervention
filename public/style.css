@@ -1,20 +1,46 @@
+html{
+  height:100%;
+  line-height: 0.8;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+/*centering thumbs images*/
+.center_img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.pl1p5{
+  padding-left:2.5em;
+}
+.pr1p5{
+  padding-right:1.5rem;
+}
+/*revisit after merging nogas PRs*/
+.button{
+  width: 50%;
+  color: black;
+  border-radius: 25px;
+  font-weight: lighter;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 50px;
+}
+
+/*revisit after merging nogas PRs*/
+.berkeley-logo{
+  height: 32px;
+}
 /*app layout*/
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.position{
-  position: fixed;
-}
-
-.logo-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+/*revisit after merging nogas PRs*/
+.div-home{
+  height: 108px;
 }
 
 .height50{
@@ -37,18 +63,7 @@ input:focus, select:focus {
   color: #787878!important;
 }
 
-.button{
-  width: 50%;
-  color: black;
-  border-radius: 25px;
-  font-weight: lighter;
-  margin-top: 5%;
-  height: 50px;
-}
-
-
 /*Fonts*/
-
 .f_lato {
   font-family: 'Lato', sans-serif;
 }
@@ -57,11 +72,7 @@ input:focus, select:focus {
 }
 
 /*Near_miss_main_colours*/
-
-
-.g-bg{
-  background-color: #333333;
-}
+/*should be removed, use tachyones 'bg-dark-gray', other colors i assume also exist in tachyons*/
 
 .main_black_bg {
   background-color: #333333;
@@ -93,6 +104,15 @@ input:focus, select:focus {
   border-color: #333333;
 }
 /*Uploading-photo animation*/
+/* divi? */
+.divi {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
 .outer {
   fill: transparent;
@@ -101,33 +121,18 @@ input:focus, select:focus {
   stroke-dasharray: 150;
   stroke-dashoffset: 0;
   -webkit-transform-origin: center;
-          transform-origin: center;
+  transform-origin: center;
   -webkit-animation: draw 4s infinite;
-          animation: draw 4s infinite;
+  animation: draw 4s infinite;
 }
-
 
 .inner {
   fill: #FFF;
   -webkit-transform-origin: center;
-          transform-origin: center;
+  transform-origin: center;
   -webkit-animation: fadeIn 4s infinite;
-          animation: fadeIn 4s infinite;
+  animation: fadeIn 4s infinite;
 }
-
-/*@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-  }
-}*/
 
 @keyframes fadeIn {
   0% {
@@ -136,7 +141,7 @@ input:focus, select:focus {
   50% {
     opacity: 0.8;
     -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    transform: scale(0.8);
   }
   100% {
     opacity: 1;
@@ -146,41 +151,27 @@ input:focus, select:focus {
 @keyframes draw {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     stroke-dashoffset: 0;
   }
   50% {
     opacity: 0.8;
     -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    transform: scale(0.8);
     stroke-dashoffset: 1000;
   }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    stroke-dashoffset: 0;
+  }
+}
   100% {
     -webkit-transform: scale(1);
             transform: scale(1);
     stroke-dashoffset: 0;
   }
 }
-
-/*@-webkit-keyframes draw {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    stroke-dashoffset: 0;
-  }
-  50% {
-    opacity: 0.8;
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
-    stroke-dashoffset: 1000;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    stroke-dashoffset: 0;
-  }
-}*/
-
 
 .upload_icon {
   background: url('/assets/upload_photo_icon.svg');
@@ -193,6 +184,4 @@ input:focus, select:focus {
   width: 5em;
   height: 5em;
   padding-top: 5em;
-  /*margin-bottom: 20px;
-  padding-top: 5.3rem;*/
 }
