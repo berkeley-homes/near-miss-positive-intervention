@@ -34,7 +34,7 @@ class UploadPhotoButton extends Component {
           type='file'
           accept='image/*;capture=camera'
         />
-        <span className='center db tc'> Upload from device </span>
+        <span className='center db tc f6'> Upload from device </span>
         {photoData &&
           <div className='center pa2 db w-90 bg-light-green'> Image Uploaded </div>
         }
