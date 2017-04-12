@@ -21,17 +21,16 @@ const route = {
   config: {
     handler: (request, reply) => {
       const { payload, server: { plugins: { model } } } = request
+      reply({})
       waterfall([
         savePhotoIfExists(model.saveImage, payload),
         model.submitReport,
         renderEmail(request),
         model.sendEmail
-      ], (error, response) => {
+      ], error => {
         if (error) {
           console.error(error)
-          return reply(error)
         }
-        reply('ok')
       })
     },
     payload: {
