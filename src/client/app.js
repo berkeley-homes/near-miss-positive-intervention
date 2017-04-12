@@ -10,8 +10,9 @@ import history from './history.js'
 import store from './store'
 import ReportDetails from './containers/report_details.js'
 import Success from './containers/success.js'
-
 import Thumbs from './containers/thumbs.js'
+import Splash from './components/splash.js'
+
 const App = () => {
   return (
     <Provider store={store}>
@@ -19,6 +20,10 @@ const App = () => {
         <div>
           <Route
             exact path='/'
+            component={Splash}
+            />
+          <Route
+            exact path='/thumbs'
             component={Thumbs}
             />
           <Route
