@@ -201,7 +201,7 @@ export const ReportDetails = props => {
       locationSelectorProps.locationOne === 'Other')
 
   return (
-    <div className="mw-100 center f_lato mb3 mt3">
+    <div className='mw-100 center f_lato mb3 mt3'>
       <UploadPhotoButton
         setPhoto={setPhoto}
         photoData={photoData}

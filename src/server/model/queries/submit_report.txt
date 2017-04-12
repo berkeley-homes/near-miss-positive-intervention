@@ -5,7 +5,7 @@ INSERT INTO submissions (
   location_third,
   description,
   report_type,
-  photo_s3_key
+  photo_url
 )
 VALUES
 (

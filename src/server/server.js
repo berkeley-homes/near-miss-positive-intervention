@@ -5,7 +5,7 @@ const pgConString = require('pg-connection-string')
 const vision = require('vision')
 
 require('env2')('.env')
-const { model, dbConnect, getS3 } = require('./model.js')
+const { model, dbConnect, createS3, createSes } = require('./model.js')
 
 const server = new hapi.Server({
   connections: {

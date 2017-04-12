@@ -1,16 +1,17 @@
 const Joi = require('joi')
 const { waterfall } = require('async')
 
-const savePhotoIfExists = (payload, upload, decode) => cb => {
-  const { photo } = payload
-  if (!photo) return process.nextTick(() => cb(null, payload))
+const savePhotoIfExists = (saveImage, payload) => cb => {
+  if (!payload.photo) return process.nextTick(() => cb(null, payload))
 
-  const { photoS3Key, buffer } = decode(photo)
+  saveImage(payload, cb)
+}
 
-  upload(buffer, photoS3Key, (error, response) => {
-    if (error) return cb(error)
-    // what do we do with the response
-    cb(null, Object.assign({}, payload, { photoS3Key }))
+const renderEmail = request => (payload, cb) => {
+  request.render('email', payload, (err, emailHtml) => {
+    if (err) return cb(err)
+
+    cb(null, Object.assign({}, payload, { emailHtml }))
   })
 }
 
@@ -21,14 +22,16 @@ const route = {
     handler: (request, reply) => {
       const { payload, server: { plugins: { model } } } = request
       waterfall([
-        savePhotoIfExists(payload, model.saveImage, model.parsePhotoData),
-        model.submitReport
+        savePhotoIfExists(model.saveImage, payload),
+        model.submitReport,
+        renderEmail(request),
+        model.sendEmail
       ], (error, response) => {
         if (error) {
           console.error(error)
           return reply(error)
         }
-        reply({response})
+        reply('ok')
       })
     },
     payload: {
