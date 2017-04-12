@@ -1,54 +1,3 @@
-html{
-  height:100%;
-  line-height: 0.8;
-}
-
-body{
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-/*centering thumbs images*/
-.center_img{
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-.pl1p5{
-  padding-left:2.5rem;
-}
-.pr1p5{
-  padding-right:1.5rem;
-}
-/*revisit after merging nogas PRs*/
-.button{
-  width: 50%;
-  color: black;
-  border-radius: 25px;
-  font-weight: lighter;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  height: 50px;
-}
-
-/*revisit after merging nogas PRs*/
-.berkeley-logo{
-  height: 32px;
-}
-/*app layout*/
-/*revisit after merging nogas PRs*/
-.div-home{
-  height: 108px;
-}
-
-.height50{
-  height: 50px;
-}
-
-/*component styling*/
-
 select {
   border-radius: 0px;
 }
@@ -72,8 +21,6 @@ input:focus, select:focus {
 }
 
 /*Near_miss_main_colours*/
-/*should be removed, use tachyones 'bg-dark-gray', other colors i assume also exist in tachyons*/
-
 .main_black_bg {
   background-color: #333333;
 }
@@ -104,16 +51,6 @@ input:focus, select:focus {
   border-color: #333333;
 }
 /*Uploading-photo animation*/
-/* divi? */
-.divi {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60px;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
 .outer {
   fill: transparent;
   stroke: #FFF;
@@ -171,6 +108,15 @@ input:focus, select:focus {
             transform: scale(1);
     stroke-dashoffset: 0;
   }
+
+.input_arrow {
+  background: url('/assets/Drop_down_arrow_ic.svg');
+  background-repeat: no-repeat;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .upload_icon {

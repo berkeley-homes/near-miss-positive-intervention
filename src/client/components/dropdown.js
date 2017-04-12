@@ -2,14 +2,15 @@ import React from 'react'
 import cx from 'classnames'
 
 const DropDown = props => {
-  const { select, options, value } = props
-  const disabled = !options
+  const { select, options, value, enabled } = props
+  const disabled = !enabled
 
   return (
     <div className=' fl w-third pa3 pt1'>
       <select
         className={cx(
           'bg-white',
+          'input_arrow',
           'input-reset',
           'w-100',
           'bw1',

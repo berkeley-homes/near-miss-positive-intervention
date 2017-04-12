@@ -9,6 +9,7 @@ import Submit from '../components/submit.js'
 import Input from '../components/input.js'
 
 const optionsTree = Immutable.fromJS({
+  Other: {},
   NE: {
     '11': {
       B: {},
@@ -195,10 +196,12 @@ export const ReportDetails = props => {
     ...locationSelectorProps
   }
 
-  const canSend = locationSelectorProps.locationThree && description
+  const canSend = description &&
+    (locationSelectorProps.locationThree ||
+      locationSelectorProps.locationOne === 'Other')
 
   return (
-    <div className="f_lato mb3 mt3">
+    <div className='mw-100 center f_lato mb3 mt3'>
       <UploadPhotoButton
         setPhoto={setPhoto}
         photoData={photoData}

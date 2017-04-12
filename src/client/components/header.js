@@ -11,7 +11,6 @@ const Header = () => {
       <div className='fl w-third pt2 center db'>
         <p className='tc'>HOME</p>
       </div>
-
       <img
         className='h2 fl w-third pt3'
         src='/img/burger_menu.svg'
