@@ -1,5 +1,5 @@
 require('./routes.js')
-require('./routes/submit.js')
+// require('./routes/submit.js')
 
 require('./model.js')
 require('./model/image.js')
