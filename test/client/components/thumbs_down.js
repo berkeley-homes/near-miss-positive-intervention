@@ -1,12 +1,19 @@
 import test from 'tape'
 import React from 'react'
 import { shallow } from 'enzyme'
-import NearMissBtn from '../../../src/client/components/thumbs_down.js'
+import ThumbsDown from '../../../src/client/components/thumbs_down.js'
 
-test('<NearMissBtn />', t => {
-  const wrapper = shallow(<NearMissBtn />)
+test('<ThumbsDown />', t => {
+  t.plan(2)
+  const wrapper = shallow(<ThumbsDown />)
   t.equal(wrapper.contains(
-    <img className='w-55'src='/img/Thumbs_down_btn_black.svg' alt='myimage' />
+    <p className='mb0 tc'>Near Miss</p>
+  ), true)
+  t.equal(wrapper.contains(
+    <img className='center db w-55'
+      src='/img/Thumbs_down_btn_black.svg'
+      alt='ThumbsDownImg'
+    />
   ), true)
   t.end()
 })
