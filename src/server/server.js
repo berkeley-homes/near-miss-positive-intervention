@@ -2,9 +2,10 @@ const hapi = require('hapi')
 const inert = require('inert')
 const path = require('path')
 const pgConString = require('pg-connection-string')
+const vision = require('vision')
 
 require('env2')('.env')
-const { model, dbConnect, getS3 } = require('./model.js')
+const { model, dbConnect, createS3, createSes } = require('./model.js')
 
 const server = new hapi.Server({
   connections: {
@@ -39,11 +40,17 @@ const modelPlugin = {
   register: model,
   options: {
     query: dbConnect(dbConnectionOptions),
-    s3: getS3()
+    s3: createS3(),
+    ses: createSes()
   }
 }
 
-server.register([inert, modelPlugin], err => {
+server.register([inert, vision, modelPlugin], err => {
+  server.views({
+    engines: { html: require('handlebars') },
+    relativeTo: path.join(__dirname, 'handlebars'),
+    path: 'views'
+  })
   /* istanbul ignore if */
   if (err) throw err
 })

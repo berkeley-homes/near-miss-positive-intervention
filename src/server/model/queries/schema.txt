@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS submissions (
   location_third TEXT NOT NULL,
   description TEXT NOT NULL,
   report_type TEXT NOT NULL,
-  photo_s3_key TEXT
+  photo_url TEXT
 );
 
 COMMIT;

@@ -1,5 +1,6 @@
 const S3 = require('aws-sdk/clients/s3')
 const crypto = require('crypto')
+const url = require('url')
 
 const bucketName = process.env.BUCKET_NAME || 'berkeley-homes-near-miss'
 
@@ -17,13 +18,32 @@ const parsePhotoData = (dataString) => {
   return { photoS3Key, buffer }
 }
 
+const getUrl = key => {
+  return url.format({
+    protocol: 'https',
+    host: 's3.eu-west-2.amazonaws.com',
+    pathname: `/${bucketName}/${encodeURIComponent(key)}`
+  })
+}
+
 /* istanbul ignore next */
-const getS3 = () => new S3({signatureVersion: 'v4'})
+const createS3 = () => new S3({signatureVersion: 'v4'})
 
-const put = (s3, data, keyName, cb) => {
-  const params = { Bucket: bucketName, Key: keyName, Body: data }
+const saveImage = (s3, payload, cb) => {
+  const { photoS3Key, buffer } = parsePhotoData(payload.photo)
+  const photoUrl = getUrl(photoS3Key)
+  const params = {
+    ACL: 'public-read',
+    Bucket: bucketName,
+    Key: photoS3Key,
+    Body: buffer
+  }
 
-  s3.putObject(params, cb)
+  s3.putObject(params, err => {
+    if (err) return cb(err)
+
+    cb(null, Object.assign({}, payload, { photoUrl }))
+  })
 }
 
 /* istanbul ignore next */
@@ -34,8 +54,9 @@ const get = (s3, keyName, cb) => {
 }
 
 module.exports = {
-  getS3,
+  createS3,
   parsePhotoData,
-  get,
-  put
+  saveImage,
+  get
+  // getUrl
 }

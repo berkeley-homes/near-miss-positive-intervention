@@ -6,17 +6,19 @@ const init = (query, cb) => {
 
 const submitReport = (
   query,
-  {
-    submitterName,
+  params,
+  cb
+) => {
+  const {
+    name,
     locationFirst,
     locationSecond,
     locationThird,
     description,
     reportType,
-    photoS3Key
-  },
-  cb
-) => {
+    photoUrl
+  } = params
+
   if (!['near miss', 'positive intervention'].includes(reportType)) {
     return cb(new Error('Report submission failed. Bad report type.'))
   }
@@ -25,15 +27,18 @@ const submitReport = (
     query,
     'submit_report',
     { queryArgs: [
-      submitterName,
+      name,
       locationFirst,
       locationSecond,
       locationThird,
       description,
       reportType,
-      photoS3Key
+      photoUrl
     ] },
-    cb
+    err => {
+      if (err) return cb(err)
+      cb(null, params)
+    }
   )
 }
 
