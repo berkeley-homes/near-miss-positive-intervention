@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{reportType}}</title>
+  </head>
+  <body>
+    <h1> {{reportType}} report submission </h1>
+    {{#if photoUrl}}
+      <a href="{{photoUrl}}"> Download Photo </a>
+      <img src="{{photoUrl}}" alt="incident photo" style = "width: 100%"/>
+    {{else}}
+      No photo given
+    {{/if}}
+    <h2> Submitter name </h2>
+    <h3>
+      {{#if name}}
+        {{name}}
+      {{else}}
+        No name given
+      {{/if}}
+    </h3>
+    <h2> Description </h2>
+    <h3>
+      {{description}}
+    </h3>
+    <h2> Location </h2>
+    <h3> {{locationFirst}}, {{locationSecond}}, {{locationThird}} </h3>
+  </body>
+</html>
