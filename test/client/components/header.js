@@ -4,7 +4,6 @@ import { shallow } from 'enzyme'
 import Header from '../../../src/client/components/header.js'
 
 test('Header includes NM Logo, title and menubtn', t => {
-  t.plan(3)
   const wrapper = shallow(<Header />)
   t.equal(wrapper.contains(
     <img
