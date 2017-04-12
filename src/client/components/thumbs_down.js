@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class ThumbdsDownBtn extends Component {
+class ThumbsDown extends Component {
   render () {
     const { onClick } = this.props
     return (
@@ -16,4 +16,4 @@ class ThumbdsDownBtn extends Component {
   }
 }
 
-export default ThumbdsDownBtn
+export default ThumbsDown

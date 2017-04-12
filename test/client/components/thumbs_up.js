@@ -1,11 +1,11 @@
 import test from 'tape'
 import React from 'react'
 import { shallow } from 'enzyme'
-import ThumbsUpBtn from '../../../src/client/components/thumbs_up.js'
+import ThumbsUp from '../../../src/client/components/thumbs_up.js'
 
-test('<ThumbsUpBtn />', t => {
+test('<ThumbsUp />', t => {
   t.plan(2)
-  const wrapper = shallow(<ThumbsUpBtn />)
+  const wrapper = shallow(<ThumbsUp />)
   t.equal(wrapper.contains(
     <img className='center_img w-55 mt3 h-100'
       src='/img/Thumbs_up_btn_white.svg'

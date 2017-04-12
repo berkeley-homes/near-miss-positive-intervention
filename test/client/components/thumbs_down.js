@@ -1,11 +1,11 @@
 import test from 'tape'
 import React from 'react'
 import { shallow } from 'enzyme'
-import ThumbsDownBtn from '../../../src/client/components/thumbs_down.js'
+import ThumbsDown from '../../../src/client/components/thumbs_down.js'
 
-test('<ThumbsDownBtn />', t => {
+test('<ThumbsDown />', t => {
   t.plan(2)
-  const wrapper = shallow(<ThumbsDownBtn />)
+  const wrapper = shallow(<ThumbsDown />)
   t.equal(wrapper.contains(
     <p className='mb0 tc'>Near Miss</p>
   ), true)
