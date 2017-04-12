@@ -7,7 +7,7 @@ test('<ThumbsUp />', t => {
   t.plan(2)
   const wrapper = shallow(<ThumbsUp />)
   t.equal(wrapper.contains(
-    <img className='center_img w-55 mt3 h-100'
+    <img className='center db w-55 mt3 h-100'
       src='/img/Thumbs_up_btn_white.svg'
       alt='ThumbsUpImg'
     />
