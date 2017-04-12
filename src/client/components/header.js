@@ -8,7 +8,10 @@ const Header = () => {
         src='/img/nearMiss_nav_logo.svg'
         alt='NearMissLogo'
         />
-      <p className='fl w-third pl1p5 pr1p5 pt2'>HOME</p>
+      <div className='fl w-third pt2 center db'>
+        <p className='tc'>HOME</p>
+      </div>
+
       <img
         className='h2 fl w-third pt3'
         src='/img/burger_menu.svg'

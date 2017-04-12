@@ -13,7 +13,9 @@ test('Header includes NM Logo, title and menubtn', t => {
       alt='NearMissLogo'
   />), true)
   t.equal(wrapper.contains(
-    <p className='fl w-third pl1p5 pr1p5 pt2'>HOME</p>), true)
+    <div className='fl w-third pt2 center db'>
+      <p className='tc'>HOME</p>
+    </div>), true)
   t.equal(wrapper.contains(
     <img
       className='h2 fl w-third pt3'
