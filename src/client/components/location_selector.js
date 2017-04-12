@@ -33,8 +33,10 @@ export default props => {
     setThirdLocation
   } = props
 
-  const secondEnabled = locationOne
-  const thirdEnabled = locationOne && locationTwo
+  const otherSelected = locationOne === 'Other'
+
+  const secondEnabled = !otherSelected && locationOne
+  const thirdEnabled = !otherSelected && locationOne && locationTwo
 
   return (
     <div>
