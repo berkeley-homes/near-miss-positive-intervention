@@ -180,7 +180,15 @@ input:focus, select:focus {
     stroke-dashoffset: 0;
   }
 }*/
-
+.input_arrow {
+  background: url('/assets/Drop_down_arrow_ic.svg');
+  background-repeat: no-repeat;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 .upload_icon {
   background: url('/assets/upload_photo_icon.svg');

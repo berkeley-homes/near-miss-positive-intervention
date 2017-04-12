@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="70px" viewBox="0 0 68 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Drop_down_arrow_ic</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="28" y="25" width="68" height="70"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="68" height="70" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="14" y="21" width="92.286314" height="78"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="92.286314" height="78" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="120---iPhone-Copy" transform="translate(-28.000000, -27.000000)">
+            <use id="Rectangle" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="2" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <polygon id="Drop_down_arrow_ic" fill="#787878" points="81.848348 55 87.8653108 60.725 93.8822736 55 95.7306217 56.7625 87.8653108 64.2625 80 56.7625"></polygon>
+            <use id="field" stroke="#333333" mask="url(#mask-4)" stroke-width="4" xlink:href="#path-3"></use>
+        </g>
+    </g>
+</svg>
