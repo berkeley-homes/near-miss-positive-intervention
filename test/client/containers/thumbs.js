@@ -7,9 +7,7 @@ import ThumbsDown from '../../../src/client/components/thumbs_down.js'
 
 test('<Thumbs />', t => {
   const wrapper = shallow(<Thumbs />)
-
   t.equal(wrapper.find(ThumbsDown).length, 1, 'has thumbs down')
   t.equal(wrapper.find(ThumbsUp).length, 1, 'has thumbs up')
-
   t.end()
 })

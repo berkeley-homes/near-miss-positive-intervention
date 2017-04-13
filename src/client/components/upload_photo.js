@@ -27,7 +27,7 @@ class UploadPhotoButton extends Component {
     const { photoData } = this.props
 
     return (
-      <div>
+      <div className='mt2'>
         <input
           className='upload_icon contain db center'
           onChange={this.onImageSelect}

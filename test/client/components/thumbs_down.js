@@ -10,7 +10,7 @@ test('<ThumbsDown />', t => {
     <p className='mb0 tc'>Near Miss</p>
   ), true)
   t.equal(wrapper.contains(
-    <img className='center db w-55'
+    <img className='center db w-65'
       src='/img/Thumbs_down_btn_black.svg'
       alt='ThumbsDownImg'
     />
