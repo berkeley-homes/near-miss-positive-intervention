@@ -21,10 +21,6 @@ input:focus, select:focus {
 }
 
 /*Near_miss_main_colours*/
-.g-bg{
-  background-color: #333333;
-}
-
 .main_black_bg {
   background-color: #333333;
 }
@@ -55,7 +51,6 @@ input:focus, select:focus {
   border-color: #333333;
 }
 /*Uploading-photo animation*/
-
 .outer {
   fill: transparent;
   stroke: #FFF;
@@ -63,18 +58,17 @@ input:focus, select:focus {
   stroke-dasharray: 150;
   stroke-dashoffset: 0;
   -webkit-transform-origin: center;
-          transform-origin: center;
+  transform-origin: center;
   -webkit-animation: draw 4s infinite;
-          animation: draw 4s infinite;
+  animation: draw 4s infinite;
 }
-
 
 .inner {
   fill: #FFF;
   -webkit-transform-origin: center;
-          transform-origin: center;
+  transform-origin: center;
   -webkit-animation: fadeIn 4s infinite;
-          animation: fadeIn 4s infinite;
+  animation: fadeIn 4s infinite;
 }
 
 @keyframes fadeIn {
@@ -84,7 +78,7 @@ input:focus, select:focus {
   50% {
     opacity: 0.8;
     -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    transform: scale(0.8);
   }
   100% {
     opacity: 1;
@@ -94,21 +88,26 @@ input:focus, select:focus {
 @keyframes draw {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     stroke-dashoffset: 0;
   }
   50% {
     opacity: 0.8;
     -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    transform: scale(0.8);
     stroke-dashoffset: 1000;
   }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    stroke-dashoffset: 0;
+  }
+}
   100% {
     -webkit-transform: scale(1);
             transform: scale(1);
     stroke-dashoffset: 0;
   }
-}
 
 .input_arrow {
   background: url('/assets/Drop_down_arrow_ic.svg');
