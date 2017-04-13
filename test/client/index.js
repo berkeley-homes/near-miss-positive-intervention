@@ -1,6 +1,7 @@
 // containers
 require('./containers/report_details.js')
 require('./containers/thumbs.js')
+require('./containers/success.js')
 // reducers
 require('./reducers/report.js')
 
@@ -22,3 +23,7 @@ require('./components/dropdown.js')
 require('./components/location_selector.js')
 require('./components/header.js')
 require('./components/splash.js')
+require('./components/berkely_logo.js')
+require('./components/home_button.js')
+require('./components/thanks_message.js')
+require('./components/success_illustration.js')

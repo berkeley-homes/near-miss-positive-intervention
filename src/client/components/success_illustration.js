@@ -4,7 +4,7 @@ class SuccessIllu extends Component {
   render () {
     return (
       <div className='ml1 mr1'>
-        <img src='/img/Success_page_illustration.svg' alt='myimage' />
+        <img src='/img/Success_page_illustration.svg' alt='successIllustration' />
       </div>
     )
   }

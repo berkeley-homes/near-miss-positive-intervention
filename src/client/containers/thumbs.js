@@ -5,9 +5,11 @@ import * as actions from '../actions/thumbs.js'
 
 import ThumbsUp from '../components/thumbs_up.js'
 import ThumbsDown from '../components/thumbs_down.js'
+import Header from '../components/header.js'
 
 export const Thumbs = ({ selectNearMiss, selectPositiveIntervention }) =>
   <div className='h-100 w-100 f_lato f4'>
+    <Header />
     <ThumbsDown onClick={selectNearMiss} />
     <ThumbsUp onClick={selectPositiveIntervention} />
   </div>

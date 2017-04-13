@@ -7,6 +7,7 @@ import LocationSelector from '../components/location_selector.js'
 import UploadPhotoButton from '../components/upload_photo.js'
 import Submit from '../components/submit.js'
 import Input from '../components/input.js'
+import Header from '../components/header.js'
 
 const optionsTree = Immutable.fromJS({
   Other: {},
@@ -201,7 +202,8 @@ export const ReportDetails = props => {
       locationSelectorProps.locationOne === 'Other')
 
   return (
-    <div className='mw-100 center f_lato mb3 mt3'>
+    <div className='mw-100 center f_lato mb3'>
+      <Header />
       <UploadPhotoButton
         setPhoto={setPhoto}
         photoData={photoData}
