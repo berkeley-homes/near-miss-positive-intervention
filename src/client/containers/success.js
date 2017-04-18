@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import BerkeleyLogo from '../components/berkeley_logo.js'
 import ThanksMessage from '../components/thanks_message.js'
@@ -14,7 +15,7 @@ class Success extends Component {
         <BerkeleyLogo />
         <ThanksMessage />
         <SuccessIllustration />
-        <HomeBtn />
+        <Link to='/thumbs'><HomeBtn /></Link>
       </div>
     )
   }
