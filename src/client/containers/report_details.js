@@ -203,7 +203,7 @@ export const ReportDetails = props => {
 
   return (
     <div className='mw-100 center f_lato mb3'>
-      <Header />
+      <Header location={'UPLOAD'} />
       <UploadPhotoButton
         setPhoto={setPhoto}
         photoData={photoData}
