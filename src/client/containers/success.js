@@ -10,7 +10,7 @@ class Success extends Component {
   render () {
     return (
       <div>
-        <Header />
+        <Header location={'SUCCESS'} />
         <BerkeleyLogo />
         <ThanksMessage />
         <SuccessIllustration />

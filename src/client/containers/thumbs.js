@@ -9,7 +9,7 @@ import Header from '../components/header.js'
 
 export const Thumbs = ({ selectNearMiss, selectPositiveIntervention }) =>
   <div className='h-100 w-100 f_lato f4'>
-    <Header />
+    <Header location={'HOME'} />
     <ThumbsDown onClick={selectNearMiss} />
     <ThumbsUp onClick={selectPositiveIntervention} />
   </div>
