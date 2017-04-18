@@ -1,12 +1,6 @@
 const Joi = require('joi')
 const { waterfall } = require('async')
 
-const savePhotoIfExists = (saveImage, payload) => cb => {
-  if (!payload.photo) return process.nextTick(() => cb(null, payload))
-
-  saveImage(payload, cb)
-}
-
 const renderEmail = request => (payload, cb) => {
   request.render('email', payload, (err, emailHtml) => {
     if (err) return cb(err)
@@ -21,16 +15,16 @@ const route = {
   config: {
     handler: (request, reply) => {
       const { payload, server: { plugins: { model } } } = request
-      reply({})
+      const photoUrl = model.getUrl(payload.photoKey)
+      const payloadWithPhotoUrl = Object.assign({}, payload, { photoUrl })
+
       waterfall([
-        savePhotoIfExists(model.saveImage, payload),
-        model.submitReport,
+        model.submitReport(payloadWithPhotoUrl),
         renderEmail(request),
         model.sendEmail
-      ], error => {
-        if (error) {
-          console.error(error)
-        }
+      ], (error, { s3PutUrl, photoData, photoExt }) => {
+        if (error) return console.error(error)
+        reply({ s3PutUrl })
       })
     },
     payload: {
@@ -42,8 +36,7 @@ const route = {
         locationSecond: Joi.string().required(),
         locationThird: Joi.string().required(),
         name: Joi.string().optional(),
-        photo: Joi.string().regex(/^data:([A-Za-z-+/]+);base64,(.+)$/)
-          .optional(),
+        photoKey: Joi.string().optional(),
         description: Joi.string().required(),
         reportType: ['near miss', 'positive intervention']
       }

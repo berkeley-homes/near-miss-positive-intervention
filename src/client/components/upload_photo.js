@@ -1,5 +1,3 @@
-/* global FileReader */
-
 import React, { Component } from 'react'
 
 class UploadPhotoButton extends Component {
@@ -11,18 +9,11 @@ class UploadPhotoButton extends Component {
 
   onImageSelect (event) {
     const { setPhoto } = this.props
-    const reader = new FileReader()
-    const input = event.target
-    const file = input.files[0]
 
-    reader.addEventListener('load', () => {
-      setPhoto(reader.result)
-    }, false)
-
-    if (file) {
-      reader.readAsDataURL(file)
-    }
+    const file = event.target.files[0]
+    setPhoto(file)
   }
+
   render () {
     const { photoData } = this.props
 

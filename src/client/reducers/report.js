@@ -20,7 +20,7 @@ export const initialState = Immutable.fromJS({
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_PHOTO:
-      return state.set('photoData', action.photoData)
+      return state.set('photo', action.photo)
     case SET_NAME:
       return state.set('name', action.name)
     case SET_DESCRIPTION:

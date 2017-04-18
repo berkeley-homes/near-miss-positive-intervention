@@ -17,7 +17,6 @@ const emailOpts = (subject, html) => ({
 
 const sendEmail = (ses, payload, cb) => {
   const { reportType, emailHtml } = payload
-
   ses.sendEmail(emailOpts(reportType, emailHtml), err => {
     if (err) return cb(err)
 
