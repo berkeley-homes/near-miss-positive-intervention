@@ -20,8 +20,12 @@ test('model plugin exposes correct methods', t => {
 
   t.ok(server.plugins.model.init, 'init function exposed')
   t.ok(server.plugins.model.submitReport, 'submitReport function exposed')
-  t.ok(server.plugins.model.saveImage, 'saveImage function exposed')
-  t.ok(server.plugins.model.parsePhotoData, 'parsePhotoData function exposed')
+  t.ok(server.plugins.model.sendEmail, 'sendEmail function exposed')
+  t.ok(
+    server.plugins.model.generateSignedUrl,
+    'generateSignedUrl function exposed'
+  )
+  t.ok(server.plugins.model.getUrl, 'getUrl function exposed')
   t.end()
 })
 
