@@ -22,8 +22,10 @@ const route = {
         model.submitReport(payloadWithPhotoUrl),
         renderEmail(request),
         model.sendEmail
-      ], (error, { s3PutUrl, photoData, photoExt }) => {
+      ], (error, payload) => {
         if (error) return console.error(error)
+
+        const { s3PutUrl, photoData, photoExt } = payload
         reply({ s3PutUrl })
       })
     },
@@ -33,9 +35,9 @@ const route = {
     validate: {
       payload: {
         locationFirst: Joi.string().required(),
-        locationSecond: Joi.string().required(),
-        locationThird: Joi.string().required(),
-        name: Joi.string().optional(),
+        locationSecond: Joi.string().optional(),
+        locationThird: Joi.string().optional(),
+        name: Joi.string().optional().allow(""),
         photoKey: Joi.string().optional(),
         description: Joi.string().required(),
         reportType: ['near miss', 'positive intervention']
