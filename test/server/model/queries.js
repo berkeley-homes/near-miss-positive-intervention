@@ -24,8 +24,7 @@ test('submitReport', t => {
   const { query, queriesMade } = makeMockQuery()
 
   const reportType = 'near miss'
-
-  submitReport(query, { reportType }, () => {
+  submitReport(query, { reportType })(() => {
     const queryMade = queriesMade[0]
 
     t.equal(
@@ -43,7 +42,7 @@ test('submitReport with bad type', t => {
 
   const reportType = 'not a correct type'
 
-  submitReport(query, { reportType }, error => {
+  submitReport(query, { reportType })(error => {
     t.ok(error, 'returns error')
     t.equal(
       error.message,
