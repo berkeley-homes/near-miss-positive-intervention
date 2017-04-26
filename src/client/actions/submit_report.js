@@ -66,8 +66,8 @@ export const submitReport = () => (dispatch, getState, request) => {
   const state = getState().report
 
   dispatch({ type: SET_POSTING })
-
   const photo = state.get('photo')
+
   return (photo
     ? getS3UrlRequest(request, photo.name)
       .then(responseText => {
@@ -76,12 +76,14 @@ export const submitReport = () => (dispatch, getState, request) => {
       })
     : submitReportRequest(request, state)
   )
-  .then(setPostResult({ status: 200 }))
+  .then(() => dispatch(setPostResult({ status: 200 })))
   .catch(error => {
     dispatch(setPostResultError(error))
     console.error(error)
   })
   .then(() => {
     dispatch(push('/success'))
+  }).catch(e => {
+    console.error(e)
   })
 }
