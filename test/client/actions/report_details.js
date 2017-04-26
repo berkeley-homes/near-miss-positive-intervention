@@ -65,12 +65,12 @@ test('reportDetails container: setThirdLocation action', t => {
 })
 
 test('set photo action creator', t => {
-  const photoData = 'photo data'
-  const action = setPhoto(photoData)
+  const photo = 'photo data'
+  const action = setPhoto(photo)
 
   t.deepEqual(
     action,
-    { type: SET_PHOTO, photoData },
+    { type: SET_PHOTO, photo },
     'correct object created'
   )
 
