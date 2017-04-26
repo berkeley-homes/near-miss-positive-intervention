@@ -25,7 +25,7 @@ const route = {
       ], (error, payload) => {
         if (error) return console.error(error)
 
-        const { s3PutUrl, photoData, photoExt } = payload
+        const { s3PutUrl } = payload
         reply({ s3PutUrl })
       })
     },
@@ -37,7 +37,7 @@ const route = {
         locationFirst: Joi.string().required(),
         locationSecond: Joi.string().optional(),
         locationThird: Joi.string().optional(),
-        name: Joi.string().optional().allow(""),
+        name: Joi.string().optional().allow(''),
         photoKey: Joi.string().optional(),
         description: Joi.string().required(),
         reportType: ['near miss', 'positive intervention']
