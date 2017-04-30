@@ -4,7 +4,6 @@ import { SET_POSTING, SET_POST_RESULT } from '../action_types.js'
 
 export const setPostResult = response => ({
   type: SET_POST_RESULT,
-  payload: JSON.parse(response.body),
   status: response.status
 })
 
@@ -14,27 +13,77 @@ export const setPostResultError = error => ({
   status: 500
 })
 
-export const submitReport = () => (dispatch, getState, jsonPost) => {
-  const state = getState().report
+const ext = name => {
+  const tokens = name.split('.')
+  return tokens && tokens.length && tokens[tokens.length - 1]
+}
 
-  dispatch({ type: SET_POSTING })
+const getS3UrlRequest = (request, photoName) =>
+  request({
+    method: 'put',
+    url: '/s3-put-url',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ photoExt: ext(photoName) })
+  })
 
+const uploadPhotoRequest = (request, url, photo) =>
+  request({
+    url,
+    method: 'put',
+    body: photo,
+    headers: {
+      'Content-Type': photo.type,
+      'x-amz-acl': 'public-read'
+    }
+  })
+
+const submitReportRequest = (request, state, photoKey) => {
   const [locationFirst, locationSecond, locationThird] =
     state.get('location').toArray()
 
-  const body = JSON.stringify({
-    photo: state.get('photoData'),
-    description: state.get('description'),
-    name: state.get('name'),
-    locationFirst,
-    locationSecond,
-    locationThird,
-    reportType: state.get('reportType')
-  })
-  return jsonPost(`/report`, body)
-    .then(response => {
-      dispatch(setPostResult(response))
-      dispatch(push('/success'))
+  return request({
+    url: 'report',
+    headers: { 'Content-Type': 'application/json' },
+    method: 'post',
+    body: JSON.stringify({
+      description: state.get('description'),
+      name: state.get('name'),
+      reportType: state.get('reportType'),
+      photoKey,
+      locationFirst,
+      locationSecond,
+      locationThird
     })
-    .catch(error => { dispatch(setPostResultError(error)) })
+  })
+}
+
+const reportAndUploadRequests = (request, url, photoKey, state) => Promise.all([
+  uploadPhotoRequest(request, url, state.get('photo')),
+  submitReportRequest(request, state, photoKey)
+])
+
+export const submitReport = () => (dispatch, getState, request) => {
+  const state = getState().report
+
+  dispatch({ type: SET_POSTING })
+  const photo = state.get('photo')
+
+  return (photo
+    ? getS3UrlRequest(request, photo.name)
+      .then(responseText => {
+        const { s3PutUrl, photoKey } = JSON.parse(responseText)
+        return reportAndUploadRequests(request, s3PutUrl, photoKey, state)
+      })
+    : submitReportRequest(request, state)
+  )
+  .then(() => dispatch(setPostResult({ status: 200 })))
+  .catch(error => {
+    dispatch(setPostResultError(error))
+    console.error(error)
+  })
+  .then(() => {
+    dispatch(push('/success'))
+  }).catch(e => {
+    console.error(e)
+  })
 }

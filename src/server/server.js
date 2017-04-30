@@ -12,7 +12,8 @@ const server = new hapi.Server({
     routes: {
       files: {
         relativeTo: path.join(__dirname, '../..', 'public')
-      }
+      },
+      cors: true
     }
   }
 })
@@ -68,5 +69,6 @@ server.route({
 })
 
 server.route(require('./routes/submit.js'))
+server.route(require('./routes/s3_put_url.js'))
 
 module.exports = server

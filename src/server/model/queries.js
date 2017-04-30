@@ -4,11 +4,7 @@ const init = (query, cb) => {
   runSqlFromFs(query, 'schema', {}, cb)
 }
 
-const submitReport = (
-  query,
-  params,
-  cb
-) => {
+const submitReport = (query, params) => cb => {
   const {
     name,
     locationFirst,

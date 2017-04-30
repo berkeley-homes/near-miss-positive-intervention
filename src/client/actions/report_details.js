@@ -18,10 +18,10 @@ const setLocation = locationIndex => location => ({
   locationIndex
 })
 
-export const setPhoto = photoData => {
+export const setPhoto = photo => {
   return {
     type: SET_PHOTO,
-    photoData
+    photo
   }
 }
 

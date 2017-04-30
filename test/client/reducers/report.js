@@ -57,14 +57,14 @@ test('report: SET_POS_RESULT', t => {
 })
 
 test('report: SET_PHOTO', t => {
-  const photoData = 'photo data'
+  const photo = 'photo data'
   const newState = reducer(
     initialState,
-    { type: SET_PHOTO, photoData }
+    { type: SET_PHOTO, photo }
   )
   t.equal(
-    photoData,
-    newState.get('photoData'),
+    photo,
+    newState.get('photo'),
     'set photo puts photo data in state'
   )
   t.end()
