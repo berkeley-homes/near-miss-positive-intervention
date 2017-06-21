@@ -17,6 +17,10 @@ export const initialState = Immutable.fromJS({
   title: 'Near Miss - Positive Interventions'
 })
 
+export const resetForm = state => state
+  .delete('photo')
+  .merge(initialState)
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_PHOTO:
@@ -30,10 +34,9 @@ export default (state = initialState, action) => {
     case SET_POSTING:
       return state.set('isPosting', true)
     case SET_POST_RESULT:
-      return state
-        .set('isPosting', false)
+      return resetForm(state
         .set('payload', action.payload)
-        .set('statusCode', action.statusCode)
+        .set('statusCode', action.statusCode))
     case SET_LOCATION:
       const index = action.locationIndex
       return state.update('location', location => location
