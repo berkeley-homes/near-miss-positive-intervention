@@ -131,3 +131,7 @@ input:focus, select:focus {
   height: 5em;
   padding-top: 5em;
 }
+
+input {
+    -webkit-appearance: none;
+}
