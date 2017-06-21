@@ -7,8 +7,8 @@ test('<ThanksMessage />', t => {
   const wrapper = shallow(<ThanksMessage />)
   t.equal(wrapper.contains(
     <div className='f_francois tc main_black_font f4'>
-      <p className='mb0'>Thanx Pal,</p>
-      <p className='mt0 lh-copy'>We have recieved your email!</p>
+      <p className='mb0'>Thank you,</p>
+      <p className='mt0 lh-copy pa4'>your Near miss or Positive intervention has been recorded.</p>
     </div>
   ), true)
   t.end()
