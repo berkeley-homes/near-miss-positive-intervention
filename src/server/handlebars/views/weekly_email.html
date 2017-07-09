@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>weekly report summery</title>
+  </head>
+  <body>
+    <h1> weekly report summery </h1>
+    {{#each reports}}
+      <h2> {{report_type}} report submission </h2>
+      {{#if photo_url}}
+        <a href="{{photo_url}}"> Download Photo </a>
+        <img src="{{photo_url}}" alt="incident photo" style = "width: 100%"/>
+      {{else}}
+        No photo given
+      {{/if}}
+      <h4> Submitter name </h4>
+      <h4>
+        {{#if submitter_name}}
+          {{submitter_name}}
+        {{else}}
+          No name given
+        {{/if}}
+      </h4>
+      <h3> Description </h3>
+      <h4>
+        {{description}}
+      </h4>
+      <h3> Location </h3>
+      <h4> {{location_first}}, {{location_second}}, {{location_third}} </h4>
+    {{/each}}
+  </body>
+</html>

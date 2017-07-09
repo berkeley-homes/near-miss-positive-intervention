@@ -4,6 +4,10 @@ const init = (query, cb) => {
   runSqlFromFs(query, 'schema', {}, cb)
 }
 
+const weekly = (query, cb) => {
+  runSqlFromFs(query, 'weekly', {}, cb)
+}
+
 const submitReport = (query, params) => cb => {
   const {
     name,
@@ -40,5 +44,6 @@ const submitReport = (query, params) => cb => {
 
 module.exports = {
   init,
+  weekly,
   submitReport
 }

@@ -14,7 +14,7 @@ instrumentation:
   include-all-sources: true
 check:
   global:
-    branches   : 87
-    functions  : 87
+    branches   : 84
+    functions  : 84
     lines      : 87
     statements : 87
