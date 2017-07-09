@@ -8,7 +8,7 @@ server.start(error => {
   server.plugins.model.init((error) => {
     if (error) throw error
 
-    cron.schedule('59 23 * * 7', function () {
+    cron.schedule('59 22 * * 7', function () {
       weeklyReport(server.plugins.model.sendEmail, server.plugins.model.weekly)
     })
 
