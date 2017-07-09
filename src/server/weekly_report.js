@@ -1,15 +1,52 @@
 const fs = require('fs')
-
-const { getSes, sendEmail } = require('./model/email.js')
+const path = require('path')
 const handlebars = require('handlebars')
 
-const date = new Date()
-const day = data.getDay()
+const templatePath = path.join(
+  __dirname,
+  'handlebars',
+  'views',
+  'weekly_email.html'
+)
 
-if (!(day % 7)) {
-  const ses = getSes()
-  const templatePath = path.join(__dirname, 'templates')
-  const templateSource = fs.readFileSync(path)
+const renderEmail = handlebars.compile(fs.readFileSync(templatePath, 'utf8'))
 
-  sendEmail(ses)
+const weeklyReport = (sendEmail, getReports) => {
+  getReports((error, response) => {
+    if (error) {
+      console.error(error)
+      return sendEmail({
+        reportType: 'Error building weekly email',
+        emailHtml: `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <title>error sending weekly report</title>
+          </head>
+          <body>
+            <h1> Error sending weekly summary </h1>
+            <p> please forward this email to edfmccarthy@gmail.com </p>
+            <p>${error}</p>
+          </body>
+        </html>`
+      }, () => {})
+    }
+
+    sendEmail({
+      reportType: 'Weekly summary email',
+      emailHtml: renderEmail({
+        reports: response.rows
+      })
+    }, (err) => {
+      if (err) {
+        console.log('email sending failed!')
+        return console.error(error)
+      }
+
+      console.log('summary email send successfully')
+    })
+  })
 }
+
+module.exports = weeklyReport
