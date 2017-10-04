@@ -68,6 +68,30 @@ server.route({
   }
 })
 
+server.route({
+  path: '/thumbs',
+  method: 'get',
+  handler: (req, res) => {
+    res.file('index.html')
+  }
+})
+
+server.route({
+  path: '/report',
+  method: 'get',
+  handler: (req, res) => {
+    res.file('index.html')
+  }
+})
+
+server.route({
+  path: '/success',
+  method: 'get',
+  handler: (req, res) => {
+    res.file('index.html')
+  }
+})
+
 server.route(require('./routes/submit.js'))
 server.route(require('./routes/s3_put_url.js'))
 
