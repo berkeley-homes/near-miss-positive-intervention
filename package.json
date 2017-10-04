@@ -15,7 +15,11 @@
     "check-coverage": "babel-istanbul check-coverage",
     "lint": "standard"
   },
-  "pre-commit": ["lint", "test", "check-coverage"],
+  "pre-commit": [
+    "lint",
+    "test",
+    "check-coverage"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/berkeley-homes/near-miss-positive-intervention.git"
@@ -71,6 +75,7 @@
     "hapi-webpack-hot-middleware": "^2.0.0",
     "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2",
+    "prettier-standard": "^7.0.1",
     "react-addons-test-utils": "^15.5.0",
     "react-test-renderer": "^15.5.4",
     "standard": "^9.0.2",
@@ -78,5 +83,7 @@
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3"
   },
-  "standard": { "ignore": "/migrations" }
+  "standard": {
+    "ignore": "/migrations"
+  }
 }
