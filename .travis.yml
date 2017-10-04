@@ -6,7 +6,7 @@ addons:
 env:
   DB_USER=postgres
   DB_PASS=
-  DB_URL='postgres://postgres:@localhost:5432/near_miss_test'
+  DATABASE_URL='postgres://postgres:@localhost:5432/near_miss_test'
 before_install:
   - psql -c 'create database near_miss_test;' -U postgres
   - psql -U postgres near_miss_test < ./src/server/model/queries/schema.sql
