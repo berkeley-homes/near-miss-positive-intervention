@@ -1,0 +1,9 @@
+{
+  "dev": {
+    "driver": "pg"
+  },
+  "prod": {
+    "driver": "pg"
+  },
+  "sql-file": true
+}
