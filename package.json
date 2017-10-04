@@ -5,7 +5,7 @@
   "main": "src/server/server",
   "scripts": {
     "start": "node src/server/start.js",
-    "dev": "node src/server/dev.js",
+    "dev": "nodemon src/server/dev.js",
     "build": "webpack -p",
     "postinstall": "npm run build",
     "dev:test": "nodemon -q -e js --exec \"npm run test\"",
@@ -14,11 +14,7 @@
     "check-coverage": "babel-istanbul check-coverage",
     "lint": "standard"
   },
-  "pre-commit": [
-    "lint",
-    "test",
-    "check-coverage"
-  ],
+  "pre-commit": ["lint", "test", "check-coverage"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/berkeley-homes/near-miss-positive-intervention.git"

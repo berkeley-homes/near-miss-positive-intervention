@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS submissions (
   location_third TEXT,
   description TEXT NOT NULL,
   report_type TEXT NOT NULL,
-  photo_url TEXT
+  photo_url TEXT,
+  created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW()
 );
 
 COMMIT;
