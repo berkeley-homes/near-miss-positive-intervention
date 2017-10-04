@@ -1,9 +1,13 @@
 import React from 'react'
 import cx from 'classnames'
 
+import {naturalCompare} from '../lib/utils.js'
+
 const DropDown = props => {
   const { select, options, value, enabled } = props
   const disabled = !enabled
+
+  const sortedOptions = options && options.sort(naturalCompare)
 
   return (
     <div className=' fl w-third pa3 pt1'>
@@ -24,7 +28,7 @@ const DropDown = props => {
         disabled={disabled}
       >
         {
-        options && options.unshift('').map((option, key) =>
+        sortedOptions && sortedOptions.unshift('').map((option, key) =>
           <option value={option} key={key}>
             { option }
           </option>
