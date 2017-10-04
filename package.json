@@ -5,9 +5,10 @@
   "main": "src/server/server",
   "scripts": {
     "start": "node src/server/start.js",
+    "db-migrate-up": "node_modules/.bin/db-migrate up --config database.json",
     "dev": "nodemon src/server/dev.js",
     "build": "webpack -p",
-    "postinstall": "npm run build",
+    "postinstall": "npm run build && npm run db-migrate-up",
     "dev:test": "nodemon -q -e js --exec \"npm run test\"",
     "test": "babel-node -- node_modules/.bin/babel-istanbul cover --print none test/| tap-notify | tap-spec && npm run print-coverage",
     "print-coverage": "node_modules/.bin/babel-istanbul report text-summary",
@@ -67,6 +68,8 @@
     "aws-sdk": "^2.29.0",
     "babel-istanbul": "^0.12.2",
     "babel-tape-runner": "^2.0.1",
+    "db-migrate": "^0.10.0-beta.24",
+    "db-migrate-pg": "^0.2.5",
     "enzyme": "^2.7.1",
     "hapi-webpack-dev-middleware": "^2.0.0",
     "hapi-webpack-hot-middleware": "^2.0.0",
@@ -79,5 +82,8 @@
     "tap-notify": "^1.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3"
+  },
+  "standard": {
+    "ignore": "/migrations"
   }
 }

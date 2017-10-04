@@ -5,6 +5,7 @@ import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import { routerMiddleware } from 'react-router-redux'
 import history from './history.js'
+import reducer from './reducers/'
 
 const request = ({ url, method, body, headers }) => {
   return new Promise((resolve, reject) => {
@@ -26,16 +27,13 @@ const request = ({ url, method, body, headers }) => {
     request.send(body)
   })
 }
-
-import reducer from './reducers/'
-
 const store = createStore(
-   reducer,
-   applyMiddleware(
-     thunk.withExtraArgument(request),
-     createLogger({ stateTransformer: state => state.report.toJS() }),
-     routerMiddleware(history)
-   )
+  reducer,
+  applyMiddleware(
+    thunk.withExtraArgument(request),
+    createLogger({ stateTransformer: state => state.report.toJS() }),
+    routerMiddleware(history)
+  )
 )
 
 export default store
