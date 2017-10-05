@@ -9,6 +9,7 @@ require('./reducers/report.js')
 require('./actions/submit_report.js')
 require('./actions/report_details.js')
 require('./actions/thumbs.js')
+require('./actions/sites.js')
 
 // components
 require('./components/logo.js')
