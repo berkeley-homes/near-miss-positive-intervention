@@ -1,26 +1,22 @@
-import React from 'react'
-import cx from 'classnames'
+import React from "react";
+import cx from "classnames";
 
-import Dropdown from './dropdown.js'
+import Dropdown from "./dropdown.js";
 
-const keys = map => map && map.keySeq().toList()
+const keys = map => map && map.keySeq().toList();
 
-export const Label = ({ text, enabled }) =>
+export const Label = ({ text, enabled, field }) => (
   <div
-    className={
-      cx(
-        'fl',
-        'w-third',
-        'h2',
-        'ph3',
-        'relative', {
-          'black-30': !enabled,
-          'black-60': enabled
-        }
-      )
-    }>
-    <span className='absolute w-third bottom-0'>{ text }</span>
+    className={cx("fl", "w-third", "h2", "ph3", "relative", {
+      "black-30": !enabled,
+      "black-60": enabled
+    })}
+  >
+    <label className="absolute w-third bottom-0 pointer" htmlFor={field}>
+      {text}
+    </label>
   </div>
+);
 
 export default props => {
   const {
@@ -31,41 +27,44 @@ export default props => {
     setSecondLocation,
     locationThree,
     setThirdLocation
-  } = props
+  } = props;
 
-  const otherSelected = locationOne === 'Other'
+  const otherSelected = locationOne === "Other";
 
-  const secondEnabled = !otherSelected && locationOne
-  const thirdEnabled = !otherSelected && locationOne && locationTwo
+  const secondEnabled = !otherSelected && locationOne;
+  const thirdEnabled = !otherSelected && locationOne && locationTwo;
 
   return (
     <div>
-      <div className='fl w-100 h2 relative'>
-        <Label text={'Location Block'} enabled />
-        <Label text={'Core'} enabled={secondEnabled} />
-        <Label text={'Level'} enabled={thirdEnabled} />
+      <div className="fl w-100 h2 relative">
+        <Label text={"Location Block"} field="locationOne" enabled />
+        <Label text={"Core"} field="locationTwo" enabled={secondEnabled} />
+        <Label text={"Level"} field="locationThree" enabled={thirdEnabled} />
       </div>
       <Dropdown
         value={locationOne}
+        field="locationOne"
         enabled
         options={keys(optionsTree)}
         select={setFirstLocation}
-        label='Location Block'
+        label="Location Block"
       />
       <Dropdown
         value={locationTwo}
+        field="locationTwo"
         enabled={secondEnabled}
         options={keys(optionsTree.get(locationOne))}
         select={setSecondLocation}
-        label='Core'
+        label="Core"
       />
       <Dropdown
         value={locationThree}
+        field="locationThree"
         enabled={thirdEnabled}
         options={keys(optionsTree.getIn([locationOne, locationTwo]))}
         select={setThirdLocation}
-        label='Level'
+        label="Level"
       />
     </div>
-  )
-}
+  );
+};
