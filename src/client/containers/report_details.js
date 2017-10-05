@@ -31,22 +31,16 @@ export const ReportDetails = props => {
     ...locationSelectorProps
   }
 
-  const canSend = description &&
+  const canSend =
+    description &&
     (locationSelectorProps.locationThree ||
       locationSelectorProps.locationOne === 'Other')
 
   return (
     <div className='w-100 center f_lato mb3'>
       <Header location={'UPLOAD'} />
-      <UploadPhotoButton
-        setPhoto={setPhoto}
-        photoData={photoData}
-      />
-      <Input
-        value={name}
-        onChange={setName}
-        label='Name (Optional)'
-      />
+      <UploadPhotoButton setPhoto={setPhoto} photoData={photoData} />
+      <Input value={name} onChange={setName} label='Name (Optional)' />
       <LocationSelector {...allLocationSelectorProps} />
       <Input
         value={description}

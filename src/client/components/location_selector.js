@@ -5,22 +5,18 @@ import Dropdown from './dropdown.js'
 
 const keys = map => map && map.keySeq().toList()
 
-export const Label = ({ text, enabled }) =>
+export const Label = ({ text, enabled, field }) => (
   <div
-    className={
-      cx(
-        'fl',
-        'w-third',
-        'h2',
-        'ph3',
-        'relative', {
-          'black-30': !enabled,
-          'black-60': enabled
-        }
-      )
-    }>
-    <span className='absolute w-third bottom-0'>{ text }</span>
+    className={cx('fl', 'w-third', 'h2', 'ph3', 'relative', {
+      'black-30': !enabled,
+      'black-60': enabled
+    })}
+  >
+    <label className='absolute w-third bottom-0 pointer' htmlFor={field}>
+      {text}
+    </label>
   </div>
+)
 
 export default props => {
   const {
@@ -41,12 +37,13 @@ export default props => {
   return (
     <div>
       <div className='fl w-100 h2 relative'>
-        <Label text={'Location Block'} enabled />
-        <Label text={'Core'} enabled={secondEnabled} />
-        <Label text={'Level'} enabled={thirdEnabled} />
+        <Label text={'Location Block'} field='locationOne' enabled />
+        <Label text={'Core'} field='locationTwo' enabled={secondEnabled} />
+        <Label text={'Level'} field='locationThree' enabled={thirdEnabled} />
       </div>
       <Dropdown
         value={locationOne}
+        field='locationOne'
         enabled
         options={keys(optionsTree)}
         select={setFirstLocation}
@@ -54,6 +51,7 @@ export default props => {
       />
       <Dropdown
         value={locationTwo}
+        field='locationTwo'
         enabled={secondEnabled}
         options={keys(optionsTree.get(locationOne))}
         select={setSecondLocation}
@@ -61,6 +59,7 @@ export default props => {
       />
       <Dropdown
         value={locationThree}
+        field='locationThree'
         enabled={thirdEnabled}
         options={keys(optionsTree.getIn([locationOne, locationTwo]))}
         select={setThirdLocation}

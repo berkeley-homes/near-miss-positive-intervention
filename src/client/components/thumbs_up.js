@@ -4,9 +4,12 @@ class ThumbsUp extends Component {
   render () {
     const { onClick } = this.props
     return (
-      <div onClick={onClick} className='bg-dark-gray w-100 pv5'>
+      <div
+        onClick={onClick}
+        className='bg-dark-gray w-100 grow-1 flex flex-column justify-center'
+      >
         <img
-          className='center db w-65 h-100'
+          className='center db h4'
           src='/img/Thumbs_up_btn_white.svg'
           alt='ThumbsUpImg'
         />

@@ -4,8 +4,9 @@ import { shallow } from 'enzyme'
 import Immutable from 'immutable'
 
 import Dropdown from '../../../src/client/components/dropdown.js'
-import LocationSelector, { Label }
-  from '../../../src/client/components/location_selector.js'
+import LocationSelector, {
+  Label
+} from '../../../src/client/components/location_selector.js'
 
 const mockTree = Immutable.fromJS({ a: { b: { c: {} } } })
 
@@ -38,7 +39,8 @@ test('<LocactionSelector /> with locations selected', t => {
       locationTwo={locationTwo}
       locationThree={locationThree}
       optionsTree={mockTree}
-    />)
+    />
+  )
 
   const dropdowns = wrapper.find(Dropdown)
   t.equal(dropdowns.length, 3, 'all dropdowns visible')
@@ -50,7 +52,7 @@ test('location selector <Label />', t => {
   const text = 'text'
   const wrapper = shallow(<Label text={text} />)
 
-  t.equal(wrapper.find('span').text(), text, 'has text')
+  t.ok(wrapper.find('label').length === 1, 'has text')
 
   t.end()
 })

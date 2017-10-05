@@ -2,22 +2,23 @@ select {
   border-radius: 0px;
 }
 
-input:focus, select:focus {
-  outline: none!important;
+input:focus,
+select:focus {
+  outline: none !important;
 }
 
 .nearmiss_input_text {
-  font-family: 'Francois One', sans-serif!important;
-  font-size: 20px!important;
-  color: #787878!important;
+  font-family: "Francois One", sans-serif !important;
+  font-size: 20px !important;
+  color: #787878 !important;
 }
 
 /*Fonts*/
 .f_lato {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 .f_francois {
-  font-family: 'Francois One', sans-serif;
+  font-family: "Francois One", sans-serif;
 }
 
 /*Near_miss_main_colours*/
@@ -39,12 +40,12 @@ input:focus, select:focus {
 }
 
 .accent_green {
-  background-color: #14DA9E;
+  background-color: #14da9e;
 }
 
 .error_red {
-  color: #D43848;
-  background-color: #D43848;
+  color: #d43848;
+  background-color: #d43848;
 }
 
 .b--nearmiss-black {
@@ -53,7 +54,7 @@ input:focus, select:focus {
 /*Uploading-photo animation*/
 .outer {
   fill: transparent;
-  stroke: #FFF;
+  stroke: #fff;
   stroke-width: 12px;
   stroke-dasharray: 150;
   stroke-dashoffset: 0;
@@ -64,11 +65,15 @@ input:focus, select:focus {
 }
 
 .inner {
-  fill: #FFF;
+  fill: #fff;
   -webkit-transform-origin: center;
   transform-origin: center;
   -webkit-animation: fadeIn 4s infinite;
   animation: fadeIn 4s infinite;
+}
+
+.grow-1 {
+  flex-grow: 1;
 }
 
 @keyframes fadeIn {
@@ -103,15 +108,16 @@ input:focus, select:focus {
     stroke-dashoffset: 0;
   }
 }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    stroke-dashoffset: 0;
-  }
+100% {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  stroke-dashoffset: 0;
+}
 
 .input_arrow {
-  background: url('/assets/Drop_down_arrow_ic.svg');
+  background: url("/assets/Drop_down_arrow_ic.svg");
   background-repeat: no-repeat;
+  background-position-x: right;
   display: inline-block;
   overflow: hidden;
   -webkit-box-sizing: border-box;
@@ -120,7 +126,7 @@ input:focus, select:focus {
 }
 
 .upload_icon {
-  background: url('/assets/upload_photo_icon.svg');
+  background: url("/assets/upload_photo_icon.svg");
   background-repeat: no-repeat;
   display: inline-block;
   overflow: hidden;
@@ -133,5 +139,5 @@ input:focus, select:focus {
 }
 
 input {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }

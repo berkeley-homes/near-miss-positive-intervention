@@ -20,15 +20,18 @@ class UploadPhotoButton extends Component {
     return (
       <div className='mt2'>
         <input
-          className='upload_icon contain db center'
+          className='upload_icon contain db center pointer'
           onChange={this.onImageSelect}
           type='file'
           accept='image/*;capture=camera'
         />
         <span className='center db tc f6'> Upload from device </span>
-        {photoData &&
-          <div className='center pa2 db w-90 bg-light-green'> Image Uploaded </div>
-        }
+        {photoData && (
+          <div className='center pa2 db w-90 bg-light-green'>
+            {' '}
+            Image Uploaded{' '}
+          </div>
+        )}
       </div>
     )
   }

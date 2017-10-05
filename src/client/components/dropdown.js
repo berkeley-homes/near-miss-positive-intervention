@@ -1,10 +1,10 @@
 import React from 'react'
 import cx from 'classnames'
 
-import {naturalCompare} from '../lib/utils.js'
+import { naturalCompare } from '../lib/utils.js'
 
 const DropDown = props => {
-  const { select, options, value, enabled } = props
+  const { select, options, value, enabled, field } = props
   const disabled = !enabled
 
   const sortedOptions = options && options.sort(naturalCompare)
@@ -19,21 +19,27 @@ const DropDown = props => {
           'w-100',
           'bw1',
           'h3',
-          'ba', {
+          'ba',
+          'pa1',
+          'pointer',
+          {
             'b--nearmiss-black': !disabled,
             'b--black-30': disabled
-          })}
+          }
+        )}
         value={value}
-        onChange={e => { select(e.target.value) }}
+        onChange={e => {
+          select(e.target.value)
+        }}
         disabled={disabled}
+        id={field}
       >
-        {
-        sortedOptions && sortedOptions.unshift('').map((option, key) =>
-          <option value={option} key={key}>
-            { option }
-          </option>
-        )
-      }
+        {sortedOptions &&
+          sortedOptions.unshift('').map((option, key) => (
+            <option value={option} key={key}>
+              {option}
+            </option>
+          ))}
       </select>
     </div>
   )
