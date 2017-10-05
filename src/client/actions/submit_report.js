@@ -76,14 +76,14 @@ export const submitReport = () => (dispatch, getState, request) => {
       })
     : submitReportRequest(request, state)
   )
-  .then(() => dispatch(setPostResult({ status: 200 })))
-  .catch(error => {
-    dispatch(setPostResultError(error))
-    console.error(error)
-  })
-  .then(() => {
-    dispatch(push('/success'))
-  }).catch(e => {
-    console.error(e)
-  })
+    .then(() => dispatch(setPostResult({ status: 200 })))
+    .catch(error => {
+      dispatch(setPostResultError(error))
+      console.error(error)
+    })
+    .then(() => {
+      dispatch(push('/success'))
+    }).catch(e => {
+      console.error(e)
+    })
 }

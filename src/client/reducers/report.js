@@ -6,7 +6,8 @@ import {
   SET_LOCATION,
   SET_DESCRIPTION,
   SET_POST_RESULT,
-  SET_REPORT_TYPE
+  SET_REPORT_TYPE,
+  SET_SITE
 } from '../action_types.js'
 
 export const initialState = Immutable.fromJS({
@@ -14,7 +15,8 @@ export const initialState = Immutable.fromJS({
   isPosting: false,
   name: '',
   description: '',
-  title: 'Near Miss - Positive Interventions'
+  title: 'Near Miss - Positive Interventions',
+  site: ''
 })
 
 export const resetForm = state => state
@@ -27,6 +29,8 @@ export default (state = initialState, action) => {
       return state.set('photo', action.photo)
     case SET_NAME:
       return state.set('name', action.name)
+    case SET_SITE:
+      return state.set('site', action.site)
     case SET_DESCRIPTION:
       return state.set('description', action.description)
     case SET_REPORT_TYPE:

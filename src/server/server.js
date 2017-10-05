@@ -57,7 +57,7 @@ server.register([inert, vision, modelPlugin], err => {
 })
 
 server.route({
-  path: '/{param*}',
+  path: '/{params*}',
   method: 'get',
   handler: {
     directory: {
@@ -69,7 +69,7 @@ server.route({
 })
 
 server.route({
-  path: '/thumbs',
+  path: '/thumbs/{params}',
   method: 'get',
   handler: (req, res) => {
     res.file('index.html')
@@ -77,7 +77,7 @@ server.route({
 })
 
 server.route({
-  path: '/report',
+  path: '/report/{params*2}',
   method: 'get',
   handler: (req, res) => {
     res.file('index.html')
@@ -85,7 +85,15 @@ server.route({
 })
 
 server.route({
-  path: '/success',
+  path: '/success/{params*2}',
+  method: 'get',
+  handler: (req, res) => {
+    res.file('index.html')
+  }
+})
+
+server.route({
+  path: '/site',
   method: 'get',
   handler: (req, res) => {
     res.file('index.html')

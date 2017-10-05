@@ -12,6 +12,7 @@ import ReportDetails from './containers/report_details.js'
 import Success from './containers/success.js'
 import Thumbs from './containers/thumbs.js'
 import Splash from './components/splash.js'
+import Sites from './containers/sites.js'
 
 const App = () => {
   return (
@@ -21,19 +22,23 @@ const App = () => {
           <Route
             exact path='/'
             component={Splash}
-            />
+          />
           <Route
-            exact path='/thumbs'
+            exact path='/site'
+            component={Sites}
+          />
+          <Route
+            path='/thumbs'
             component={Thumbs}
-            />
+          />
           <Route
-            path='/report'
+            path='/report/:site/:thumbs'
             component={ReportDetails}
-            />
+          />
           <Route
-            path='/success'
+            path='/success/:site/:thumbs'
             component={Success}
-            />
+          />
         </div>
       </ConnectedRouter>
     </Provider>
