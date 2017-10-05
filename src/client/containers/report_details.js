@@ -40,9 +40,15 @@ export const ReportDetails = props => {
     <div className='w-100 center f_lato mb3'>
       <Header location={'UPLOAD'} />
       <UploadPhotoButton setPhoto={setPhoto} photoData={photoData} />
-      <Input value={name} onChange={setName} label='Name (Optional)' />
+      <Input
+        name='name'
+        value={name}
+        onChange={setName}
+        label='Name (Optional)'
+      />
       <LocationSelector {...allLocationSelectorProps} />
       <Input
+        name='description'
         value={description}
         onChange={setDescription}
         label='This is what I saw...'

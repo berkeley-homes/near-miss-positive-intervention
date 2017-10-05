@@ -117,7 +117,7 @@ select:focus {
 .input_arrow {
   background: url("/assets/Drop_down_arrow_ic.svg");
   background-repeat: no-repeat;
-  background-position-x: right;
+  background-position-x: 95%;
   display: inline-block;
   overflow: hidden;
   -webkit-box-sizing: border-box;
