@@ -1,48 +1,48 @@
-import React from "react";
-import cx from "classnames";
+import React from 'react'
+import cx from 'classnames'
 
-import { naturalCompare } from "../lib/utils.js";
+import { naturalCompare } from '../lib/utils.js'
 
 const DropDown = props => {
-  const { select, options, value, enabled, field } = props;
-  const disabled = !enabled;
+  const { select, options, value, enabled, field } = props
+  const disabled = !enabled
 
-  const sortedOptions = options && options.sort(naturalCompare);
+  const sortedOptions = options && options.sort(naturalCompare)
 
   return (
-    <div className=" fl w-third pa3 pt1">
+    <div className=' fl w-third pa3 pt1'>
       <select
         className={cx(
-          "bg-white",
-          "input_arrow",
-          "input-reset",
-          "w-100",
-          "bw1",
-          "h3",
-          "ba",
-          "pa1",
-          "pointer",
+          'bg-white',
+          'input_arrow',
+          'input-reset',
+          'w-100',
+          'bw1',
+          'h3',
+          'ba',
+          'pa1',
+          'pointer',
           {
-            "b--nearmiss-black": !disabled,
-            "b--black-30": disabled
+            'b--nearmiss-black': !disabled,
+            'b--black-30': disabled
           }
         )}
         value={value}
         onChange={e => {
-          select(e.target.value);
+          select(e.target.value)
         }}
         disabled={disabled}
         id={field}
       >
         {sortedOptions &&
-          sortedOptions.unshift("").map((option, key) => (
+          sortedOptions.unshift('').map((option, key) => (
             <option value={option} key={key}>
               {option}
             </option>
           ))}
       </select>
     </div>
-  );
-};
+  )
+}
 
-export default DropDown;
+export default DropDown
