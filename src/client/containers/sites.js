@@ -8,16 +8,28 @@ import Site from '../components/site.js'
 
 export const Sites = ({ setSite }) => {
   console.log(setSite)
-  const listOfSites = ['Goodmans Field', 'Blah', 'Blah2'].map((site, i) => {
+  const listOfSites = [
+    {
+      name: 'Goodmans Field', imgURL: '/img/sites/goodmans.png'
+    },
+    {
+      name: 'City Road', imgURL: '/img/sites/city-road.png'
+    },
+    {
+      name: 'Woodberry', imgURL: '/img/sites/woodberry.png'
+    }
+  ].map((site, i) => {
     return (
       <Site
-        name={site}
+        key={i}
+        name={site.name}
+        imgURL={site.imgURL}
         handleSetSite={setSite}
       />
     )
   })
   return (
-    <div className='vh-100 w-100 f_lato f4 flex flex-column'>
+    <div className='w-100 f_lato f4 flex flex-column'>
       <Header location={'SITE'} />
       <div className='flex flex-column h-100'>
         {listOfSites}

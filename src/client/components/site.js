@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Site = ({ name, handleSetSite }) => {
+const Site = ({ name, handleSetSite, imgURL }) => {
   return (
-    <div onClick={() => { handleSetSite(name) }}>
-      <p>{name} </p>
+    <div className='flex flex-column' onClick={() => { handleSetSite(name) }}>
+      <img className='mw5 pa2 center' src={imgURL} alt={name} />
     </div>
   )
 }
