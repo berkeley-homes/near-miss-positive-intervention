@@ -28,7 +28,7 @@ const App = () => {
             component={Sites}
           />
           <Route
-            path='/thumbs'
+            path='/thumbs/:site'
             component={Thumbs}
           />
           <Route

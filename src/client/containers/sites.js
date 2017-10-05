@@ -10,13 +10,13 @@ export const Sites = ({ setSite }) => {
   console.log(setSite)
   const listOfSites = [
     {
-      name: 'Goodmans Field', imgURL: '/img/sites/goodmans.png'
+      name: 'goodmans-fields', imgURL: '/img/sites/goodmans.png'
     },
     {
-      name: 'City Road', imgURL: '/img/sites/city-road.png'
+      name: 'city-road', imgURL: '/img/sites/city-road.png'
     },
     {
-      name: 'Woodberry', imgURL: '/img/sites/woodberry.png'
+      name: 'woodberry', imgURL: '/img/sites/woodberry.png'
     }
   ].map((site, i) => {
     return (

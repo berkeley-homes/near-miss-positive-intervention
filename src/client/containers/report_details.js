@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Immutable from 'immutable'
+import { push } from 'react-router-redux'
+import store from '../store'
 
 import * as actions from '../actions/report_details'
 import LocationSelector from '../components/location_selector.js'
@@ -13,47 +15,59 @@ import { goodmans_fields } from '../lib/locations.js'
 
 const optionsTree = Immutable.fromJS(goodmans_fields)
 
-export const ReportDetails = props => {
-  const {
-    name,
-    description,
-    setName,
-    setDescription,
-    locationSelectorProps,
-    setPhoto,
-    photoData,
-    submitReport,
-    isSubmitting
-  } = props
-
-  const allLocationSelectorProps = {
-    optionsTree,
-    ...locationSelectorProps
+class ReportDetails extends Component {
+  constructor (props) {
+    super(props)
   }
 
-  const canSend =
-    description &&
-    (locationSelectorProps.locationThree ||
-      locationSelectorProps.locationOne === 'Other')
+  componentDidMount () {
+    console.log()
+    if (!this.props.reportType || !this.props.site) {
+      store.dispatch(push('/site'))
+    }
+  }
 
-  return (
-    <div className='w-100 center f_lato mb3'>
-      <Header location={'UPLOAD'} />
-      <UploadPhotoButton setPhoto={setPhoto} photoData={photoData} />
-      <Input value={name} onChange={setName} label='Name (Optional)' />
-      <LocationSelector {...allLocationSelectorProps} />
-      <Input
-        value={description}
-        onChange={setDescription}
-        label='This is what I saw...'
-      />
-      <Submit
-        enabled={canSend}
-        submit={submitReport}
-        isSubmitting={isSubmitting}
-      />
-    </div>
-  )
+  render () {
+    const {
+      name,
+      description,
+      setName,
+      setDescription,
+      locationSelectorProps,
+      setPhoto,
+      photoData,
+      submitReport,
+      isSubmitting
+    } = this.props
+
+    const allLocationSelectorProps = {
+      optionsTree,
+      ...locationSelectorProps
+    }
+
+    const canSend =
+      description &&
+      (locationSelectorProps.locationThree ||
+        locationSelectorProps.locationOne === 'Other')
+    return (
+      <div className='w-100 center f_lato mb3'>
+        <Header location={'UPLOAD'} />
+        <UploadPhotoButton setPhoto={setPhoto} photoData={photoData} />
+        <Input value={name} onChange={setName} label='Name (Optional)' />
+        <LocationSelector {...allLocationSelectorProps} />
+        <Input
+          value={description}
+          onChange={setDescription}
+          label='This is what I saw...'
+        />
+        <Submit
+          enabled={canSend}
+          submit={submitReport}
+          isSubmitting={isSubmitting}
+        />
+      </div>
+    )
+  }
 }
 
 export const mapStateToProps = state => {
@@ -66,7 +80,9 @@ export const mapStateToProps = state => {
     locationTwo: reportState.getIn(['location', 1]),
     locationThree: reportState.getIn(['location', 2]),
     photoData: reportState.get('photoData'),
-    isSubmitting: reportState.get('isPosting')
+    isSubmitting: reportState.get('isPosting'),
+    site: reportState.get('site'),
+    reportType: reportState.get('reportType')
   }
 }
 
