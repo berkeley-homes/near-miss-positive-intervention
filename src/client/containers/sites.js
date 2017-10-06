@@ -6,24 +6,17 @@ import * as actions from '../actions/sites.js'
 import Header from '../components/header.js'
 import Site from '../components/site.js'
 
+import * as siteData from '../lib/siteData'
+
 export const Sites = ({ setSite }) => {
   console.log(setSite)
-  const listOfSites = [
-    {
-      name: 'goodmans-fields', imgURL: '/img/sites/goodmans.png'
-    },
-    {
-      name: 'city-road', imgURL: '/img/sites/city-road.png'
-    },
-    {
-      name: 'woodberry', imgURL: '/img/sites/woodberry.png'
-    }
-  ].map((site, i) => {
+  const listOfSites = Object.keys(siteData).map((site, i) => {
     return (
       <Site
         key={i}
-        name={site.name}
-        imgURL={site.imgURL}
+        name={siteData[site].name}
+        path={siteData[site].path}
+        imgURL={siteData[site].imgURL}
         handleSetSite={setSite}
       />
     )

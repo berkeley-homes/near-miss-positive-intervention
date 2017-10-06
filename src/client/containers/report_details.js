@@ -11,23 +11,23 @@ import Submit from '../components/submit.js'
 import Input from '../components/input.js'
 import Header from '../components/header.js'
 
-import { goodmans_fields } from '../lib/locations.js'
+import { goodmans_fields } from '../lib/siteData.js'
 
 const optionsTree = Immutable.fromJS(goodmans_fields)
 
 class ReportDetails extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     console.log()
     if (!this.props.reportType || !this.props.site) {
       store.dispatch(push('/site'))
     }
   }
 
-  render () {
+  render() {
     const {
       name,
       description,
