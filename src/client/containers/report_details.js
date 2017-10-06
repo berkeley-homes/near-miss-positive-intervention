@@ -11,9 +11,8 @@ import Submit from '../components/submit.js'
 import Input from '../components/input.js'
 import Header from '../components/header.js'
 
-import { goodmans_fields } from '../lib/siteData.js'
+import * as siteData from '../lib/siteData.js'
 
-const optionsTree = Immutable.fromJS(goodmans_fields)
 
 class ReportDetails extends Component {
   constructor(props) {
@@ -28,6 +27,7 @@ class ReportDetails extends Component {
   }
 
   render() {
+
     const {
       name,
       description,
@@ -37,8 +37,15 @@ class ReportDetails extends Component {
       setPhoto,
       photoData,
       submitReport,
-      isSubmitting
+      isSubmitting,
+      match
     } = this.props
+
+    console.log(match)
+
+    const currentSite = Object.keys(siteData).find((key) => siteData[key].path === match.params.site)
+    const optionsTree = Immutable.fromJS(currentSite.location);
+
 
     const allLocationSelectorProps = {
       optionsTree,
