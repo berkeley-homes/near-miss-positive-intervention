@@ -13,16 +13,11 @@ import Header from '../components/header.js'
 
 import * as siteData from '../lib/siteData.js'
 
-
 class ReportDetails extends Component {
-  constructor(props) {
-    super(props)
-  }
 
-  componentDidMount() {
-    console.log()
+  componentWillMount() {
     if (!this.props.reportType || !this.props.site) {
-      store.dispatch(push('/site'))
+      return store.dispatch(push('/site'))
     }
   }
 
@@ -38,14 +33,20 @@ class ReportDetails extends Component {
       photoData,
       submitReport,
       isSubmitting,
-      match
+      site,
+      reportType
     } = this.props
 
-    console.log(match)
+    // If site and report type don't exist we return null and redirect to site page. view ComponentWillMount func. 
+    if (!site || !reportType) {
+      return (
+        null
+      )
+    }
 
-    const currentSite = Object.keys(siteData).find((key) => siteData[key].path === match.params.site)
-    const optionsTree = Immutable.fromJS(currentSite.location);
+    const currentSite = siteData[Object.keys(siteData).filter((key) => siteData[key].path === site)]
 
+    const optionsTree = Immutable.fromJS(currentSite.location)
 
     const allLocationSelectorProps = {
       optionsTree,
