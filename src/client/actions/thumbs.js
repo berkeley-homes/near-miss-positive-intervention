@@ -19,3 +19,7 @@ export const selectPositiveIntervention = () => (dispatch, getState) => {
   })
   dispatch(push(`/report/${site}/positive-intervention`))
 }
+
+export const redirectUser = () => dispatch => {
+  dispatch(push('/site'))
+}

@@ -9,7 +9,6 @@ import Site from '../components/site.js'
 import * as siteData from '../lib/siteData'
 
 export const Sites = ({ setSite }) => {
-  console.log(setSite)
   const listOfSites = Object.keys(siteData).map((site, i) => {
     return (
       <Site

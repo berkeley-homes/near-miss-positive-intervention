@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Immutable from 'immutable'
-import { push } from 'react-router-redux'
-import store from '../store'
 
 import * as actions from '../actions/report_details'
 import LocationSelector from '../components/location_selector.js'
@@ -17,7 +15,7 @@ class ReportDetails extends Component {
 
   componentWillMount() {
     if (!this.props.reportType || !this.props.site) {
-      return store.dispatch(push('/site'))
+      this.props.redirectUser();
     }
   }
 
@@ -40,7 +38,7 @@ class ReportDetails extends Component {
     // If site and report type don't exist we return null and redirect to site page. view ComponentWillMount func. 
     if (!site || !reportType) {
       return (
-        null
+        <div></div>
       )
     }
 
