@@ -1,2 +1,2 @@
-exports.nearMiss = "near-miss";
-exports.positiveIntervention = "positive-intervention";
+exports.nearMiss = 'near-miss'
+exports.positiveIntervention = 'positive-intervention'
