@@ -9,7 +9,7 @@ import SuccessIllustration from "../components/success_illustration.js";
 import HomeBtn from "../components/home_button.js";
 import Header from "../components/header.js";
 
-const Success = ({ payload, reportType }) => (
+export const Success = ({ payload, reportType }) => (
   <div className="f_lato">
     <Header location={"SUCCESS"} />
     <BerkeleyLogo />

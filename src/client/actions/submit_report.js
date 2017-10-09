@@ -83,10 +83,6 @@ export const submitReport = () => (dispatch, getState, request) => {
       console.error(error);
     })
     .then(() => {
-      console.log({
-        site: state.get("site"),
-        type: state.get("reportType")
-      });
       dispatch(
         push(`/success/${state.get("site")}/${state.get("reportType")}`)
       );
