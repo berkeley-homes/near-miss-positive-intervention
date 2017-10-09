@@ -1,6 +1,7 @@
 // containers
 require('./containers/report_details.js')
 require('./containers/thumbs.js')
+require('./containers/sites.js')
 require('./containers/success.js')
 // reducers
 require('./reducers/report.js')
@@ -18,6 +19,7 @@ require('./components/welcome_message.js')
 require('./components/thumbs_down.js')
 require('./components/thumbs_up.js')
 require('./components/submit.js')
+require('./components/site.js')
 require('./components/input.js')
 require('./components/form_message.js')
 require('./components/dropdown.js')
