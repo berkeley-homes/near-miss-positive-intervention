@@ -11,7 +11,7 @@ import Header from '../components/header.js'
 
 import * as siteData from '../lib/siteData.js'
 
-class ReportDetails extends Component {
+export class ReportDetails extends Component {
 
   componentWillMount() {
     if (!this.props.reportType || !this.props.site) {
@@ -37,8 +37,9 @@ class ReportDetails extends Component {
 
     // If site and report type don't exist we return null and redirect to site page. view ComponentWillMount func. 
     if (!site || !reportType) {
+      console.log('HELOOOOOOOO ')
       return (
-        <div></div>
+        <div />
       )
     }
 
