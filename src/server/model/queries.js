@@ -1,12 +1,12 @@
-const { runSqlFromFs } = require('./helpers.js')
+const { runSqlFromFs } = require("./helpers.js");
 
 const init = (query, cb) => {
-  runSqlFromFs(query, 'schema', {}, cb)
-}
+  runSqlFromFs(query, "schema", {}, cb);
+};
 
 const weekly = (query, cb) => {
-  runSqlFromFs(query, 'weekly', {}, cb)
-}
+  runSqlFromFs(query, "weekly", {}, cb);
+};
 
 const submitReport = (query, params) => cb => {
   const {
@@ -17,33 +17,35 @@ const submitReport = (query, params) => cb => {
     description,
     reportType,
     photoUrl
-  } = params
+  } = params;
 
-  if (!['near miss', 'positive intervention'].includes(reportType)) {
-    return cb(new Error('Report submission failed. Bad report type.'))
+  if (!["near miss", "positive intervention"].includes(reportType)) {
+    return cb(new Error("Report submission failed. Bad report type."));
   }
 
   runSqlFromFs(
     query,
-    'submit_report',
-    { queryArgs: [
-      name,
-      locationFirst,
-      locationSecond,
-      locationThird,
-      description,
-      reportType,
-      photoUrl
-    ] },
+    "submit_report",
+    {
+      queryArgs: [
+        name,
+        locationFirst,
+        locationSecond,
+        locationThird,
+        description,
+        reportType,
+        photoUrl
+      ]
+    },
     err => {
-      if (err) return cb(err)
-      cb(null, params)
+      if (err) return cb(err);
+      cb(null, params);
     }
-  )
-}
+  );
+};
 
 module.exports = {
   init,
   weekly,
   submitReport
-}
+};
