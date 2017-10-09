@@ -32,10 +32,12 @@ test('<ReportDetails /> component', t => {
   t.end()
 })
 
-test.skip('<ReportDetails /> component, completed', t => {
+test('<ReportDetails /> component, completed', t => {
   const description = 'description'
   const wrapper = shallow(
     <ReportDetails
+      site='goodmans-fields'
+      reportType='near-miss'
       locationSelectorProps={{ locationThree: 'yo' }}
       description={description}
     />
@@ -49,7 +51,7 @@ test.skip('<ReportDetails /> component, completed', t => {
   t.end()
 })
 
-test.skip('ReportDetails mapStateToProps', t => {
+test('ReportDetails mapStateToProps', t => {
   const name = 'name'
   const description = 'description'
   const locationOne = 'location one'
@@ -71,7 +73,7 @@ test.skip('ReportDetails mapStateToProps', t => {
 
 const filterUnderfined = obj => JSON.parse(JSON.stringify(obj))
 
-test.skip('ReportDetails mergeProps', t => {
+test('ReportDetails mergeProps', t => {
   const description = 'description'
   const locationOne = 'location one'
 
