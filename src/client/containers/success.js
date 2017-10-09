@@ -9,13 +9,13 @@ import SuccessIllustration from "../components/success_illustration.js";
 import HomeBtn from "../components/home_button.js";
 import Header from "../components/header.js";
 
-const Success = ({ payload }) => (
+const Success = ({ payload, reportType }) => (
   <div className="f_lato">
     <Header location={"SUCCESS"} />
     <BerkeleyLogo />
     {!payload ? (
       <div>
-        <ThanksMessage />
+        <ThanksMessage reportType={reportType} />
         <SuccessIllustration />
       </div>
     ) : (
@@ -33,5 +33,6 @@ const Success = ({ payload }) => (
 );
 
 export default connect(state => ({
-  payload: immutable.fromJS(state.report.get("payload"))
+  payload: immutable.fromJS(state.report.get("payload")),
+  reportType: immutable.fromJS(state.report.get("reportType"))
 }))(Success);
