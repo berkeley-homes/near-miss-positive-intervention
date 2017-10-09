@@ -38,7 +38,6 @@ const uploadPhotoRequest = (request, url, photo) =>
   });
 
 const submitReportRequest = (request, state, photoKey) => {
-  console.log("HERE");
   const [locationFirst, locationSecond, locationThird] = state
     .get("location")
     .toArray();
@@ -76,7 +75,7 @@ export const submitReport = () => (dispatch, getState, request) => {
         const { s3PutUrl, photoKey } = JSON.parse(responseText);
         return reportAndUploadRequests(request, s3PutUrl, photoKey, state);
       })
-    : submitReportRequest(request, state)
+    : submitReportRequest(request, state, null, dispatch)
   )
     .then(() => dispatch(setPostResult({ status: 200 })))
     .catch(error => {

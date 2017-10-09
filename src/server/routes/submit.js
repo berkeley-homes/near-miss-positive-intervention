@@ -36,9 +36,9 @@ const route = {
       maxBytes: 10485760
     },
     validate: {
-      failAction: (req, rep, src, err) => {
+      failAction: (request, reply, src, err) => {
         console.log(err.data.details);
-        rep(err.data);
+        return reply(JSON.stringify(err.data.details)).code(500);
       },
       payload: {
         locationFirst: Joi.string().required(),

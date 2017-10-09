@@ -6,13 +6,13 @@ import { routerMiddleware } from "react-router-redux";
 import history from "./history.js";
 import reducer from "./reducers/";
 
-const request = ({ url, method, body, headers }) => {
+const fetch = ({ url, method, body, headers }) => {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
     request.onreadystatechange = () => {
       if (request.readyState === 4) {
         if (request.status !== 200) {
-          console.log(request.responseText);
+          console.log({ request });
           reject(request);
         } else {
           resolve(request.responseText);
@@ -30,7 +30,7 @@ const request = ({ url, method, body, headers }) => {
 const store = createStore(
   reducer,
   applyMiddleware(
-    thunk.withExtraArgument(request),
+    thunk.withExtraArgument(fetch),
     createLogger({ stateTransformer: state => state.report.toJS() }),
     routerMiddleware(history)
   )
