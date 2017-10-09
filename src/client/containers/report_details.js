@@ -37,7 +37,6 @@ export class ReportDetails extends Component {
 
     // If site and report type don't exist we return null and redirect to site page. view ComponentWillMount func. 
     if (!site || !reportType) {
-      console.log('HELOOOOOOOO ')
       return (
         <div />
       )
