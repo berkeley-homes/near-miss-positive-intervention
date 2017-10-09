@@ -6,7 +6,7 @@ class ThumbsDown extends Component {
     return (
       <div
         onClick={onClick}
-        className='w-100 grow-1 flex flex-column justify-center'
+        className='w-100 grow-1 flex flex-column justify-center pointer'
       >
         <p className='mb0 tc'>Near Miss</p>
         <img

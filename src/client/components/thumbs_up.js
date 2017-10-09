@@ -6,7 +6,7 @@ class ThumbsUp extends Component {
     return (
       <div
         onClick={onClick}
-        className='bg-dark-gray w-100 grow-1 flex flex-column justify-center'
+        className='bg-dark-gray w-100 grow-1 flex flex-column justify-center pointer'
       >
         <img
           className='center db h4'
