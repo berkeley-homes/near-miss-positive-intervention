@@ -7,7 +7,7 @@ import ThumbsUp from '../components/thumbs_up.js'
 import ThumbsDown from '../components/thumbs_down.js'
 import Header from '../components/header.js'
 
-class Thumbs extends Component {
+export class Thumbs extends Component {
 
   componentDidMount() {
     if (!this.props.site) {

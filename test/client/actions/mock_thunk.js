@@ -4,7 +4,6 @@ export default (mockState, extraArgument) => {
 
   const dispatch = action => {
     if (typeof action === 'function') {
-      console.log(getState(), '><<<<<><><')
       return action(dispatch, getState, extraArgument)
     }
 
