@@ -9,34 +9,29 @@ import SuccessIllustration from "../components/success_illustration.js";
 import HomeBtn from "../components/home_button.js";
 import Header from "../components/header.js";
 
-class Success extends Component {
-  render() {
-    const { payload } = this.props;
-    return (
-      <div className="f_lato">
-        <Header location={"SUCCESS"} />
-        <BerkeleyLogo />
-        {payload.status === 200 ? (
-          <div>
-            <ThanksMessage />
-            <SuccessIllustration />
-          </div>
-        ) : (
-          <div>
-            <p>
-              Hey there! Something's gone wrong. Please try again by clicking
-              the link below. If you continue to have problems, please get in
-              touch.
-            </p>
-          </div>
-        )}
-        <Link to="/">
-          <HomeBtn />
-        </Link>
+const Success = ({ payload }) => (
+  <div className="f_lato">
+    <Header location={"SUCCESS"} />
+    <BerkeleyLogo />
+    {!payload ? (
+      <div>
+        <ThanksMessage />
+        <SuccessIllustration />
       </div>
-    );
-  }
-}
+    ) : (
+      <div>
+        <p>
+          Hey there! Something's gone wrong. Please try again by clicking the
+          link below. If you continue to have problems, please get in touch.
+        </p>
+      </div>
+    )}
+    <Link to="/">
+      <HomeBtn />
+    </Link>
+  </div>
+);
+
 export default connect(state => ({
   payload: immutable.fromJS(state.report.get("payload"))
 }))(Success);

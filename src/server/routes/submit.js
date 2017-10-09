@@ -1,5 +1,6 @@
 const Joi = require("joi");
 const { waterfall } = require("async");
+const { nearMiss, positiveIntervention } = require("../../constants.js");
 
 const renderEmail = request => (payload, cb) => {
   request.render("email", payload, (err, emailHtml) => {
@@ -49,7 +50,7 @@ const route = {
           .allow(""),
         photoKey: Joi.string().optional(),
         description: Joi.string().required(),
-        reportType: ["near-miss", "positive intervention"]
+        reportType: [nearMiss, positiveIntervention]
       }
     }
   }

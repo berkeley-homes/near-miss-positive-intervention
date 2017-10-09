@@ -75,7 +75,7 @@ export const submitReport = () => (dispatch, getState, request) => {
         const { s3PutUrl, photoKey } = JSON.parse(responseText);
         return reportAndUploadRequests(request, s3PutUrl, photoKey, state);
       })
-    : submitReportRequest(request, state, null, dispatch)
+    : submitReportRequest(request, state)
   )
     .then(() => dispatch(setPostResult({ status: 200 })))
     .catch(error => {
