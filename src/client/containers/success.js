@@ -30,7 +30,7 @@ class Success extends Component {
             </p>
           </div>
         )}
-        <Link to="/thumbs">
+        <Link to="/">
           <HomeBtn />
         </Link>
       </div>
