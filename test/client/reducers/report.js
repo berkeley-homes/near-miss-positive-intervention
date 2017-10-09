@@ -8,7 +8,8 @@ import {
   SET_NAME,
   SET_LOCATION,
   SET_DESCRIPTION,
-  SET_POST_RESULT
+  SET_POST_RESULT,
+  SET_SITE
 } from '../../../src/client/action_types.js'
 
 test('report reducer: initailState', t => {
@@ -75,6 +76,14 @@ test('report reducer: SET_NAME', t => {
   const newState = reducer(initialState, { type: SET_NAME, name })
 
   t.equal(newState.get('name'), name, 'set the name')
+
+  t.end()
+})
+test('report reducer: SET_SITE', t => {
+  const site = 'goodmans'
+  const newState = reducer(initialState, { type: SET_SITE, site })
+
+  t.equal(newState.get('site'), site, 'set the name')
 
   t.end()
 })

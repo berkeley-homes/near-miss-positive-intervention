@@ -1,6 +1,7 @@
 import { SET_NAME, SET_LOCATION, SET_DESCRIPTION, SET_PHOTO }
   from '../action_types.js'
 export { submitReport } from './submit_report.js'
+import { push } from 'react-router-redux'
 
 export const setName = name => ({
   type: SET_NAME,
@@ -25,6 +26,9 @@ export const setPhoto = photo => {
   }
 }
 
+export const redirectUser = () => dispatch => {
+  dispatch(push('/site'))
+}
 export const setFirstLocation = setLocation(0)
 
 export const setSecondLocation = setLocation(1)

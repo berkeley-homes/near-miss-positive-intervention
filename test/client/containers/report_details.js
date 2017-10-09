@@ -13,6 +13,8 @@ test('<ReportDetails /> component', t => {
   const description = 'description'
   const wrapper = shallow(
     <ReportDetails
+      site='goodmans-fields'
+      reportType='near-miss'
       name={name}
       locationSelectorProps={{}}
       description={description}
@@ -34,6 +36,8 @@ test('<ReportDetails /> component, completed', t => {
   const description = 'description'
   const wrapper = shallow(
     <ReportDetails
+      site='goodmans-fields'
+      reportType='near-miss'
       locationSelectorProps={{ locationThree: 'yo' }}
       description={description}
     />

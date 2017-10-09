@@ -10,12 +10,12 @@ test('Header includes NM Logo, title and menubtn', t => {
       className='h3 fl w-third'
       src='/img/nearMiss_nav_logo.svg'
       alt='NearMissLogo'
-  />), true)
+    />), true)
   t.equal(wrapper.contains(
     <img
       className='h2 fl w-third pt3'
       src='/img/burger_menu.svg'
       alt='HamburgerMenu'
-  />), true)
+    />), true)
   t.end()
 })

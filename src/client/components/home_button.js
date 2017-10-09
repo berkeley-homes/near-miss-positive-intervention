@@ -10,6 +10,6 @@ class HomeBtn extends Component {
       </div>
     )
   }
-  }
+}
 
 export default HomeBtn
