@@ -14,7 +14,6 @@ test('<Splash />', t => {
     images.at(0).node.props.src.includes('onboarding_logo'),
     'first img is onboarding logo'
   )
-  // console.log();
   t.ok(
     images.at(1).node.props.src.includes('Berkeley-Group-logo'),
     'second image is logo'

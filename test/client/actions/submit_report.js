@@ -71,7 +71,6 @@ test('submitReport success', t => {
       },
       'Submit report request'
     )
-    console.log(requestOpts)
     t.deepEqual(
       calls.shift(),
       { type: SET_POSTING },
@@ -84,7 +83,7 @@ test('submitReport success', t => {
     )
     t.deepEqual(
       calls.shift().payload,
-      { args: [ '/success' ], method: 'push' },
+      { args: ['/success'], method: 'push' },
       'then we change the url'
     )
     t.equal(calls.length, 0, 'only 3 actions dispached')

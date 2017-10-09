@@ -9,7 +9,8 @@ instrumentation:
     "client/store.js",
     "client/history.js",
     "client/components/upload_photo_btn.js",
-    "client/components/upload_photo.js"
+    "client/components/upload_photo.js",
+    "client/lib/siteData.js"
   ]
   include-all-sources: true
 check:
