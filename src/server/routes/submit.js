@@ -1,23 +1,27 @@
-const Joi = require('joi')
-const { waterfall } = require('async')
-const { nearMiss, positiveIntervention } = require('../../constants.js')
+const Joi = require("joi");
+const { waterfall } = require("async");
+const { nearMiss, positiveIntervention } = require("../../constants.js");
 
 const renderEmail = request => (payload, cb) => {
-  request.render('email', payload, (err, emailHtml) => {
-    if (err) return cb(err)
+  request.render("email", payload, (err, emailHtml) => {
+    if (err) return cb(err);
 
-    cb(null, Object.assign({}, payload, { emailHtml }))
-  })
-}
+    cb(null, Object.assign({}, payload, { emailHtml }));
+  });
+};
 
 const route = {
-  method: 'POST',
-  path: '/submit',
+  method: "POST",
+  path: "/submit",
   config: {
     handler: (request, reply) => {
-      const { payload, server: { plugins: { model } } } = request
-      const photoUrl = model.getUrl(payload.photoKey)
-      const payloadWithPhotoUrl = Object.assign({}, payload, { photoUrl })
+      const { payload, server: { plugins: { model } } } = request;
+      if (payload.photoKey) {
+        const photoUrl = model.getUrl(payload.photoKey);
+      }
+      const payloadWithPhotoUrl = payload.photoKey
+        ? Object.assign({}, payload, { photoUrl })
+        : payload;
 
       waterfall(
         [
@@ -26,20 +30,20 @@ const route = {
           model.sendEmail
         ],
         (error, payload) => {
-          if (error) return console.error(error)
+          if (error) return console.error(error);
 
-          const { s3PutUrl } = payload
-          reply({ s3PutUrl })
+          const { s3PutUrl } = payload;
+          reply({ s3PutUrl });
         }
-      )
+      );
     },
     payload: {
       maxBytes: 10485760
     },
     validate: {
       failAction: (request, reply, src, err) => {
-        console.log(err.data.details)
-        return reply(JSON.stringify(err.data.details)).code(500)
+        console.log(err.data.details);
+        return reply(JSON.stringify(err.data.details)).code(500);
       },
       payload: {
         locationFirst: Joi.string().required(),
@@ -48,13 +52,13 @@ const route = {
         site: Joi.string().required(),
         name: Joi.string()
           .optional()
-          .allow(''),
+          .allow(""),
         photoKey: Joi.string().optional(),
         description: Joi.string().required(),
         reportType: [nearMiss, positiveIntervention]
       }
     }
   }
-}
+};
 
-module.exports = route
+module.exports = route;
