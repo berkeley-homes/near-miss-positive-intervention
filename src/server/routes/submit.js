@@ -16,8 +16,9 @@ const route = {
   config: {
     handler: (request, reply) => {
       const { payload, server: { plugins: { model } } } = request
+      let photoUrl
       if (payload.photoKey) {
-        const photoUrl = model.getUrl(payload.photoKey)
+        photoUrl = model.getUrl(payload.photoKey)
       }
       const payloadWithPhotoUrl = payload.photoKey
         ? Object.assign({}, payload, { photoUrl })
