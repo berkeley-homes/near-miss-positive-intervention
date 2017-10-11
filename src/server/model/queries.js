@@ -17,7 +17,8 @@ const submitReport = (query, params) => cb => {
     locationThird,
     description,
     reportType,
-    photoUrl
+    photoUrl,
+    site
   } = params
 
   if (![nearMiss, positiveIntervention].includes(reportType)) {
@@ -35,7 +36,8 @@ const submitReport = (query, params) => cb => {
         locationThird,
         description,
         reportType,
-        photoUrl
+        photoUrl,
+        site
       ]
     },
     err => {

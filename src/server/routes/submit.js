@@ -45,6 +45,7 @@ const route = {
         locationFirst: Joi.string().required(),
         locationSecond: Joi.string().optional(),
         locationThird: Joi.string().optional(),
+        site: Joi.string().required(),
         name: Joi.string()
           .optional()
           .allow(''),
