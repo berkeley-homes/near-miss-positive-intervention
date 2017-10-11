@@ -5,7 +5,8 @@ INSERT INTO submissions (
   location_third,
   description,
   report_type,
-  photo_url
+  photo_url,
+  site
 )
 VALUES
 (
@@ -15,6 +16,7 @@ VALUES
   $4::text,
   $5::text,
   $6::text,
-  $7::text
+  $7::text,
+  $8::text
 )
 RETURNING submission_id

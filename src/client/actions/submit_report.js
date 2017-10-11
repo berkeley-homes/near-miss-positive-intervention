@@ -53,7 +53,8 @@ const submitReportRequest = (request, state, photoKey) => {
       photoKey,
       locationFirst,
       locationSecond,
-      locationThird
+      locationThird,
+      site: state.get('site')
     })
   })
 }

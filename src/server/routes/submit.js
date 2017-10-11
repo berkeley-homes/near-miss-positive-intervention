@@ -16,8 +16,12 @@ const route = {
   config: {
     handler: (request, reply) => {
       const { payload, server: { plugins: { model } } } = request
-      const photoUrl = model.getUrl(payload.photoKey)
-      const payloadWithPhotoUrl = Object.assign({}, payload, { photoUrl })
+      if (payload.photoKey) {
+        const photoUrl = model.getUrl(payload.photoKey)
+      }
+      const payloadWithPhotoUrl = payload.photoKey
+        ? Object.assign({}, payload, { photoUrl })
+        : payload
 
       waterfall(
         [
@@ -45,6 +49,7 @@ const route = {
         locationFirst: Joi.string().required(),
         locationSecond: Joi.string().optional(),
         locationThird: Joi.string().optional(),
+        site: Joi.string().required(),
         name: Joi.string()
           .optional()
           .allow(''),

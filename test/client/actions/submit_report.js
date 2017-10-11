@@ -82,7 +82,8 @@ test('submitReport success', t => {
           locationFirst,
           locationSecond,
           locationThird,
-          reportType
+          reportType,
+          site
         },
         'Submit report request'
       )

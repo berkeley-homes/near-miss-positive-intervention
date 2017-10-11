@@ -33,7 +33,7 @@ test('submitReport', t => {
       0,
       'inserts to correct table'
     )
-    t.equal(queryMade.args.length, 7, 'with the correct number of arguments')
+    t.equal(queryMade.args.length, 8, 'with the correct number of arguments')
     t.end()
   })
 })
