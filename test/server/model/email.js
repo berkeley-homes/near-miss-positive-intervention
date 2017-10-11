@@ -9,20 +9,20 @@ test('model/email: sendEmail', t => {
 
   const reportType = 'near miss'
   const emailHtml = 'some html'
+  const site = 'goodmans-fields'
+  const locationFirst = 'thing'
   const payload = {
     reportType,
-    emailHtml
+    emailHtml,
+    site,
+    locationFirst
   }
   sendEmail(ses, payload, (error, payload) => {
     t.error(error, 'no error')
     t.equal(calls.length, 1, 'one call made to ses')
 
     const message = calls[0][0].Message
-    t.deepEqual(
-      message.Subject,
-      { Data: 'near miss' },
-      'correct email url'
-    )
+    t.deepEqual(message.Subject, { Data: 'near miss' }, 'correct email url')
     t.deepEqual(
       message.Body,
       { Html: { Data: 'some html' } },
