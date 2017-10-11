@@ -38,11 +38,12 @@ const uploadPhotoRequest = (request, url, photo) =>
   })
 
 const submitReportRequest = (request, state, photoKey) => {
-  const [locationFirst, locationSecond, locationThird] =
-    state.get('location').toArray()
+  const [locationFirst, locationSecond, locationThird] = state
+    .get('location')
+    .toArray()
 
   return request({
-    url: 'report',
+    url: '/submit',
     headers: { 'Content-Type': 'application/json' },
     method: 'post',
     body: JSON.stringify({
@@ -57,10 +58,11 @@ const submitReportRequest = (request, state, photoKey) => {
   })
 }
 
-const reportAndUploadRequests = (request, url, photoKey, state) => Promise.all([
-  uploadPhotoRequest(request, url, state.get('photo')),
-  submitReportRequest(request, state, photoKey)
-])
+const reportAndUploadRequests = (request, url, photoKey, state) =>
+  Promise.all([
+    uploadPhotoRequest(request, url, state.get('photo')),
+    submitReportRequest(request, state, photoKey)
+  ])
 
 export const submitReport = () => (dispatch, getState, request) => {
   const state = getState().report
@@ -69,11 +71,10 @@ export const submitReport = () => (dispatch, getState, request) => {
   const photo = state.get('photo')
 
   return (photo
-    ? getS3UrlRequest(request, photo.name)
-      .then(responseText => {
-        const { s3PutUrl, photoKey } = JSON.parse(responseText)
-        return reportAndUploadRequests(request, s3PutUrl, photoKey, state)
-      })
+    ? getS3UrlRequest(request, photo.name).then(responseText => {
+      const { s3PutUrl, photoKey } = JSON.parse(responseText)
+      return reportAndUploadRequests(request, s3PutUrl, photoKey, state)
+    })
     : submitReportRequest(request, state)
   )
     .then(() => dispatch(setPostResult({ status: 200 })))
@@ -82,8 +83,11 @@ export const submitReport = () => (dispatch, getState, request) => {
       console.error(error)
     })
     .then(() => {
-      dispatch(push('/success'))
-    }).catch(e => {
+      dispatch(
+        push(`/success/${state.get('site')}/${state.get('reportType')}`)
+      )
+    })
+    .catch(e => {
       console.error(e)
     })
 }

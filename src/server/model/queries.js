@@ -1,4 +1,5 @@
 const { runSqlFromFs } = require('./helpers.js')
+const { nearMiss, positiveIntervention } = require('../../constants.js')
 
 const init = (query, cb) => {
   runSqlFromFs(query, 'schema', {}, cb)
@@ -19,22 +20,24 @@ const submitReport = (query, params) => cb => {
     photoUrl
   } = params
 
-  if (!['near miss', 'positive intervention'].includes(reportType)) {
+  if (![nearMiss, positiveIntervention].includes(reportType)) {
     return cb(new Error('Report submission failed. Bad report type.'))
   }
 
   runSqlFromFs(
     query,
     'submit_report',
-    { queryArgs: [
-      name,
-      locationFirst,
-      locationSecond,
-      locationThird,
-      description,
-      reportType,
-      photoUrl
-    ] },
+    {
+      queryArgs: [
+        name,
+        locationFirst,
+        locationSecond,
+        locationThird,
+        description,
+        reportType,
+        photoUrl
+      ]
+    },
     err => {
       if (err) return cb(err)
       cb(null, params)

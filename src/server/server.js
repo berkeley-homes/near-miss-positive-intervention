@@ -32,9 +32,7 @@ const defaultConnectionOptions = {
 const dbConnectionOptions = Object.assign(
   {},
   defaultConnectionOptions,
-  databaseUrl
-    /* istanbul ignore next */ ? pgConString.parse(databaseUrl)
-    : {}
+  databaseUrl ? /* istanbul ignore next */ pgConString.parse(databaseUrl) : {}
 )
 
 const modelPlugin = {
@@ -55,6 +53,8 @@ server.register([inert, vision, modelPlugin], err => {
   /* istanbul ignore if */
   if (err) throw err
 })
+
+server.route(require('./routes/submit.js'))
 
 server.route({
   path: '/{params*}',
@@ -99,8 +99,6 @@ server.route({
     res.file('index.html')
   }
 })
-
-server.route(require('./routes/submit.js'))
 server.route(require('./routes/s3_put_url.js'))
 
 module.exports = server

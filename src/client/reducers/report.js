@@ -19,9 +19,7 @@ export const initialState = Immutable.fromJS({
   site: ''
 })
 
-export const resetForm = state => state
-  .delete('photo')
-  .merge(initialState)
+export const resetForm = state => state.delete('photo').merge(initialState)
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -38,14 +36,18 @@ export default (state = initialState, action) => {
     case SET_POSTING:
       return state.set('isPosting', true)
     case SET_POST_RESULT:
-      return resetForm(state
-        .set('payload', action.payload)
-        .set('statusCode', action.statusCode))
+      return resetForm(
+        state
+          .set('payload', action.payload)
+          .set('statusCode', action.statusCode)
+      )
     case SET_LOCATION:
       const index = action.locationIndex
-      return state.update('location', location => location
-        .set(index, action.location)
-        .map((val, i) => i > index ? '' : val))
+      return state.update('location', location =>
+        location
+          .set(index, action.location)
+          .map((val, i) => (i > index ? '' : val))
+      )
     default:
       return state
   }

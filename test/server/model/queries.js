@@ -1,8 +1,9 @@
 const test = require('tape')
 
-const { init, submitReport } =
-  require('../../../src/server/model/queries.js')
+const { init, submitReport } = require('../../../src/server/model/queries.js')
 const { makeMockQuery } = require('./test_helpers.js')
+
+const { nearMiss } = require('../../../src/constants.js')
 
 test('build db', t => {
   const { query, queriesMade } = makeMockQuery()
@@ -23,7 +24,7 @@ test('build db', t => {
 test('submitReport', t => {
   const { query, queriesMade } = makeMockQuery()
 
-  const reportType = 'near miss'
+  const reportType = nearMiss
   submitReport(query, { reportType })(() => {
     const queryMade = queriesMade[0]
 

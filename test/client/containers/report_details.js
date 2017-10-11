@@ -5,8 +5,11 @@ import Immutable from 'immutable'
 
 import Input from '../../../src/client/components/input.js'
 import Submit from '../../../src/client/components/submit.js'
-import { ReportDetails, mapStateToProps, mergeProps }
-  from '../../../src/client/containers/report_details.js'
+import {
+  ReportDetails,
+  mapStateToProps,
+  mergeProps
+} from '../../../src/client/containers/report_details.js'
 
 test('<ReportDetails /> component', t => {
   const name = 'name'
@@ -25,9 +28,28 @@ test('<ReportDetails /> component', t => {
   t.equal(inputs.length, 2, 'two inputs')
 
   t.equal(inputs.get(0).props.value, 'name', 'input has name set')
-  t.equal(inputs.get(1).props.value, 'description', 'input has description set')
+  t.equal(
+    inputs.get(1).props.value,
+    'description',
+    'input has description set'
+  )
 
   t.notOk(wrapper.find(Submit).node.props.enabled, 'submit is disabled')
+
+  t.end()
+})
+
+test('<ReportDetails /> component without props renders empty div and calls redirect', t => {
+  const redirectUser = x => x
+  const wrapper = shallow(<ReportDetails redirectUser={redirectUser} />)
+
+  t.ok(wrapper.find('div').length === 1)
+  t.ok(
+    wrapper
+      .find('div')
+      .first()
+      .children().length === 0
+  )
 
   t.end()
 })
