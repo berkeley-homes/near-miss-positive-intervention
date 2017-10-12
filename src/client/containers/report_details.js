@@ -30,11 +30,14 @@ export class ReportDetails extends Component {
       submitReport,
       isSubmitting,
       site,
-      reportType
+      reportType,
+      locationOne,
+      locationTwo,
+      locationThree
     } = this.props;
 
-    const keys = map => map && map.keySeq().toList();
-    // If site and report type don't exist we return null and redirect to site page. view ComponentWillMount func.
+    // If site and report type don't exist we return null and redirect to site page
+    // view ComponentWillMount func.
     if (!site || !reportType) {
       return <div />;
     }
@@ -44,35 +47,24 @@ export class ReportDetails extends Component {
         Object.keys(siteData).filter(key => siteData[key].path === site)
       ];
 
-    const { locationOne, locationTwo, locationThree } = locationSelectorProps;
-
     const optionsTree = Immutable.fromJS(currentSite.location);
-
-    const otherSelected = locationOne === "Other";
-
-    const secondEnabled =
-      locationOne && optionsTree.getIn([locationOne]).size > 0;
-
-    const thirdEnabled =
-      locationOne &&
-      locationTwo &&
-      (locationTwo && optionsTree.getIn([locationOne, locationTwo]).size > 0);
 
     const allLocationSelectorProps = {
       optionsTree,
       ...locationSelectorProps,
-      otherSelected,
-      secondEnabled,
-      thirdEnabled
+      locationOne,
+      locationTwo,
+      locationThree
     };
+
     const canSend =
-      !!description &&
+      description &&
       locationOne &&
-      (locationTwo || optionsTree.getIn([locationOne]).size === 0) &&
-      (locationThree ||
-        optionsTree.getIn([locationOne, locationTwo]).size === 0);
-    // locationSelectorProps.locationThree ||
-    //   locationSelectorProps.locationOne === "Other";
+      ((locationTwo &&
+        (locationThree ||
+          optionsTree.getIn([locationOne, locationTwo]).size === 0)) ||
+        optionsTree.getIn([locationOne]).size === 0);
+
     return (
       <div className="w-100 center f_lato mb3">
         <Header location={"UPLOAD"} />
@@ -111,15 +103,12 @@ export const mapStateToProps = state => {
 };
 
 export const mergeProps = (
-  { locationOne, locationTwo, locationThree, ...stateProps },
+  { ...stateProps },
   { setFirstLocation, setSecondLocation, setThirdLocation, ...actionProps }
 ) => ({
   ...stateProps,
   ...actionProps,
   locationSelectorProps: {
-    locationOne,
-    locationTwo,
-    locationThree,
     setFirstLocation,
     setSecondLocation,
     setThirdLocation
