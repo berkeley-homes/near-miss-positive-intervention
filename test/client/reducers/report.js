@@ -9,11 +9,16 @@ import {
   SET_LOCATION,
   SET_DESCRIPTION,
   SET_POST_RESULT,
-  SET_SITE
+  SET_SITE,
+  RESET_SITE
 } from '../../../src/client/action_types.js'
 
 test('report reducer: initailState', t => {
-  t.equal(initialState.get('isPosting'), false, 'not posting request initially')
+  t.equal(
+    initialState.get('isPosting'),
+    false,
+    'not posting request initially'
+  )
 
   t.equal(initialState.get('name'), '', 'name initially empty string')
 
@@ -45,10 +50,11 @@ test('report: SET_POSTING', t => {
 test('report: SET_POS_RESULT', t => {
   const statusCode = true
   const payload = 'payload'
-  const newState = reducer(
-    initialState.set('isPosting', true),
-    { type: SET_POST_RESULT, statusCode, payload }
-  )
+  const newState = reducer(initialState.set('isPosting', true), {
+    type: SET_POST_RESULT,
+    statusCode,
+    payload
+  })
 
   t.equal(newState.get('isPosting'), false, 'sets isPosting to false')
   t.equal(newState.get('statusCode'), statusCode, 'sets statusCode')
@@ -59,15 +65,8 @@ test('report: SET_POS_RESULT', t => {
 
 test('report: SET_PHOTO', t => {
   const photo = 'photo data'
-  const newState = reducer(
-    initialState,
-    { type: SET_PHOTO, photo }
-  )
-  t.equal(
-    photo,
-    newState.get('photo'),
-    'set photo puts photo data in state'
-  )
+  const newState = reducer(initialState, { type: SET_PHOTO, photo })
+  t.equal(photo, newState.get('photo'), 'set photo puts photo data in state')
   t.end()
 })
 
@@ -79,6 +78,7 @@ test('report reducer: SET_NAME', t => {
 
   t.end()
 })
+
 test('report reducer: SET_SITE', t => {
   const site = 'goodmans'
   const newState = reducer(initialState, { type: SET_SITE, site })
@@ -88,23 +88,35 @@ test('report reducer: SET_SITE', t => {
   t.end()
 })
 
+test('report reducer: RESET_SITE', t => {
+  const site = 'goodmans'
+  const newState = reducer(initialState, { type: RESET_SITE, site })
+
+  t.equal(newState.get('site'), site, 'sets the name of site')
+  t.deepEqual(
+    newState.get('location'),
+    Immutable.List.of(),
+    'resets location data '
+  )
+
+  t.end()
+})
+
 test('report reducer: SET_LOCATION', t => {
   const location = 'location'
 
-  const newState = reducer(
-    initialState,
-    { type: SET_LOCATION, location, locationIndex: 1 }
-  )
-  t.equal(
-    newState.getIn(['location', 1]),
+  const newState = reducer(initialState, {
+    type: SET_LOCATION,
     location,
-    'sets the location'
-  )
+    locationIndex: 1
+  })
+  t.equal(newState.getIn(['location', 1]), location, 'sets the location')
 
-  const finalState = reducer(
-    newState,
-    { type: SET_LOCATION, location, locationIndex: 0 }
-  )
+  const finalState = reducer(newState, {
+    type: SET_LOCATION,
+    location,
+    locationIndex: 0
+  })
   t.equal(
     finalState.getIn(['location', 1]),
     '',
