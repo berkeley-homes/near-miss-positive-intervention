@@ -29,10 +29,13 @@ export default props => {
     setThirdLocation
   } = props
 
-  const otherSelected = locationOne === 'Other'
+  const secondEnabled =
+    locationOne && optionsTree.getIn([locationOne]).size > 0
 
-  const secondEnabled = !otherSelected && locationOne
-  const thirdEnabled = !otherSelected && locationOne && locationTwo
+  const thirdEnabled =
+    locationOne &&
+    locationTwo &&
+    (locationTwo && optionsTree.getIn([locationOne, locationTwo]).size > 0)
 
   return (
     <div>

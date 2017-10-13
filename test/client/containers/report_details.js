@@ -34,7 +34,7 @@ test('<ReportDetails /> component', t => {
     'input has description set'
   )
 
-  t.notOk(wrapper.find(Submit).node.props.enabled, 'submit is disabled')
+  t.ok(!wrapper.find(Submit).node.props.enabled, 'submit is disabled')
 
   t.end()
 })
@@ -60,7 +60,9 @@ test('<ReportDetails /> component, completed', t => {
     <ReportDetails
       site='goodmans-fields'
       reportType='near-miss'
-      locationSelectorProps={{ locationThree: 'yo' }}
+      locationOne={'one'}
+      locationTwo={'two'}
+      locationThree={'three'}
       description={description}
     />
   )
@@ -70,6 +72,26 @@ test('<ReportDetails /> component, completed', t => {
     'can submit with name and final location completed'
   )
 
+  t.end()
+})
+
+test('<ReportDetails /> component, locations one and two + third field disabled', t => {
+  const description = 'description'
+  const wrapper = shallow(
+    <ReportDetails
+      site='woodberry-down'
+      reportType='near-miss'
+      locationOne={'D'}
+      locationTwo={'Basement Carpark'}
+      locationThree={''}
+      description={description}
+    />
+  )
+
+  t.ok(
+    wrapper.find(Submit).node.props.enabled,
+    'can submit with name and final location completed'
+  )
   t.end()
 })
 
@@ -109,14 +131,15 @@ test('ReportDetails mergeProps', t => {
   const expectedProps = {
     description,
     setName,
-    locationSelectorProps: { locationOne, setFirstLocation }
+    locationOne,
+    locationSelectorProps: { setFirstLocation }
   }
 
   // not checking everything as that would be long
   t.deepEqual(
     filterUnderfined(props),
     expectedProps,
-    'location props get pulled into their own object'
+    'location actions get pulled into their own object'
   )
 
   t.end()

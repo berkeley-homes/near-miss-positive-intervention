@@ -7,7 +7,8 @@ import {
   SET_DESCRIPTION,
   SET_POST_RESULT,
   SET_REPORT_TYPE,
-  SET_SITE
+  SET_SITE,
+  RESET_SITE
 } from '../action_types.js'
 
 export const initialState = Immutable.fromJS({
@@ -29,6 +30,10 @@ export default (state = initialState, action) => {
       return state.set('name', action.name)
     case SET_SITE:
       return state.set('site', action.site)
+    case RESET_SITE:
+      return state
+        .set('site', action.site)
+        .set('location', Immutable.fromJS([]))
     case SET_DESCRIPTION:
       return state.set('description', action.description)
     case SET_REPORT_TYPE:
@@ -42,6 +47,7 @@ export default (state = initialState, action) => {
           .set('statusCode', action.statusCode)
       )
     case SET_LOCATION:
+      console.log('LOCATION', state.get('location'))
       const index = action.locationIndex
       return state.update('location', location =>
         location

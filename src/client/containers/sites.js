@@ -1,33 +1,35 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
-import * as actions from '../actions/sites.js'
+import immutable from 'immutable'
 
 import Header from '../components/header.js'
 import Site from '../components/site.js'
 
+import * as actions from '../actions/sites.js'
 import * as siteData from '../lib/siteData'
 
-export const Sites = ({ setSite }) => {
-  const listOfSites = Object.keys(siteData).map((site, i) => {
-    return (
-      <Site
-        key={i}
-        name={siteData[site].name}
-        path={siteData[site].path}
-        imgURL={siteData[site].imgURL}
-        handleSetSite={setSite}
-      />
-    )
-  })
+export const Sites = ({ currentSite, setSite, resetSite }) => {
+  const handleSetSite = !currentSite ? setSite : resetSite
+
+  const listOfSites = Object.keys(siteData).map((site, i) => (
+    <Site
+      key={i}
+      name={siteData[site].name}
+      path={siteData[site].path}
+      imgURL={siteData[site].imgURL}
+      handleSetSite={handleSetSite}
+    />
+  ))
+
   return (
     <div className='w-100 f_lato f4 flex flex-column'>
       <Header location={'SITE'} />
-      <div className='flex flex-column h-100'>
-        {listOfSites}
-      </div>
+      <div className='flex flex-column h-100'>{listOfSites}</div>
     </div>
   )
 }
 
-export default connect(() => ({}), actions)(Sites)
+export default connect(
+  state => ({ currentSite: immutable.fromJS(state.report.get('site')) }),
+  actions
+)(Sites)

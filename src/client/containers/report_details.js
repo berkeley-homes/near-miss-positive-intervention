@@ -30,29 +30,41 @@ export class ReportDetails extends Component {
       submitReport,
       isSubmitting,
       site,
-      reportType
+      reportType,
+      locationOne,
+      locationTwo,
+      locationThree
     } = this.props
 
-    // If site and report type don't exist we return null and redirect to site page. view ComponentWillMount func.
+    // If site and report type don't exist we return null and redirect to site page
+    // view ComponentWillMount func.
     if (!site || !reportType) {
-      return (
-        <div />
-      )
+      return <div />
     }
 
-    const currentSite = siteData[Object.keys(siteData).filter((key) => siteData[key].path === site)]
+    const currentSite =
+      siteData[
+        Object.keys(siteData).filter(key => siteData[key].path === site)
+      ]
 
     const optionsTree = Immutable.fromJS(currentSite.location)
 
     const allLocationSelectorProps = {
       optionsTree,
-      ...locationSelectorProps
+      ...locationSelectorProps,
+      locationOne,
+      locationTwo,
+      locationThree
     }
 
     const canSend =
       description &&
-      (locationSelectorProps.locationThree ||
-        locationSelectorProps.locationOne === 'Other')
+      locationOne &&
+      ((locationTwo &&
+        (locationThree ||
+          optionsTree.getIn([locationOne, locationTwo]).size === 0)) ||
+        optionsTree.getIn([locationOne]).size === 0)
+
     return (
       <div className='w-100 center f_lato mb3'>
         <Header location={'UPLOAD'} />
@@ -91,15 +103,12 @@ export const mapStateToProps = state => {
 }
 
 export const mergeProps = (
-  { locationOne, locationTwo, locationThree, ...stateProps },
+  { ...stateProps },
   { setFirstLocation, setSecondLocation, setThirdLocation, ...actionProps }
 ) => ({
   ...stateProps,
   ...actionProps,
   locationSelectorProps: {
-    locationOne,
-    locationTwo,
-    locationThree,
     setFirstLocation,
     setSecondLocation,
     setThirdLocation
