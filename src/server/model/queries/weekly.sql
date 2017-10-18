@@ -1,4 +1,5 @@
 SELECT *
 FROM   submissions
 WHERE  created_at BETWEEN now()::timestamp - (interval '1w')
-                  AND     now()::timestamp;
+                  AND     now()::timestamp
+AND site = $1;
