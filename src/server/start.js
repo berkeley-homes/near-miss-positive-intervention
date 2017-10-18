@@ -1,38 +1,38 @@
-const server = require("./server");
-const cron = require("node-cron");
+const server = require('./server')
+const cron = require('node-cron')
 
-const weeklyReport = require("./weekly_report.js");
+const weeklyReport = require('./weekly_report.js')
 
 const emails = [
   {
-    site: "goodmans-fields"
+    site: 'goodmans-fields'
   },
-  { site: "woodberry-down", location: "kss4" },
-  { site: "woodberry-down", location: "d" },
-  { site: "woodberry-down", location: "f" },
+  { site: 'woodberry-down', location: 'kss4' },
+  { site: 'woodberry-down', location: 'd' },
+  { site: 'woodberry-down', location: 'f' },
   {
-    site: "city-road"
+    site: 'city-road'
   }
-];
+]
 
 server.start(startErr => {
-  if (startErr) throw startErr;
+  if (startErr) throw startErr
 
   server.plugins.model.init(modelErr => {
-    if (modelErr) throw modelErr;
+    if (modelErr) throw modelErr
 
-    cron.schedule("* * * * *", () => {
+    cron.schedule('* * * * *', () => {
       emails.forEach(({ site, location }) => {
-        console.log("hello " + site);
+        console.log('hello ' + site)
         weeklyReport(
           server.plugins.model.sendEmail,
           server.plugins.model.weekly,
           site,
           location
-        );
-      });
-    });
+        )
+      })
+    })
 
-    console.log(`server started on port ${server.info.port}`);
-  });
-});
+    console.log(`server started on port ${server.info.port}`)
+  })
+})
