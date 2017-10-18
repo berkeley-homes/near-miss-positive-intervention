@@ -2,11 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>weekly report summery</title>
+    <title>weekly report summary</title>
   </head>
   <body>
-    <h1> weekly report summery </h1>
+    <h1> weekly report summary </h1>
     {{#each reports}}
+      <h3>{{site}}</h3>
       <h2> {{report_type}} report submission </h2>
       {{#if photo_url}}
         <a href="{{photo_url}}"> Download Photo </a>
