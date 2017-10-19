@@ -8,8 +8,14 @@ const init = (query, cb) => {
 // run query to get data for weekly email
 // args = [ site, location ]
 const weekly = (query, cb, args) => {
-  const [site, location] = args
-  runSqlFromFs(query, 'weekly', [site], cb)
+  let [site, location] = args
+  if (location) {
+    location = location
+  } else {
+     location = ''
+  }
+  console.log(site, location, '<<<<<<<');
+  runSqlFromFs(query, 'weekly', [site, location], cb)
 }
 
 const submitReport = (query, params) => cb => {

@@ -15,6 +15,8 @@ const renderEmail = handlebars.compile(fs.readFileSync(templatePath, 'utf8'))
 // getWeeklyReportData = see model/queries.js
 const weeklyReport = (sendEmail, getWeeklyReportData, site, location) => {
   const queryArgs = [site, location]
+
+
   getWeeklyReportData((error, response) => {
     if (error) {
       console.error(error)
@@ -41,8 +43,6 @@ const weeklyReport = (sendEmail, getWeeklyReportData, site, location) => {
       )
     }
 
-    console.log(response.rows)
-
     sendEmail(
       {
         reportType: 'Weekly summary email',
@@ -58,7 +58,8 @@ const weeklyReport = (sendEmail, getWeeklyReportData, site, location) => {
           return console.error(error)
         }
 
-        console.log('summary email sent successfully')
+        console.log('summary email sent successfully', location, site)
+        console.log('summary email sent successfully', response.rows)
       }
     )
   }, queryArgs)
