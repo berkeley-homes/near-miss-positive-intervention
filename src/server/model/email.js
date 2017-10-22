@@ -17,7 +17,7 @@ const createSes = () => new aws.SES({ apiVersion: '2010-12-01' })
 
 const emailOpts = (subject, html, location, site) => {
   let emailExtension
-  if (emails.includes(location.toLowerCase())) {
+  if (location && emails.includes(location.toLowerCase())) {
     emailExtension = location.toLocaleLowerCase()
   } else if (emails.includes(site.toLocaleLowerCase())) {
     emailExtension = site.toLowerCase()

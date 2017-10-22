@@ -49,8 +49,8 @@ const weeklyReport = (sendEmail, getWeeklyReportData, site, location) => {
         emailHtml: renderEmail({
           reports: response.rows
         }),
-        locationFirst: 'other',
-        site: 'goodmans-fields'
+        locationFirst: location,
+        site
       },
       err => {
         if (err) {
