@@ -16,7 +16,6 @@ const renderEmail = handlebars.compile(fs.readFileSync(templatePath, 'utf8'))
 const weeklyReport = (sendEmail, getWeeklyReportData, site, location) => {
   const queryArgs = [site, location]
 
-
   getWeeklyReportData((error, response) => {
     if (error) {
       console.error(error)
@@ -57,7 +56,6 @@ const weeklyReport = (sendEmail, getWeeklyReportData, site, location) => {
           console.log('email sending failed!')
           return console.error(error)
         }
-
       }
     )
   }, queryArgs)
