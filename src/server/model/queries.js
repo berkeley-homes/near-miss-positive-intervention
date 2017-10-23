@@ -9,7 +9,7 @@ const init = (query, cb) => {
 // args = [ site, location ]
 const weekly = (query, cb, args) => {
   let [site, location] = args
-  location = location ? location : '';
+  location = location || ''
   runSqlFromFs(query, 'weekly', [site, location], cb)
 }
 
