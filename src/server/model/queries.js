@@ -5,8 +5,12 @@ const init = (query, cb) => {
   runSqlFromFs(query, 'schema', {}, cb)
 }
 
-const weekly = (query, cb) => {
-  runSqlFromFs(query, 'weekly', {}, cb)
+// run query to get data for weekly email
+// args = [ site, location ]
+const weekly = (query, cb, args) => {
+  let [site, location] = args
+  location = location ? location : '';
+  runSqlFromFs(query, 'weekly', [site, location], cb)
 }
 
 const submitReport = (query, params) => cb => {
@@ -28,18 +32,17 @@ const submitReport = (query, params) => cb => {
   runSqlFromFs(
     query,
     'submit_report',
-    {
-      queryArgs: [
-        name,
-        locationFirst,
-        locationSecond,
-        locationThird,
-        description,
-        reportType,
-        photoUrl,
-        site
-      ]
-    },
+    [
+      // query args
+      name,
+      locationFirst,
+      locationSecond,
+      locationThird,
+      description,
+      reportType,
+      photoUrl,
+      site
+    ],
     err => {
       if (err) return cb(err)
       cb(null, params)

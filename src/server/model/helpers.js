@@ -12,15 +12,12 @@ const connect = connectionConfig => {
   const pool = new pg.Pool(config)
 
   /* istanbul ignore next */
-  pool.on('error', function (err, client) {
+  pool.on('error', (err, client) => {
     console.error('idle client error', err.message, err.stack)
   })
 
   // wrapper around pg.pool.connect to make query simple
-  return (...queryArgsWithCb) => {
-    const numQueryArgs = queryArgsWithCb.length - 1
-    const cb = queryArgsWithCb[numQueryArgs]
-    const queryArgs = queryArgsWithCb.slice(0, numQueryArgs)
+  return (queryText, queryArgs, cb) => {
     pool.connect((connectionError, client, done) => {
       /* istanbul ignore next */
       if (connectionError) {
@@ -28,7 +25,7 @@ const connect = connectionConfig => {
         return cb(connectionError)
       }
 
-      client.query(...queryArgs, (queryError, result) => {
+      client.query(queryText, queryArgs, (queryError, result) => {
         done(queryError)
 
         if (queryError) return cb(queryError)
@@ -39,7 +36,7 @@ const connect = connectionConfig => {
   }
 }
 
-const runSqlFromFs = (query, queryName, { queryArgs = [] }, cb) => {
+const runSqlFromFs = (query, queryName, queryArgs = [], cb) => {
   // so we have control of where we look in fs
   const noEscape = path.basename(queryName)
   const queryPath = path.join(__dirname, 'queries', noEscape) + '.sql'

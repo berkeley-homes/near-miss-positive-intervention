@@ -17,7 +17,7 @@ test('run some queries', t => {
   const query = connect(connectionConfig)
 
   t.plan(4)
-  query('nonsence', error => {
+  query('nonsence', [], error => {
     t.ok(error, 'bad query returns error')
     t.equal(
       error.message,
@@ -26,7 +26,7 @@ test('run some queries', t => {
     )
   })
 
-  query('SELECT datname FROM pg_database', (error, result) => {
+  query('SELECT datname FROM pg_database', [], (error, result) => {
     t.error(error, 'good query does not throw error')
     t.ok(result, 'good query has truthy result')
   })

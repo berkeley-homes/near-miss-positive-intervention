@@ -11,13 +11,19 @@ const templatePath = path.join(
 
 const renderEmail = handlebars.compile(fs.readFileSync(templatePath, 'utf8'))
 
-const weeklyReport = (sendEmail, getReports) => {
-  getReports((error, response) => {
+// sendEmail = SES
+// getWeeklyReportData = see model/queries.js
+const weeklyReport = (sendEmail, getWeeklyReportData, site, location) => {
+  const queryArgs = [site, location]
+
+
+  getWeeklyReportData((error, response) => {
     if (error) {
       console.error(error)
-      return sendEmail({
-        reportType: 'Error building weekly email',
-        emailHtml: `
+      return sendEmail(
+        {
+          reportType: 'Error building weekly email',
+          emailHtml: `
         <!DOCTYPE html>
         <html>
           <head>
@@ -29,24 +35,32 @@ const weeklyReport = (sendEmail, getReports) => {
             <p> please forward this email to edfmccarthy@gmail.com </p>
             <p>${error}</p>
           </body>
-        </html>`
-      }, () => {})
+        </html>`,
+          locationFirst: location,
+          site
+        },
+        () => {}
+      )
     }
 
-    sendEmail({
-      reportType: 'Weekly summary email',
-      emailHtml: renderEmail({
-        reports: response.rows
-      })
-    }, (err) => {
-      if (err) {
-        console.log('email sending failed!')
-        return console.error(error)
-      }
+    sendEmail(
+      {
+        reportType: 'Weekly summary email',
+        emailHtml: renderEmail({
+          reports: response.rows
+        }),
+        locationFirst: location,
+        site
+      },
+      err => {
+        if (err) {
+          console.log('email sending failed!')
+          return console.error(error)
+        }
 
-      console.log('summary email send successfully')
-    })
-  })
+      }
+    )
+  }, queryArgs)
 }
 
 module.exports = weeklyReport
