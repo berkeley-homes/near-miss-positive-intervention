@@ -58,8 +58,6 @@ const weeklyReport = (sendEmail, getWeeklyReportData, site, location) => {
           return console.error(error)
         }
 
-        console.log('summary email sent successfully', location, site)
-        console.log('summary email sent successfully', response.rows)
       }
     )
   }, queryArgs)

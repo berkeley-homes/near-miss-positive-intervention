@@ -16,7 +16,6 @@ test('connect to database', t => {
 test('run some queries', t => {
   const query = connect(connectionConfig)
 
-console.log(query.toString());
   t.plan(4)
   query('nonsence', [], error => {
     t.ok(error, 'bad query returns error')
