@@ -21,7 +21,7 @@ server.start(startErr => {
   server.plugins.model.init(modelErr => {
     if (modelErr) throw modelErr
 
-    cron.schedule('* * * * *', () => {
+    cron.schedule('0 0 * * 0', () => {
       emails.forEach(({ site, location }) => {
         console.log('hello ' + site)
         weeklyReport(
