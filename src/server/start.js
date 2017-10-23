@@ -23,7 +23,6 @@ server.start(startErr => {
 
     cron.schedule('0 0 * * 0', () => {
       emails.forEach(({ site, location }) => {
-        console.log('hello ' + site)
         weeklyReport(
           server.plugins.model.sendEmail,
           server.plugins.model.weekly,
