@@ -36,7 +36,15 @@ none
 
 We're using [DB-Migrate](http://db-migrate.readthedocs.io/en/latest/) for DB migrations. You might want to install this globally with `npm i db-migrate db-migrate-pg -g`
 
-We run the `db-migrate-up` command during post install.
+We run the `db-migrate-up` command during post install. We are also using pg-native module as this allows pg-migrate to run on Heroku by setting `SSL:true`. We have also set that in the `database.json`
+```js
+"prod": {
+  "driver": "pg",
+  "native": true
+},
+```
+
+This script is automatically run on Heroku using the `postinstall` script.
 
 ## Design
 ### inVision link

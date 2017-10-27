@@ -3,7 +3,8 @@
     "driver": "pg"
   },
   "prod": {
-    "driver": "pg"
+    "driver": "pg",
+    "native": true
   },
   "sql-file": true
 }
