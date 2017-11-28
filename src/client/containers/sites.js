@@ -24,7 +24,7 @@ export const Sites = ({ currentSite, setSite, resetSite }) => {
   return (
     <div className='w-100 f_lato f4 flex flex-column'>
       <Header location={'SITE'} />
-      <div className='flex flex-column h-100'>{listOfSites}</div>
+      <div className='flex flex-column h-100 items-center'>{listOfSites}</div>
     </div>
   )
 }
