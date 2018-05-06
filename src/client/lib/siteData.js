@@ -318,7 +318,7 @@ export const woodberry_down = {
       A: {
         B: {},
         G: {},
-        L3: {},
+        L1: {},
         L2: {},
         L3: {},
         L4: {},
@@ -376,7 +376,7 @@ export const woodberry_down = {
       }
     },
     D: {
-      '1': {
+      'D1': {
         B: {},
         G: {},
         L1: {},
@@ -394,7 +394,7 @@ export const woodberry_down = {
         L13: {},
         Roof: {}
       },
-      '2': {
+      'D2': {
         B: {},
         G: {},
         L1: {},
@@ -407,21 +407,7 @@ export const woodberry_down = {
         L8: {},
         Roof: {}
       },
-      '3': {
-        B: {},
-        G: {},
-        L1: {},
-        L2: {},
-        L3: {},
-        L4: {},
-        L5: {},
-        L6: {},
-        L7: {},
-        L8: {},
-        L9: {},
-        Roof: {}
-      },
-      '4': {
+      'D3': {
         B: {},
         G: {},
         L1: {},
@@ -435,7 +421,21 @@ export const woodberry_down = {
         L9: {},
         Roof: {}
       },
-      '5': {
+      'D4': {
+        B: {},
+        G: {},
+        L1: {},
+        L2: {},
+        L3: {},
+        L4: {},
+        L5: {},
+        L6: {},
+        L7: {},
+        L8: {},
+        L9: {},
+        Roof: {}
+      },
+      'D5': {
         B: {},
         G: {},
         L1: {},
@@ -455,7 +455,7 @@ export const woodberry_down = {
       'Gate 4 (Green Lanes)': {}
     },
     F: {
-      '1': {
+      'F1': {
         B: {},
         G: {},
         L1: {},
@@ -471,7 +471,7 @@ export const woodberry_down = {
         L11: {},
         Roof: {}
       },
-      '2': {
+      'F2': {
         B: {},
         G: {},
         L1: {},
@@ -495,7 +495,7 @@ export const woodberry_down = {
         L19: {},
         Roof: {}
       },
-      '3': {
+      'F3': {
         B: {},
         G: {},
         L1: {},
@@ -512,5 +512,32 @@ export const woodberry_down = {
       Courtyard: {},
       'Basement Carpark': {}
     }
+  }
+}
+
+export const trent_park = {
+  name: 'Trent Park',
+  path: 'trent-park',
+  imgURL: '/img/sites/trent-park.png',
+  location: {
+    'Compound': {},
+    'Hockey club': {},
+    'Oakwood lodge': {},
+    'Snakes lane': {},
+    'Daffodil Lawn': {},
+    'Sports hall': {},
+    'Dower house': {},
+    'Mansion': {},
+    'West wing': {},
+    'Orangery': {},
+    'Wall Garden': {},
+    'Wisteria Walk': {},
+    'South Lane': {},
+    'Stable block': {},
+    'Rookery Lodge': {},
+    'Glade area(Principals lodge)': {},
+    'Ice house wood': {},
+    'Lakeview': {},
+    'Dew Pond': {}
   }
 }

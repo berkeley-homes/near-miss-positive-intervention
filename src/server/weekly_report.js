@@ -42,9 +42,14 @@ const weeklyReport = (sendEmail, getWeeklyReportData, site, location) => {
       )
     }
 
+    // console.log(response.rows, '<<<') // convert this to papaparse csv
+
+
     sendEmail(
       {
         reportType: 'Weekly summary email',
+        emailType: 'weekly',
+        response: response.rows,
         emailHtml: renderEmail({
           reports: response.rows
         }),
