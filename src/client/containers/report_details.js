@@ -74,7 +74,7 @@ export class ReportDetails extends Component {
         <Input
           value={description}
           onChange={setDescription}
-          label='This is what I saw...'
+          label='This is what I saw.'
         />
         <Submit
           enabled={canSend}

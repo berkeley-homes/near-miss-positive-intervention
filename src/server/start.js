@@ -12,6 +12,9 @@ const emails = [
   { site: 'woodberry-down', location: 'f' },
   {
     site: 'city-road'
+  },
+  {
+    site: 'trent-park'
   }
 ]
 
