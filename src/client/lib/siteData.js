@@ -171,7 +171,7 @@ export const goodmans_fields = {
       }
     }
   }
-}
+};
 
 export const city_road = {
   name: 'City Road',
@@ -306,7 +306,7 @@ export const city_road = {
       }
     }
   }
-}
+};
 
 export const woodberry_down = {
   name: 'Woodberry Down',
@@ -314,6 +314,80 @@ export const woodberry_down = {
   imgURL: '/img/sites/woodberry.png',
   location: {
     other: {},
+    B: {
+      B1: {
+        G: {},
+        L1: {},
+        L2: {},
+        L3: {},
+        L4: {},
+        L5: {},
+        L6: {},
+        L7: {},
+        L8: {},
+        L9: {},
+        L10: {},
+        L11: {},
+        L12: {},
+        L13: {},
+        L14: {},
+        Roof: {}
+      },
+      B2: {
+        G: {},
+        L1: {},
+        L2: {},
+        L3: {},
+        L4: {},
+        L5: {},
+        L6: {},
+        L7: {},
+        Roof: {}
+      },
+      B3: {
+        G: {},
+        L1: {},
+        L2: {},
+        L3: {},
+        L4: {},
+        L5: {},
+        Roof: {}
+      },
+      B4: {
+        G: {},
+        L1: {},
+        L2: {},
+        L3: {},
+        L4: {},
+        L5: {},
+        L6: {},
+        L7: {},
+        L8: {},
+        Roof: {}
+      },
+      B5: {
+        G: {},
+        L1: {},
+        L2: {},
+        L3: {},
+        L4: {},
+        L5: {},
+        L6: {},
+        Roof: {}
+      },
+      B6: {
+        T1: {},
+        T2: {},
+        T3: {},
+        T4: {},
+        T5: {},
+        T6: {},
+        T7: {}
+      },
+      Courtyard: {},
+      'Haul Road': {},
+      Welfare: {}
+    },
     KSS4: {
       A: {
         B: {},
@@ -376,7 +450,7 @@ export const woodberry_down = {
       }
     },
     D: {
-      'D1': {
+      D1: {
         B: {},
         G: {},
         L1: {},
@@ -394,7 +468,7 @@ export const woodberry_down = {
         L13: {},
         Roof: {}
       },
-      'D2': {
+      D2: {
         B: {},
         G: {},
         L1: {},
@@ -407,21 +481,7 @@ export const woodberry_down = {
         L8: {},
         Roof: {}
       },
-      'D3': {
-        B: {},
-        G: {},
-        L1: {},
-        L2: {},
-        L3: {},
-        L4: {},
-        L5: {},
-        L6: {},
-        L7: {},
-        L8: {},
-        L9: {},
-        Roof: {}
-      },
-      'D4': {
+      D3: {
         B: {},
         G: {},
         L1: {},
@@ -435,7 +495,21 @@ export const woodberry_down = {
         L9: {},
         Roof: {}
       },
-      'D5': {
+      D4: {
+        B: {},
+        G: {},
+        L1: {},
+        L2: {},
+        L3: {},
+        L4: {},
+        L5: {},
+        L6: {},
+        L7: {},
+        L8: {},
+        L9: {},
+        Roof: {}
+      },
+      D5: {
         B: {},
         G: {},
         L1: {},
@@ -455,7 +529,7 @@ export const woodberry_down = {
       'Gate 4 (Green Lanes)': {}
     },
     F: {
-      'F1': {
+      F1: {
         B: {},
         G: {},
         L1: {},
@@ -471,7 +545,7 @@ export const woodberry_down = {
         L11: {},
         Roof: {}
       },
-      'F2': {
+      F2: {
         B: {},
         G: {},
         L1: {},
@@ -495,7 +569,7 @@ export const woodberry_down = {
         L19: {},
         Roof: {}
       },
-      'F3': {
+      F3: {
         B: {},
         G: {},
         L1: {},
@@ -513,23 +587,23 @@ export const woodberry_down = {
       'Basement Carpark': {}
     }
   }
-}
+};
 
 export const trent_park = {
   name: 'Trent Park',
   path: 'trent-park',
   imgURL: '/img/sites/trent-park.png',
   location: {
-    'Compound': {},
+    Compound: {},
     'Hockey club': {},
     'Oakwood lodge': {},
     'Snakes lane': {},
     'Daffodil Lawn': {},
     'Sports hall': {},
     'Dower house': {},
-    'Mansion': {},
+    Mansion: {},
     'West wing': {},
-    'Orangery': {},
+    Orangery: {},
     'Wall Garden': {},
     'Wisteria Walk': {},
     'South Lane': {},
@@ -537,7 +611,7 @@ export const trent_park = {
     'Rookery Lodge': {},
     'Glade area(Principals lodge)': {},
     'Ice house wood': {},
-    'Lakeview': {},
+    Lakeview: {},
     'Dew Pond': {}
   }
-}
+};
