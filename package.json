@@ -12,7 +12,7 @@
     "db-migrate-up": "node_modules/.bin/db-migrate up --config database.json -e prod",
     "dev": "nodemon src/server/dev.js",
     "build": "webpack -p",
-    "postinstall": "npm run build && npm run db-migrate-up",
+    "postinstall": "npm run build",
     "dev:test": "nodemon -q -e js --exec \"npm run test\"",
     "test": "babel-node -- node_modules/.bin/babel-istanbul cover --print none test/| tap-notify | tap-spec && npm run print-coverage",
     "print-coverage": "node_modules/.bin/babel-istanbul report text-summary",
