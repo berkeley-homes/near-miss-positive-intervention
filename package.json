@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Near Miss &amp; Positive Intervention",
   "main": "src/server/server",
+  "engines": {
+    "node": "7.0.0",
+    "npm": "3.10.8 "
+  },
   "scripts": {
     "start": "node src/server/start.js",
     "db-migrate-up": "node_modules/.bin/db-migrate up --config database.json -e prod",
@@ -32,7 +36,6 @@
   "homepage": "https://github.com/berkeley-homes/near-miss-positive-intervention#readme",
   "dependencies": {
     "async": "^2.1.5",
-    "aws-sdk": "^2.29.0",
     "babel-cli": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
@@ -41,10 +44,10 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.27.3",
     "cuid": "^1.3.8",
-    "db-migrate": "^0.10.0-beta.24",
+    "db-migrate": "^0.11.5",
     "db-migrate-pg": "^0.2.5",
     "env2": "^2.1.1",
-    "handlebars": "^4.0.6",
+    "handlebars": "^4.1.2",
     "hapi": "^16.1.0",
     "history": "^4.6.1",
     "immutable": "^3.8.1",
@@ -69,13 +72,13 @@
     "webpack": "^2.3.2"
   },
   "devDependencies": {
-    "aws-sdk": "^2.29.0",
+    "aws-sdk": "^2.444.0",
     "babel-istanbul": "^0.12.2",
     "babel-tape-runner": "^2.0.1",
     "enzyme": "^2.7.1",
     "hapi-webpack-dev-middleware": "^2.0.0",
     "hapi-webpack-hot-middleware": "^2.0.0",
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.18.11",
     "pre-commit": "^1.2.2",
     "prettier-standard": "^7.0.1",
     "react-addons-test-utils": "^15.5.0",
